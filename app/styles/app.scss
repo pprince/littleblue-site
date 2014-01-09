@@ -1,5 +1,6 @@
 
-@import "base";
+@import "variables";
+@import "susy";
 
 @import "compass";
 @import "compass/layout";
@@ -21,6 +22,9 @@ main {
         background-color: #9999ff;
         ul {
             @include horizontal-list;
+            li {
+                background-color:#999999;
+            }
         }
     }
 }

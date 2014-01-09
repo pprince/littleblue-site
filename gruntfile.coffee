@@ -15,8 +15,14 @@ module.exports = (grunt) ->
                 options:
                     config: 'config.rb'
 
+        coffeelint:
+            gruntfile: ['gruntfile.coffee']
+            options:
+                indentation:
+                    level: 'warn'
+
         copy:
-            build:
+            statics:
                 expand: true
                 cwd: 'static/'
                 src: '**'
@@ -36,6 +42,14 @@ module.exports = (grunt) ->
                 options:
                     mode: '755'
 
+        watch:
+            statics:
+                files: ['static/**']
+                tasks: ['copy', 'chmod']
+            compass:
+                files: ['**/*.scss', '**/*.sass']
+                tasks: ['compass']
+
     # Load plugins that provide tasks.
     grunt.loadNpmTasks 'grunt-contrib-uglify'
     grunt.loadNpmTasks 'grunt-contrib-concat'
@@ -43,16 +57,19 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-jshint'
     grunt.loadNpmTasks 'grunt-contrib-nodeunit'
     grunt.loadNpmTasks 'grunt-contrib-compass'
+    grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-bower-task'
     #grunt.loadNpmTasks 'grunt-env'
     grunt.loadNpmTasks 'grunt-shell'
     grunt.loadNpmTasks 'grunt-chmod'
     grunt.loadNpmTasks 'grunt-sync-pkg'
+    grunt.loadNpmTasks 'grunt-coffeelint'
 
     # TASKS YOU CALL:
     grunt.registerTask 'install', ['sync', 'bower']
     grunt.registerTask 'build', ['compass', 'copy', 'chmod']
+    grunt.registerTask 'devbuild', ['coffeelint', 'build']
     grunt.registerTask 'dist', ['install', 'build']
 
-    # DEFAULT TASKS when you just run `grunt`:
-    grunt.registerTask 'default', ['build']
+    # DEFAULT TASK when you just run `grunt`:
+    grunt.registerTask 'default', ['devbuild']
