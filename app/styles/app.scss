@@ -14,3 +14,13 @@ main > header, body > footer {
     color: #eeeeee;
     height: $base-line-height;
 }
+
+main {
+    background-color: #ddddff;
+    nav {
+        background-color: #9999ff;
+        ul {
+            @include horizontal-list;
+        }
+    }
+}
