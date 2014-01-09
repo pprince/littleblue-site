@@ -1,7 +1,7 @@
 
 @import "variables";
 @import "susy";
-
+@import "sassy-buttons";
 @import "compass";
 @import "compass/layout";
 @import "compass/reset";
@@ -22,8 +22,12 @@ main {
         background-color: #9999ff;
         ul {
             @include horizontal-list;
+            padding: 0.5em;
             li {
-                background-color:#999999;
+                a {
+                    @include unstyled-link;
+                    @include sassy-button;
+                }
             }
         }
     }
