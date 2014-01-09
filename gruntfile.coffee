@@ -16,18 +16,11 @@ module.exports = (grunt) ->
                     config: 'config.rb'
 
         copy:
-            statics:
+            build:
                 expand: true
                 cwd: 'static/'
                 src: '**'
                 dest: 'htdocs/'
-
-        shell:
-            printenv:
-                command: 'env'
-                options:
-                    stdout: true
-                    stderr: true
 
         chmod:
             dist_files:
@@ -43,7 +36,6 @@ module.exports = (grunt) ->
                 options:
                     mode: '755'
 
-
     # Load plugins that provide tasks.
     grunt.loadNpmTasks 'grunt-contrib-uglify'
     grunt.loadNpmTasks 'grunt-contrib-concat'
@@ -55,7 +47,12 @@ module.exports = (grunt) ->
     #grunt.loadNpmTasks 'grunt-env'
     grunt.loadNpmTasks 'grunt-shell'
     grunt.loadNpmTasks 'grunt-chmod'
+    grunt.loadNpmTasks 'grunt-sync-pkg'
 
-    # Default task(s).
-    grunt.registerTask 'dist', ['compass', 'copy', 'chmod']
-    grunt.registerTask 'default', ['dist']
+    # TASKS YOU CALL:
+    grunt.registerTask 'install', ['sync', 'bower']
+    grunt.registerTask 'build', ['compass', 'copy', 'chmod']
+    grunt.registerTask 'dist', ['install', 'build']
+
+    # DEFAULT TASKS when you just run `grunt`:
+    grunt.registerTask 'default', ['build']

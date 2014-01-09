@@ -1,7 +1,10 @@
 {
   "name": "littlebluetech-website",
+  "version": "0.1.0",
   "private": true,
-  "main": "dist/index.html",
+  "main": [
+    "htdocs/index.html"
+  ],
   "ignore": [
     "*"
   ],
