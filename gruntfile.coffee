@@ -29,6 +29,20 @@ module.exports = (grunt) ->
                     stdout: true
                     stderr: true
 
+        chmod:
+            dist_files:
+                expand: true
+                src: 'htdocs/**'
+                filter: 'isFile'
+                options:
+                    mode: '644'
+            dist_dirs:
+                expand: true
+                src: [ 'htdocs/**', 'htdocs/' ]
+                filter: 'isDirectory'
+                options:
+                    mode: '755'
+
 
     # Load plugins that provide tasks.
     grunt.loadNpmTasks 'grunt-contrib-uglify'
@@ -40,7 +54,8 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-bower-task'
     #grunt.loadNpmTasks 'grunt-env'
     grunt.loadNpmTasks 'grunt-shell'
+    grunt.loadNpmTasks 'grunt-chmod'
 
     # Default task(s).
-    grunt.registerTask 'dist', ['compass', 'copy']
+    grunt.registerTask 'dist', ['compass', 'copy', 'chmod']
     grunt.registerTask 'default', ['dist']
