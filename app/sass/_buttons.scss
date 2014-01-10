@@ -4,15 +4,15 @@
 // PRODUCES OUTPUT:
 // ----------------
 
+a[role=button], *[role=button] a {
+    @include unstyled-link;
+}
 
 .button {
     @include sassy-button;
     @include box-shadow;
 }
 
-*[role=button] {
+body *[role=button] {
     @extend .button
-}
-a[role=button], *[role=button] a {
-    @include unstyled-link;
 }

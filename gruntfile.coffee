@@ -25,6 +25,7 @@ module.exports = (grunt) ->
     copy:
       options:
         mode: '644'
+        nonull: true
       distfiles:
         files: [
           {

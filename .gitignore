@@ -3,3 +3,5 @@
 /build/
 /dist/
 .sass-cache/
+/app/css
+!/app/css/README.markdown
