@@ -1,6 +1,6 @@
 {
-  "name": "littlebluetech-website",
-  "version": "0.1.0",
+  "name": "littleblue-site",
+  "version": "0.1.1",
   "main": "htdocs/index.html",
   "devDependencies": {
     "grunt": "~0.4.2",

@@ -13,7 +13,12 @@ module.exports = (grunt) ->
         files: [
           {
             cwd: 'app/build'
-            src: ['css/**', 'images/**', 'fonts/**']
+            src: ['css/**']
+            dest: 'htdocs'
+            expand: true
+          }, {
+            cwd: 'app'
+            src: ['images/**', 'fonts/**']
             dest: 'htdocs'
             expand: true
           }, {
