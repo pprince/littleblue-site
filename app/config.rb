@@ -3,12 +3,12 @@ require 'susy'
 require 'sassy-buttons'
 
 #                                           Defaults:
-http_path       = "/"                      # "/"
-sass_dir        = "/app/sass"              # "sass"
-css_dir         = "/app/css"               # "stylesheets"
-images_dir      = "/app/images"            # "images"
-font_dir        = "/app/fonts"
-javascripts_dir = "/app/js"
+http_path       = "/"                       # "/"
+sass_dir        = "sass"                    # "sass"
+css_dir         = "build/css"               # "stylesheets"
+images_dir      = "build/images"            # "images"
+font_dir        = "build/fonts"
+javascripts_dir = "build/js"
 
 # Environment.  Default is :development.
 # environment    = :production

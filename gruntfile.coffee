@@ -4,24 +4,7 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     env: process.env
-  
-    coffeelint:
-      gruntfile: ['gruntfile.coffee']
-      options:
-        indentation:        { level: 'warn' }
-        max_line_length:    { level: 'warn' }
 
-    sync: {}
-    bower:
-      install:
-        options:
-          copy: false
-      
-    compass:
-      compile:
-        options:
-          config: 'config.rb'
-  
     copy:
       options:
         mode: '644'
@@ -29,14 +12,14 @@ module.exports = (grunt) ->
       distfiles:
         files: [
           {
-            cwd: 'app'
+            cwd: 'app/build'
             src: ['css/**', 'images/**', 'fonts/**']
-            dest: 'dist/htdocs'
+            dest: 'htdocs'
             expand: true
           }, {
-            cwd: 'app/doc-root'
+            cwd: 'app/public'
             src: ['**']
-            dest: 'dist/htdocs'
+            dest: 'htdocs'
             expand: true
           },
         ]
@@ -46,17 +29,36 @@ module.exports = (grunt) ->
         mode: '755'
       distdirs:
         filter: 'isDirectory'
-        src: [ 'dist/htdocs/**', 'dist/htdocs/', 'dist/']
+        src: ['htdocs/**', 'htdocs/']
         expand: true
     
     watch:
       statics:
-        files: ['app/css/**', 'app/images/**', 'app/fonts/**', 'app/docroot/**']
+        files: ['app/build/css/**', 'app/images/**', 'app/fonts/**', 'app/public/**']
         tasks: ['copy:distfiles', 'chmod:distdirs']
       compass:
-        files: ['app/sass/**.scss', 'app/sass/**.sass']
+        files: ['app/sass/**']
         tasks: ['compass:compile']
-  
+ 
+    sync: {}
+    bower:
+      install:
+        options:
+          copy: false
+      
+    compass:
+      compile:
+        options:
+          config: 'app/config.rb'
+          basePath: 'app/'
+
+    coffeelint:
+      gruntfile: ['gruntfile.coffee']
+      options:
+        indentation:                { level: 'warn' }
+        max_line_length:            { level: 'warn' }
+        no_trailing_whitespace:     { level: 'warn' }
+ 
 
   # Load plugins that provide tasks.
   grunt.loadNpmTasks 'grunt-coffeelint'
@@ -72,18 +74,26 @@ module.exports = (grunt) ->
   #grunt.loadNpmTasks 'grunt-contrib-concat'
   #grunt.loadNpmTasks 'grunt-contrib-jshint'
   #grunt.loadNpmTasks 'grunt-contrib-nodeunit'
+  #... commented-out ones are cantidates for not-usal->removal...
 
 
-  # TASKS YOU CAN CALL:
-  grunt.registerTask 'lint',      ['coffeelint']
-  grunt.registerTask 'install',   ['sync', 'bower:install']
-  grunt.registerTask 'build',     ['install', 'compass:compile']
-  grunt.registerTask 'dist',      ['build', 'copy:distfiles','chmod:distdirs']
+  # =================== #
+  # TASKS YOU CAN CALL: #
+  # =================== #
+  grunt.registerTask    'install',      ['sync', 'bower:install']
+  grunt.registerTask    'lint',         ['coffeelint']
+  grunt.registerTask    'build',        ['compass:compile']
+  grunt.registerTask    'dist',         ['copy:distfiles', 'chmod:distdirs']
+  # =================== #
 
+
+  # ------------ . . . . . .
   # DEFAULT TASK when you just run `grunt`:
-  grunt.registerTask 'default',   ['lint', 'dist']
-
+  # ---------------------------------------
   # NOTE that, as currently configured, calling `grunt` followed by `grunt
   # watch` will cause you to have exercised every configured target; this is
   # useful for debugging the gruntfile, and should be preserved.
-
+  grunt.registerTask    'default', [
+      'install', 'build', 'lint', 'dist'
+  ]
+  # ------------------------------------- /

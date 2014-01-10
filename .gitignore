@@ -1,7 +1,6 @@
 /bower_components/
 /node_modules/
-/build/
-/dist/
+/htdocs/
+/app/build/
+!/app/build/css/README.markdown
 .sass-cache/
-/app/css
-!/app/css/README.markdown
