@@ -1,0 +1,18 @@
+@import "base";
+
+
+// PRODUCES OUTPUT:
+// ----------------
+
+
+.button {
+    @include sassy-button;
+    @include box-shadow;
+}
+
+*[role=button] {
+    @extend .button
+}
+a[role=button], *[role=button] a {
+    @include unstyled-link;
+}

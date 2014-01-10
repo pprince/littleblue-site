@@ -1,19 +1,22 @@
-// settings for compass vertical rythyms
+
+// Settings... //
+// ----------- //
+
+// ...for Compass establish-baseline().
 $base-font-size:        16px;
 $base-line-height:      24px;
 $rhythm-unit:           "rem";
 $rem-with-px-fallback:  true;
-$default-rhythm-border-width: 1px;
 
-// settings for sassy-buttons
-$sb-base-color:         #3333aa;      // Base color of your button
+// ...for Sassy-Buttons.
+$sb-base-color:         #33a;         // Base color of your button
 $sb-second-color:       false;        // Optional second color of button gradient
-$sb-border-radius:      10px;         // Button border radius
+$sb-border-radius:      16px;         // Button border radius
 $sb-border-width:       1px;          // Button border width
-$sb-padding:            0.5em 1.5em;  // Button padding
+$sb-padding:            $base-line-height*0.625;// Button padding
 $sb-font-size:          $base-font-size;        // Button font-size
-$sb-line-height:        $base-line-height;          // Button line-height
-$sb-text-color:         white;        // Button text color
+$sb-line-height:        $base-line-height;      // Button line-height
+$sb-text-color:         #eee;         // Button text color
 $sb-text-style:         "inset";      // Button text shadow style
 $sb-gradient-style:     "shiny";      // Button gradient style
 $sb-auto-states:        true;         // Automatically create pseudo styles 

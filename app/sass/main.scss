@@ -1,0 +1,59 @@
+@import "base";
+
+
+// Unlike most imports, '@import "compass/reset";' will
+// actually cause CSS to be generated in the output file.
+@import "compass/reset";
+
+
+// Helpers and aides for use during development.
+// FIXME: disable / comment-out in production version.
+@import "debug";
+
+
+// CSS3 Border-Box Model.
+// Death to the content-box mode1!
+* {
+    @include box-sizing(border-box);
+}
+
+
+// Headings, Etc.
+@import "typography";
+
+
+// Buttons.
+@import "buttons";
+
+
+// Layout
+@include sticky-footer($base-line-height, "#wrap", "#push", "footer");
+body>header, #wrap>header, body>footer {
+    text-align: center;
+    background-color: rgba(0,0,0,0.3);
+    color: rgba(0,0,0,0.8);
+}
+body>nav, #wrap>nav {
+    background-color: rgba(180,180,255,0.3);
+    ul {
+        @include horizontal-list;
+        padding: 0.5em;
+    }
+}
+body>section, #wrap>section {
+    @include clearfix();
+}
+aside {
+    float: right;
+    width: 33%;
+    background-color: rgba(180,255,180,0.3);
+}
+main {
+    float: left;
+    width: 66%;
+    background-color: rgba(255,180,180,0.3);
+}
+nav, body>section, nav>section, #wrap>section {
+    margin: auto;
+    max-width: 960px;
+}
