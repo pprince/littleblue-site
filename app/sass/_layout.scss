@@ -1,21 +1,28 @@
 // Import variables, etc.
 @import "base";
+@import "css3_glow";
 
 
 // PRODUCES OUTPUT:
 // ----------------
 
+@import url('http://fonts.googleapis.com/css?family=Poiret+One|Exo+2:400,200,200italic,300,300italic,400italic,500,500italic,600,600italic,700italic,700');
+
 @include sticky-footer($base-line-height, "#wrap", "#push", "footer");
 
-body>header, #wrap>header,
-body>footer {
+header[role=banner], footer[role=contentinfo] {
+    color: white;
     text-align: center;
-    color: rgba(0,0,0,0.8);
-    background-color: rgba(0,0,0,0.3);
+
+    h1 {
+        @include css3_glow(#245de1, 80px);
+        @include adjust-font-size-to(350%, 4);
+        font-family: 'Exo 2', cursive;
+        font-weight: normal;
+    }
 }
 
-body>nav, #wrap>nav {
-    background-color: rgba(180,255,180,0.3);
+nav[role=navigation] {
     ul {
         @include horizontal-list;
         padding: 0.5em;
@@ -25,15 +32,13 @@ body>nav, #wrap>nav {
 main {
     float: left;
     width: 66%;
-    background-color: rgba(180,180,255,0.3);
 }
 main+aside {
     float: right;
     width: 33%;
-    background-color: rgba(255,180,180,0.3);
 }
 
-body>nav, #wrap>nav,
+nav[role=navigation],
 body>section, #wrap>section {
     margin: auto;
     max-width: 960px;

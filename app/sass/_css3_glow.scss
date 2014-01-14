@@ -1,0 +1,21 @@
+// Import variables, etc.
+@import "base";
+
+
+// PRODUCES OUTPUT:
+// ----------------
+
+@mixin css3_glow ($color, $size) {
+    $start-color: white;
+
+    color: $start-color;
+    text-shadow:
+        0   0   $size/15      mix($start-color, $color, 100%),
+        0   0   $size/30      mix($start-color, $color, 100%),
+        0   0   $size/45      mix($start-color, $color, 100%),
+        0   0   $size/60      mix($start-color, $color, 20%),
+        0   0   $size*(7/15)  mix($start-color, $color, 0%),
+        0   0   $size*(8/15)  mix($start-color, $color, 0%),
+        0   0   $size*(10/15) mix($start-color, $color, 0%),
+        0   0   $size         mix($start-color, $color, 0%);
+}

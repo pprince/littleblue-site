@@ -1,0 +1,28 @@
+// Import variables, etc.
+@import "base";
+
+
+// PRODUCES OUTPUT:
+// ----------------
+
+body {
+    background: url('/images/subtle_patterns/groovepaper.png');
+}
+
+header[role=banner], footer[role=contentinfo] {
+    background: url('/images/subtle_patterns/dark_wood.png');
+}
+
+nav[role=navigation] {
+    background-color: rgba(180,255,180,0.3);
+}
+
+main {
+    background-color: rgba(180,180,255,0.3);
+}
+main+aside {
+    background-color: rgba(255,180,180,0.3);
+}
+
+body>section, #wrap>section {
+}

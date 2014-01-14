@@ -4,7 +4,9 @@
 
 // Unlike most imports, '@import "compass/reset";' will
 // actually cause CSS to be generated in the output file.
+// So, we put it here, instead of in _base.scss
 @import "compass/reset";
+
 
 // CSS3 Border-Box Model.
 // Death to the content-box model!
@@ -12,15 +14,23 @@
     @include box-sizing(border-box);
 }
 
+
 // Helpers and aides for use during development:
-// FIXME: disable or comment-out in production release.
-@import "debug";
+// Disable or comment-out in production release.
+// @import "debug";
+
 
 // IMPORT OUR OWN SASS/SCSS PARTIALS: //
 // ---------------------------------- //
 // These are files in and the current directory, with names
 // beginning with an underscore (e.g., "_videoframe.scss").
-@import "typography";
-@import "buttons";
-@import "layout";
+
+@import "backgrounds";  // background images and colors
+
+@import "typography";   // heading styles, font faces and sizing
+
+@import "buttons";      // buttons
+
+@import "layout";       // page header/footer, main nav, grid layout
+
 // ---------------------------------- // /our-own-partials
