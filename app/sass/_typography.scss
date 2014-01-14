@@ -1,5 +1,7 @@
 @import "base";
 
+@import "css3_effects";
+
 
 // PRODUCES OUTPUT:
 // ----------------
@@ -28,3 +30,29 @@ h5 {
 }
 h6 {
 }
+
+header[role=banner], footer[role=contentinfo] {
+    text-align: center;
+}
+
+header[role=banner] {
+    padding: 0.2em 0 0.8em 0;
+    h1 {
+        font-family: 'Exo 2', cursive;
+        font-weight: 400;
+        @include adjust-font-size-to(400%, 4);
+        @include css3-neon-text(#245de1, 80px);
+        letter-spacing: 2px;
+    }
+    h2 {
+        font-family: 'Exo 2', cursive;
+        font-weight: 300;
+        @include adjust-font-size-to(200%, 2);
+        @include css3-neon-text(white, 20px);
+        text-transform: uppercase;
+        letter-spacing: 6px;
+    }
+}
+
+@import url('http://fonts.googleapis.com/css?family=Poiret+One|Exo+2:400,200,200italic,300,300italic,400italic');
+

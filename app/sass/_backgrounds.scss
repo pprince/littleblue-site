@@ -10,11 +10,12 @@ body {
 }
 
 header[role=banner], footer[role=contentinfo] {
+    background-color: #222;
     background: url('/images/subtle_patterns/dark_wood.png');
 }
 
 nav[role=navigation] {
-    background-color: rgba(180,255,180,0.3);
+
 }
 
 main {

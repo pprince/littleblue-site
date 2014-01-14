@@ -1,25 +1,11 @@
 // Import variables, etc.
 @import "base";
-@import "css3_effects";
 
 
 // PRODUCES OUTPUT:
 // ----------------
 
-@import url('http://fonts.googleapis.com/css?family=Poiret+One|Exo+2:400,200,200italic,300,300italic,400italic,500,500italic,600,600italic,700italic,700');
-
 @include sticky-footer($base-line-height, "#wrap", "#push", "footer");
-
-header[role=banner], footer[role=contentinfo] {
-    text-align: center;
-}
-
-header[role=banner] h1 {
-    @include css3-neon-text(#245de1, 80px);
-    @include adjust-font-size-to(330%, 4);
-    font-family: 'Exo 2', cursive;
-    font-weight: normal;
-}
 
 nav[role=navigation] {
     ul {
