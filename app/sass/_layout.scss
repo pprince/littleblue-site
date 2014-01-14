@@ -1,6 +1,6 @@
 // Import variables, etc.
 @import "base";
-@import "css3_glow";
+@import "css3_effects";
 
 
 // PRODUCES OUTPUT:
@@ -11,15 +11,14 @@
 @include sticky-footer($base-line-height, "#wrap", "#push", "footer");
 
 header[role=banner], footer[role=contentinfo] {
-    color: white;
     text-align: center;
+}
 
-    h1 {
-        @include css3_glow(#245de1, 80px);
-        @include adjust-font-size-to(350%, 4);
-        font-family: 'Exo 2', cursive;
-        font-weight: normal;
-    }
+header[role=banner] h1 {
+    @include css3-neon-text(#245de1, 80px);
+    @include adjust-font-size-to(330%, 4);
+    font-family: 'Exo 2', cursive;
+    font-weight: normal;
 }
 
 nav[role=navigation] {

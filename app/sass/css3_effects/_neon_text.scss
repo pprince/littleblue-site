@@ -1,10 +1,4 @@
-// Import variables, etc.
-@import "base";
-
-
-@mixin css3_glow ($color, $size) {
-    $start-color: white;
-
+@mixin css3-neon-text ($color: orange, $size: 100px, $start-color: white) {
     color: $start-color;
     @include text-shadow(
         0  0  $size*(1/16)   $start-color,
