@@ -2,23 +2,20 @@
 @import "base";
 
 
-// PRODUCES OUTPUT:
-// ----------------
-
 @mixin css3_glow ($color, $size) {
     $start-color: white;
 
     color: $start-color;
     @include text-shadow(
-        0 0 $size*(1/16)  mix($start-color, $color, 100%),
-        0 0 $size*(2/16)  mix($start-color, $color, 100%),
-        0 0 $size*(3/16)  mix($start-color, $color, 100%),
-        0 0 $size*(4/16)  mix($start-color, $color, 100%),
-        0 0 $size*(5/16)  mix($start-color, $color, 0%),
-        0 0 $size*(7/16)  mix($start-color, $color, 0%),
-        0 0 $size*(8/16)  mix($start-color, $color, 0%),
-        0 0 $size*(9/16)  mix($start-color, $color, 0%),
-        0 0 $size*(11/16)  mix($start-color, $color, 0%),
-        0 0 $size         mix($start-color, $color, 0%)
+        0  0  $size*(1/16)   $start-color,
+        0  0  $size*(2/16)   mix($start-color, $color, 95%),
+        0  0  $size*(3/16)   mix($start-color, $color, 85%),
+        0  0  $size*(4/16)   mix($start-color, $color, 75%),
+        0  0  $size*(5/16)   mix($start-color, $color, 30%),
+        0  0  $size*(7/16)   mix($start-color, $color, 20%),
+        0  0  $size*(8/16)   mix($start-color, $color, 15%),
+        0  0  $size*(9/16)   mix($start-color, $color, 10%),
+        0  0  $size*(11/16)  mix($start-color, $color, 5%),
+        0  0  $size          $color
     );
 }
