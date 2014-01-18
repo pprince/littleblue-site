@@ -8,11 +8,11 @@ a[role=button], *[role=button] a {
     @include unstyled-link;
 }
 
-.button {
+%button {
     @include sassy-button;
     @include box-shadow;
 }
 
 body *[role=button] {
-    @extend .button
+    @extend %button
 }

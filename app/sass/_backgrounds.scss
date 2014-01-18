@@ -6,24 +6,20 @@
 // ----------------
 
 body {
+    background-color: #222;
+    background: url('/images/subtle_patterns/px_by_Gre3g.png');
+}
+
+nav[role=navigation] {
     background: url('/images/subtle_patterns/groovepaper.png');
 }
 
 header[role=banner], footer[role=contentinfo] {
-    background-color: #222;
-    background: url('/images/subtle_patterns/dark_wood.png');
-}
-
-nav[role=navigation] {
-
 }
 
 main {
-    background-color: rgba(180,180,255,0.3);
+    background-color: rgba(white, 0.8);
 }
 main+aside {
-    background-color: rgba(255,180,180,0.3);
-}
-
-body>section, #wrap>section {
+    background-color: rgba(white, 0.7);
 }

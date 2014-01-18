@@ -1,4 +1,4 @@
-@mixin css3-neon-text ($color: orange, $size: 150px, $start-color: white) {
+@mixin neon-text ($color: orange, $size: 150px, $start-color: white) {
     color: $start-color;
     @include text-shadow(
         0  0  $size*(1/16)   $start-color,
