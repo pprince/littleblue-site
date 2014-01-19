@@ -19,3 +19,10 @@ $sb-text-color:         #eee;         // Button text color
 $sb-text-style:         "inset";      // Button text shadow style
 $sb-gradient-style:     "shiny";      // Button gradient style
 $sb-auto-states:        true;         // Automatically create pseudo styles 
+
+// ...for Susy
+$susy: (
+    columns: 6,
+    gutters: 1/4,
+    gutter-position: inside,
+);

@@ -8,27 +8,29 @@
 @include sticky-footer($base-line-height, "#wrap", "#push", "footer");
 
 nav[role=navigation] {
+    @include full(of 12);
     text-align: center;
     ul {
         @include inline-list;
     }
 }
 
-main {
-    float: left;
-    width: 60%;
-    margin-left: 1%;
-}
-main+aside {
-    float: right;
-    width: 37%;
-    margin-right: 1%;
+body {
+    @include container();
 }
 
-body>section, #wrap>section {
-    margin: 1em auto;
-    max-width: 960px;
+#wrap {
+    @include full(of 12 container);
 }
-body>section, #wrap>section {
-    @include clearfix();
+
+header[role=banner], footer[role=contentinfo] {
+    @include full(of 12);
+}
+
+main {
+    @include span(4 of 6);
+}
+
+main+aside {
+    @include span(2 of 6);
 }
