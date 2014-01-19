@@ -5,10 +5,10 @@
 // PRODUCES OUTPUT:
 // ----------------
 
-@include sticky-footer($base-line-height, "#wrap", "#push", "footer");
+@include sticky-footer($base-line-height, "#wrap", "#push", "footer[role=contentinfo]");
 
 nav[role=navigation] {
-    @include full(of 12);
+    @include full;
     text-align: center;
     h1 { display: none; }
     ul {
@@ -17,28 +17,32 @@ nav[role=navigation] {
 }
 
 body {
-    @include container();
 }
 
 #wrap {
-    @include full(of 12 container wider);
+    @include container;
 }
 
 header[role=banner], footer[role=contentinfo] {
-    @include full(of 12);
+    @include full;
 }
 
 main {
-    @include span(4 of 6 wide);
+    @include span(8);
 }
 
 main+aside {
-    @include span(2 of 6 wide);
+    @include span(12);
 }
 
+
 nav+section {
-    p {
-        @include span(1);
-        @extend %well;
-    }
+    @include container;
+}
+nav+section > p {
+        @include span(2);
+        background-color: tint(blue, 95%);
+        border: 1px solid black;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
 }
