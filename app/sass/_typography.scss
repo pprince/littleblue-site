@@ -9,45 +9,47 @@
 
 #{headings()} {
     font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
 }
 h1 {
-    font-size: $base-line-height * 1.6;
-    line-height: $base-line-height * 2;
+    @include adjust-font-size-to(180%, 2);
+    font-style: normal;
 }
-
 h2 {
-    font-size: $base-line-height * 1.2;
-    line-height: $base-line-height * 2;
+    @include adjust-font-size-to(160%, 2);
 }
 h3 {
+    @include adjust-font-size-to(125%, 1);
 }
 h4 {
+    @include adjust-font-size-to(110%, 1);
 }
 h5 {
+    @include adjust-font-size-to(95%, 1);
 }
 h6 {
-}
-
-header[role=banner], footer[role=contentinfo] {
-    text-align: center;
-    color: #eee;
+    @include adjust-font-size-to(85%, 1);
 }
 
 header[role=banner] {
-    padding: 0.2em 0 0.8em 0;
     h1 {
         font-family: 'Exo 2', cursive;
         font-weight: 400;
+        font-style: normal;
         @include adjust-font-size-to(380%, 4);
         @include neon-text(#245de1, 80px);
+        border: none;
     }
     h2 {
         font-family: 'Exo 2', cursive;
         font-weight: 300;
+        font-style: normal;
         @include adjust-font-size-to(180%, 2);
         @include neon-text(white, 28px);
         text-transform: uppercase;
         letter-spacing: 7px;
+        border: none;
     }
 }
 

@@ -39,7 +39,8 @@ module.exports = (grunt) ->
     
     watch:
       statics:
-        files: ['app/build/css/**', 'app/images/**', 'app/fonts/**', 'app/public/**']
+        files: ['app/build/css/**', 'app/images/**',
+                'app/fonts/**', 'app/public/**']
         tasks: ['copy:distfiles', 'chmod:distdirs']
       compass:
         files: ['app/sass/**']

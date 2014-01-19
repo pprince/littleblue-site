@@ -11,15 +11,19 @@ body {
 }
 
 nav[role=navigation] {
-    background: url('/images/subtle_patterns/groovepaper.png');
+    background-color: rgba(black,0.8);
 }
 
-header[role=banner], footer[role=contentinfo] {
+header[role=banner] {
+}
+
+footer[role=contentinfo] {
+    background-color: rgba(black,0.8);
 }
 
 main {
-    background-color: rgba(white, 0.8);
+    background-color: rgba(white, 0.7);
 }
 main+aside {
-    background-color: rgba(white, 0.7);
+    background-color: rgba(white, 0.6);
 }

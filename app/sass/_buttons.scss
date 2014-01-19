@@ -13,6 +13,6 @@ a[role=button], *[role=button] a {
     @include box-shadow;
 }
 
-body *[role=button] {
+body button, body *[role=button] {
     @extend %button
 }

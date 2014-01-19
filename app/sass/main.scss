@@ -7,13 +7,9 @@
 // So, we put it here, instead of in _base.scss
 @import "compass/reset";
 
-
-// CSS3 Border-Box Model.
-// Death to the content-box model!
 * {
-    @include box-sizing(border-box);
+    @include box-sizing($box-sizing);
 }
-
 
 // Helpers and aides for use during development:
 // Disable or comment-out in production release.
@@ -25,7 +21,7 @@
 // These are files in and the current directory, with names
 // beginning with an underscore (e.g., "_videoframe.scss").
 
-//@import "backgrounds";  // background images and colors
+@import "backgrounds";  // background images and colors
 
 @import "typography";   // heading styles, font faces and sizing
 
