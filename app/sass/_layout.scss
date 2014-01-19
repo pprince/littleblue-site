@@ -1,21 +1,23 @@
 // Import variables, etc.
 @import "base";
 
-
-// PRODUCES OUTPUT:
-// ----------------
-
 @include sticky-footer($base-line-height, "#wrap", "#push", "footer[role=contentinfo]");
+
+header[role=banner] h2 {
+    display: none;
+    @include breakpoint(700px) {
+        display: block;
+    }
+}
 
 header[role=banner], footer[role=contentinfo] {
     text-align: center;
-    color: #ddd;
 }
 
 nav[role=navigation] {
     @include full;
-    @include padding-leader(0.5);
-    @include padding-trailer(0.5);
+    @include margin-leader(0.5);
+    @include margin-trailer(0.5);
     text-align: center;
     h1 { display: none; }
     ul {
@@ -32,9 +34,15 @@ header[role=banner] {
 }
 
 main {
-    @include span(8);
+    @include span(12);
+    @include breakpoint(450px) {
+        @include span(8);
+    }
 }
 
 main+aside {
-    @include span(4);
+    @include span(12);
+    @include breakpoint(450px) {
+        @include span(4);
+    }
 }
