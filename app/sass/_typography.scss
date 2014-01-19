@@ -51,5 +51,9 @@ header[role=banner] {
     }
 }
 
-@import url('http://fonts.googleapis.com/css?family=Poiret+One|Exo+2:400,200,200italic,300,300italic,400italic');
+// Don't show shadows when selecting text
+::-moz-selection { background: #5af; color: #fff; text-shadow: none; }
+::selection { background: #5af; color: #fff; text-shadow: none; }
 
+// Fonts from Google
+@import url('http://fonts.googleapis.com/css?family=Poiret+One|Exo+2:400,200,200italic,300,300italic,400italic');
