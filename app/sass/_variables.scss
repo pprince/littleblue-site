@@ -1,6 +1,10 @@
 // Settings... //
 // ----------- //
 
+// Color Theme
+// $basecolorwhatever...
+// @import "themes/basic/theme";
+
 // ...for Compass establish-baseline().
 $base-font-size:        16px;
 $base-line-height:      24px;
@@ -22,7 +26,10 @@ $sb-auto-states:        true;         // Automatically create pseudo styles
 
 // ...for Susy
 $susy: (
-    columns: 6,
+    box-sizing: border-box,
+    columns: 12,
+    container: 1000px,
     gutters: 1/4,
     gutter-position: inside,
+    show-grid: true,
 );

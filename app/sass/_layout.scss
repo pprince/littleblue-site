@@ -10,6 +10,7 @@
 nav[role=navigation] {
     @include full(of 12);
     text-align: center;
+    h1 { display: none; }
     ul {
         @include inline-list;
     }
@@ -20,7 +21,7 @@ body {
 }
 
 #wrap {
-    @include full(of 12 container);
+    @include full(of 12 container wider);
 }
 
 header[role=banner], footer[role=contentinfo] {
@@ -28,9 +29,16 @@ header[role=banner], footer[role=contentinfo] {
 }
 
 main {
-    @include span(4 of 6);
+    @include span(4 of 6 wide);
 }
 
 main+aside {
-    @include span(2 of 6);
+    @include span(2 of 6 wide);
+}
+
+nav+section {
+    p {
+        @include span(1);
+        @extend %well;
+    }
 }
