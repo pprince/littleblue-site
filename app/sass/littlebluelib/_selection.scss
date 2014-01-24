@@ -1,0 +1,4 @@
+@mixin selection-noshadows() {
+    ::-moz-selection { background: #5af; color: #fff; text-shadow: none; }
+    ::selection { background: #5af; color: #fff; text-shadow: none; }
+}
