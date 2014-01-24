@@ -93,8 +93,8 @@ main hgroup {
 ::selection { background: #5af; color: #fff; text-shadow: none; }
 hr {
     @include fade-hr($little-blue);
-    margin-top: $base-line-height/2 - 1px;
-    margin-bottom: $base-line-height/2;
+    margin-top: $base-line-height/2;
+    margin-bottom: $base-line-height/2 - 1px;
 }
 
 
