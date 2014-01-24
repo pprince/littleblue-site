@@ -7,13 +7,7 @@
 // So, we put it here, instead of in _base.scss
 @import "compass/reset";
 
-* {
-    @include box-sizing($box-sizing);
-}
-
-// Helpers and aides for use during development:
-// Disable or comment-out in production release.
-// @import "debug";
+@include global-box-sizing();
 
 
 // IMPORT OUR OWN SASS/SCSS PARTIALS: //
@@ -21,12 +15,105 @@
 // These are files in and the current directory, with names
 // beginning with an underscore (e.g., "_videoframe.scss").
 
-@import "backgrounds";  // background images and colors
-
-@import "typography";   // heading styles, font faces and sizing
-
-@import "buttons";      // buttons
-
-@import "layout";       // page header/footer, main nav, grid layout
+@import "colors";
+@import "typography";
 
 // ---------------------------------- // /our-own-partials
+
+
+// BUTTONS //
+// ------- //
+a[role=button], *[role=button] a {
+    @include unstyled-link;
+}
+%button {
+    @include sassy-button;
+    @include box-shadow;
+}
+body button, body *[role=button] {
+    @extend %button
+}
+
+
+// BACKGROUNDS //
+// ----------- //
+body {
+    background-color: #222;
+    background: url('/images/subtle_patterns/pinstriped_suit.png');
+}
+nav[role=navigation] {
+    background-color: rgba(black,0.6);
+}
+header[role=banner] {
+    background-color: rgba(black,0.2);
+}
+footer[role=contentinfo] {
+    background-color: rgba(black,0.6);
+}
+main {
+    background-color: rgba(white, 0.7);
+}
+main+aside {
+    background-color: rgba(white, 0.3);
+}
+
+
+// LAYOUT //
+// ------ //
+@include sticky-footer($base-line-height, "#wrap", "#push", "footer[role=contentinfo]");
+
+header[role=banner], footer[role=contentinfo] {
+    text-align: center;
+}
+
+header[role=banner] h2 {
+    display: none;
+    @include breakpoint(700px) {
+        display: block;
+    }
+}
+footer[role=contentinfo] {
+    max-width: susy-get(container);
+    margin: 0 auto;
+}
+
+nav[role=navigation] {
+    @include full;
+    ul {
+        margin: 0 0.25em;
+        @include horizontal-list;
+        @include margin-leader(0.25);
+        @include margin-trailer(0.25);
+        li {
+            a {
+                @include hover-link();
+                @include adjust-font-size-to(120%, 1.5);
+                margin: 0 0.25em;
+            }
+            h1 {
+                display: inline;
+                border: none;
+                @include adjust-font-size-to(120%, 1.5);
+                margin: 0 0.25em;
+            }
+        }
+    }
+}
+#wrap {
+    @include container;
+}
+header[role=banner] {
+    @include full;
+}
+main {
+    @include span(12);
+    @include breakpoint(450px) {
+        @include span(8);
+    }
+}
+main+aside {
+    @include span(12);
+    @include breakpoint(450px) {
+        @include span(4);
+    }
+}

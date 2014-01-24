@@ -2,7 +2,8 @@
 // ----------- //
 
 // Color Theme
-$base_color: #245de1;
+$little_blue: #245de1;
+$base_color: $little_blue;
 //@import "themes/basic/theme";
 
 $global-box-sizing:     border-box;
@@ -29,7 +30,7 @@ $sb-auto-states:        true;       // Automatically create pseudo styles
 
 // ...for Susy
 $susy: (
-    box-sizing: border-box,
+    global-box-sizing: border-box,
     columns: 12,
     container: 900px,
     gutters: 1/4,

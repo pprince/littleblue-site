@@ -82,24 +82,22 @@ module.exports = (grunt) ->
   #grunt.loadNpmTasks 'grunt-contrib-nodeunit'
   #... commented-out ones are cantidates for not-usal->removal...
 
-
+  #
   # =================== #
   # TASKS YOU CAN CALL: #
   # =================== #
+  #
   grunt.registerTask    'install',      ['sync', 'bower:install']
   grunt.registerTask    'lint',         ['coffeelint']
   grunt.registerTask    'build',        ['compass:compile']
   grunt.registerTask    'dist',         ['copy:distfiles', 'chmod:distdirs']
-  # =================== #
-
-
+  grunt.registerTask    'all',          ['install', 'build', 'lint', 'dist', 'watch']
+  #
   # ------------ . . . . . .
   # DEFAULT TASK when you just run `grunt`:
   # ---------------------------------------
-  # NOTE that, as currently configured, calling `grunt` followed by `grunt
-  # watch` will cause you to have exercised every configured target; this is
-  # useful for debugging the gruntfile, and should be preserved.
-  grunt.registerTask    'default', [
-      'install', 'build', 'lint', 'dist'
-  ]
+  grunt.registerTask    'default', ['build', 'dist']
   # ------------------------------------- /
+  #
+  # =================== #
+  #
