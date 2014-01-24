@@ -2,18 +2,15 @@
 // ----------- //
 
 // Color Theme
-$little_blue: #245de1;
-$base_color: $little_blue;
-//@import "themes/basic/theme";
+$little-blue:   #245de1;
+$base-color:    $little-blue;
 
-$global-box-sizing:     border-box;
-$box-sizing:            $global-box-sizing;
-
-// ...for Compass establish-baseline().
+// ...for Compass
 $base-font-size:        16px;
 $base-line-height:      24px;
 $rhythm-unit:           "rem";
 $rem-with-px-fallback:  true;
+$default-border-radius: $base-line-height/3;
 
 // ...for Sassy-Buttons.
 $sb-base-color:         #245de1;    // Base color of your button
@@ -29,8 +26,8 @@ $sb-gradient-style:     "shiny";    // Button gradient style
 $sb-auto-states:        true;       // Automatically create pseudo styles 
 
 // ...for Susy
+$global-box-sizing:     border-box;
 $susy: (
-    global-box-sizing: border-box,
     columns: 12,
     container: 900px,
     gutters: 1/4,
