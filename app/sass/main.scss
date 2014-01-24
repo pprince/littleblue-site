@@ -55,12 +55,10 @@ h1 {
     font-weight: 600;
     font-style: normal;
     @include adjust-font-size-to(180%, 2);
-    @include trailing-border(2px, 0);
 }
 h2 {
     font-style: normal;
     @include adjust-font-size-to(150%, 2);
-    @include trailing-border(1px, 0);
 }
 h3 {
     @include adjust-font-size-to(135%, 1);
@@ -76,7 +74,6 @@ h6 {
     color: desaturate(darken($little-blue,10%),10%);
 }
 hgroup {
-    @include trailing-border(2px, 0);
     #{headings()} {
         border: none;
     }
@@ -87,11 +84,6 @@ hgroup {
         color: desaturate(darken($little-blue,10%),10%);
         font-style: italic;
         @include adjust-font-size-to(150%, 1.5);
-    }
-}
-aside {
-    #{headings()}, hgroup {
-        @include trailing-border(0px, 0);
     }
 }
 // Don't show shadows when selecting text
@@ -109,9 +101,6 @@ header[role=banner] {
     @include breakpoint(700px) {
         text-align: center;
         padding-left: 0.3em;
-    }
-    #{headings()}, hgroup {
-        border: none;
     }
     h1 {
         font-weight: 400;
@@ -162,7 +151,6 @@ nav[role=navigation] {
             h1 {
                 display: inline;
                 margin: 0 0.5em 0 0.8em;
-                border: none;
                 color: darken($little-blue,20%);
                 @include adjust-font-size-to(100%, 1.5);
                 &:after {
