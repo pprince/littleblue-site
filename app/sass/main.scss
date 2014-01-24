@@ -71,7 +71,7 @@ main+aside {
 // ------ //
 @include sticky-footer($base-line-height, "#wrap", "#push", "footer[role=contentinfo]");
 
-header[role=banner], footer[role=contentinfo] {
+header[role=banner], footer[role=contentinfo], nav[role=navigation] {
     text-align: center;
 }
 
@@ -100,10 +100,14 @@ nav[role=navigation] {
                 margin: 0 0.25em;
             }
             h1 {
+                color: darken($little-blue,20%);
                 display: inline;
                 border: none;
                 @include adjust-font-size-to(120%, 1.5);
                 margin: 0 0.25em;
+                &:after {
+                    content: ":";
+                }
             }
         }
     }
