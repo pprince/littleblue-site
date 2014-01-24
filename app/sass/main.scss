@@ -20,24 +20,33 @@
 @include global-box-sizing();
 
 
-
 body {
     color: #999;
     background-color: #333;
     background: url('/images/subtle_patterns/pinstriped_suit.png');
 }
+
 a {
-    color: $base-color;
-    @include hover-link();
-    &:hover, &:focus {
-        color: invert($base-color);
+    color: $little-blue;
+    text-decoration: none;
+    @include transition(all 0.3s);
+    &:visited {
+        color: $little-blue;
+    }
+    &:hover {
+        color: invert($little-blue);
     }
     &:active {
-        // http://css-tricks.com/one-pixel-shift-buttons/
         position: relative;
         top: 1px;
+        left: 1px;
+        color: darken(invert($little-blue),10%);
+    }
+    &:focus {
+        color: lighten(invert($little-blue),10%);
     }
 }
+
 
 // BUTTONS //
 // ------- //
@@ -89,7 +98,7 @@ h6 {
     color: desaturate(darken($little-blue,10%),10%);
 }
 main hgroup {
-    @include padding-leader(0.75);
+    @include padding-leader(0.25);
     #{headings()} {
         border: none;
     }
@@ -103,7 +112,14 @@ main hgroup {
     }
     @include trailing-border(1px, 0.25);
 }
-
+main {
+    h1 {
+        @include text-shadow(1px 1px 1px #222);
+    }
+    h2 {
+        @include text-shadow(1px 1px 1px #999);
+    }
+}
 
 @include sticky-footer($base-line-height, "#wrap", "#push", "footer[role=contentinfo]");
 
@@ -159,14 +175,19 @@ nav[role=navigation] {
         @include margin-trailer(0.25);
         li {
             a {
-                margin: 0 0.25em;
+                display: block;
+                padding: 0 0.6em;
                 @include adjust-font-size-to(120%, 1.5);
+                @include border-radius(($base-line-height*1.5)/2);
+                &:hover {
+                    background: rgba(white, 0.20);
+                }
             }
             h1 {
                 display: inline;
                 margin: 0 0.5em 0 0.8em;
-                color: darken($little-blue,20%);
-                @include adjust-font-size-to(100%, 1.5);
+                color: desaturate(darken($little-blue,10%),10%);
+                @include adjust-font-size-to(90%, 1.5);
                 &:after {
                     content: ":";
                 }
@@ -186,9 +207,15 @@ main {
     @include span(12);
     @include breakpoint(450px) {
         @include span(8);
+        @include margin-trailer(1);
+    }
+    @include breakpoint(999px) {
+        padding-left: 1.4em;
+        padding-right: 1.4em;
     }
     @include border-bottom-radius();
-    @include margin-trailer(1);
+    @include padding-leader(0.5);
+    @include padding-trailer(0.5);
 }
 
 main+aside {
@@ -197,7 +224,13 @@ main+aside {
     @include breakpoint(450px) {
         @include span(4);
     }
+    @include breakpoint(999px) {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
     @include border-bottom-right-radius();
+    @include padding-leader(0.5);
+    @include padding-trailer(0.5);
 }
 
 
