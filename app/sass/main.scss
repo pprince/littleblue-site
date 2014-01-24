@@ -1,12 +1,22 @@
-// Import variables, etc.
-@import "base";
+// this project's variables
+@import "variables";
+
+// other global imports
+@import "compass";
+@import "compass/layout";
+@import "susy";
+@import "breakpoint";
+@import "sassy-buttons";
+@import "littlebluelib";
 
 
 // Unlike most imports, '@import "compass/reset";' will
 // actually cause CSS to be generated in the output file.
-// So, we put it here, instead of in _base.scss
 @import "compass/reset";
 
+
+// this comes from susy.
+// DEATH TO THE CSS CONTENT BOX MODEL!
 @include global-box-sizing();
 
 
@@ -15,7 +25,6 @@
 // These are files in and the current directory, with names
 // beginning with an underscore (e.g., "_videoframe.scss").
 
-@import "colors";
 @import "typography";
 
 // ---------------------------------- // /our-own-partials
