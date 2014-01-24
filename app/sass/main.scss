@@ -73,7 +73,8 @@ h6 {
     @include adjust-font-size-to(110%, 1);
     color: desaturate(darken($little-blue,10%),10%);
 }
-hgroup {
+main hgroup {
+    @include padding-leader(0.75);
     #{headings()} {
         border: none;
     }
@@ -85,10 +86,16 @@ hgroup {
         font-style: italic;
         @include adjust-font-size-to(150%, 1.5);
     }
+    @include trailing-border(1px, 0.25);
 }
 // Don't show shadows when selecting text
 ::-moz-selection { background: #5af; color: #fff; text-shadow: none; }
 ::selection { background: #5af; color: #fff; text-shadow: none; }
+hr {
+    @include fade-hr($little-blue);
+    margin-top: $base-line-height/2 - 1px;
+    margin-bottom: $base-line-height/2;
+}
 
 
 @include sticky-footer($base-line-height, "#wrap", "#push", "footer[role=contentinfo]");
