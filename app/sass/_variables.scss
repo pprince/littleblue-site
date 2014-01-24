@@ -15,7 +15,7 @@ $default-border-radius: $base-line-height/3;
 // ...for Sassy-Buttons.
 $sb-base-color:         #245de1;    // Base color of your button
 $sb-second-color:       false;      // Optional second color of button gradient
-$sb-border-radius:      16px;       // Button border radius
+$sb-border-radius:      $default-border-radius/2;       // Button border radius
 $sb-border-width:       2px;        // Button border width
 $sb-padding:            $base-line-height/2 - 1px;      // Button padding
 $sb-font-size:          $base-font-size;                // Button font-size
@@ -37,3 +37,7 @@ $susy: (
         image: show,
     ),
 );
+
+$default-font:  'Droid Sans', 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+$heading-font:  'Droid Serif', 'Adobe Garamond Pro', 'Garamond', 'Garamond ITC', serif;
+$banner-font:   'Ribeye Marrow', 'Adobe Garamond Pro', 'Garamond', 'Garamond ITC', serif;
