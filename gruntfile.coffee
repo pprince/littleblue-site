@@ -5,9 +5,18 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON('package.json')
     env: process.env
 
+    clean:
+      build:
+        src: ['app/build']
+      dist:
+        src: ['htdocs/*']
+        options:
+          force: true
+
     jekyll:
       options:
         src: 'app/jekyll'
+        config: 'app/jekyll/_config.yml'
       build:
         options:
           dest: 'app/build'
@@ -19,7 +28,16 @@ module.exports = (grunt) ->
       options:
         mode: '644'
         nonull: true
-      distfiles:
+      build:
+        files: [
+          {
+            cwd: 'app'
+            src: ['images/**', 'fonts/**', 'public/**']
+            dest: 'app/build'
+            expand: true
+          },
+        ]
+      dist:
         files: [
           {
             cwd: 'app/build'
@@ -32,7 +50,7 @@ module.exports = (grunt) ->
     chmod:
       options:
         mode: '755'
-      distdirs:
+      dist:
         filter: 'isDirectory'
         src: ['htdocs/**', 'htdocs/']
         expand: true
@@ -75,10 +93,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-sync-pkg'
   grunt.loadNpmTasks 'grunt-shell'
   grunt.loadNpmTasks 'grunt-chmod'
-  #grunt.loadNpmTasks 'grunt-env'
+  grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  #grunt.loadNpmTasks 'grunt-env'
   #grunt.loadNpmTasks 'grunt-contrib-uglify'
   #grunt.loadNpmTasks 'grunt-contrib-concat'
   #grunt.loadNpmTasks 'grunt-contrib-jshint'
@@ -91,11 +110,12 @@ module.exports = (grunt) ->
   #
   grunt.registerTask 'install', ['sync', 'bower:install']
   grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint']
-  grunt.registerTask 'build',   ['jekyll:build', 'compass:compile']
-  grunt.registerTask 'dist',    ['copy:distfiles', 'chmod:distdirs']
-  grunt.registerTask 'all',     ['install', 'build', 'lint', 'dist', 'watch']
+  grunt.registerTask 'build',   ['jekyll:build', 'compass:compile', 'copy:build']
+  grunt.registerTask 'dist',    ['copy:dist', 'chmod:dist']
+  grunt.registerTask 'all',     ['clean', 'install', 'build', 'lint', 'dist', 'watch']
+  # you can also call clean
 
   # ------------ . . . . . .
   # DEFAULT TASK when you just run `grunt`:
   # ---------------------------------------
-  grunt.registerTask    'default', ['build', 'dist']
+  grunt.registerTask 'default', ['clean', 'build', 'dist']
