@@ -22,11 +22,6 @@ module.exports = (grunt) ->
       distfiles:
         files: [
           {
-            cwd: 'app'
-            src: ['build/**', 'images/**', 'fonts/**']
-            dest: 'htdocs'
-            expand: true
-          }, {
             cwd: 'app/build'
             src: ['**']
             dest: 'htdocs'

@@ -1,13 +1,81 @@
----
-layout: default
-title: Your New Jekyll Site
----
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/main.css">
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+        <title>
+
+            LittleBlue - Home
+
+        </title>
+
+    </head>
+    <body>
+
+        <!-- for sticky footer -->
+        <div id="wrap">
+
+            <header role="banner">
+                <hgroup>
+                <h1>Little Blue</h1>
+                <h2>A witty tag-line should be invented.</h2>
+                </hgroup>
+            </header>
+
+
+            <nav role="navigation">
+                <ul>
+                    <li><h1>Main Navigation</h1></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="/projects/">Projects</a></li>
+                    <li><a href="/résumé/">Résumé</a></li>
+                    <li><a href="/contact/">Contact Me</a></li>
+                </ul>
+            </nav>
+
+
+            <main>
+
+                <h1>About Me</h1>
+
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae explicabo. Nemo enim ipsam voluptatem odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae explicabo. Nemo enim ipsam voluptatem odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+
+            </main>
+
+
+            <aside>
+
+                <h2>Sassy Buttons</h2>
+                <p>Sed ut, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae explicabo.</p> 
+                <a href="/" role="button">Home</a>
+                <a href="//google.com/" role="button">Google</a>
+                <p>Lorem sit amet. Ut enim ad minim veniam, quis nostrud exercitation ullamco labo. Duis aute irure dolor in reprehenderit laborum.</p>
+
+            </aside>
+
+
+            <!-- /for sticky footer -->
+            <div id="push"></div>
+        </div><!-- /div id=wrap -->
+
+        <!-- note: footer must be only element outside of #wrap. -->
+        <footer role="contentinfo">
+
+
+            &copy; 2014
+            <a href="mailto:paul@littlebluetech.com">Paul Prince</a>,
+            released
+            <a href="https://github.com/pprince/littleblue-site/">on GitHub</a>
+            under the
+            <a href="http://opensource.org/licenses/MIT">MIT License</a>.
+
+
+        </footer>
+
+    </body>
+</html>
