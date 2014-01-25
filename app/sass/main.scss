@@ -20,9 +20,6 @@
 @include global-box-sizing();
 
 
-@import url('http://fonts.googleapis.com/css?family=Droid+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic,700,700italic|Ribeye+Marrow|Reenie+Beanie');
-
-
 body {
     font-family: $default-font;
     font-weight: 400;
@@ -32,7 +29,7 @@ body {
 }
 
 b, strong {
-    font-weight: 700;
+    font-weight: bold;
 }
 i, em {
     text-decoration: italic;
@@ -42,32 +39,42 @@ s {
 }
 
 a {
-    color: $little-blue;
+    color: $base-color;
     text-decoration: none;
     @include transition(all 0.13s);
     &:visited {
-        color: $little-blue;
+        color: $base-color;
     }
     &:hover {
-        color: invert($little-blue);
+        color: invert($base-color);
     }
     &:focus {
-        color: invert($little-blue);
+        color: invert($base-color);
     }
     &:active {
-        color: darken(invert($little-blue),15%);
+        color: darken(invert($base-color),15%);
         position: relative;
         top: 1px;
         left: 1px;
     }
 }
+a[href="#"] {
+    @include unstyled-link();
+    cursor: default;
+}
 
+p {
+    @include margin-leader(0.5);
+    @include margin-trailer(0.5);
+}
 
 // BUTTONS //
 // ------- //
 %button {
     @include sassy-button;
     @include box-shadow;
+    //@include margin-leader(0.5);
+    //@include margin-trailer(0.5);
 }
 body button, body *[role=button] {
     @extend %button
@@ -76,71 +83,69 @@ body button, body *[role=button] {
 
 // <HR>
 hr {
-    @include fade-hr($little-blue);
-    margin-top: $base-line-height/2 + 1px; // +1px for the 1px of height.
-    margin-bottom: $base-line-height/2 - 2px;
+    @include fade-hr($base-color);
+    margin-top: $base-line-height/2 + 2px; // +1px for the 1px of height.
+    margin-bottom: $base-line-height/2 - 3px;
 }
 
 
 @include establish-baseline;
+
 #{headings()}, hgroup {
     font-family: $heading-font;
+    font-weight: bold;
     font-style: italic;
-    font-weight: 700;
-    color: $little-blue;
+    color: $base-color;
 }
 h1 {
     font-style: normal;
-    @include padding-leader(0.3);
-    @include adjust-font-size-to(180%, 1.7);
-    @include text-shadow(1px 1px 1px rgba(#555, 0.50));
+    @include adjust-font-size-to(227%);
+    @include text-shadow(1px 1px 1px rgba(#222, 0.60));
 }
 h2 {
     font-style: normal;
-    @include adjust-font-size-to(145%, 2);
-    @include text-shadow(1px 1px 1px rgba(#555, 0.40));
+    @include adjust-font-size-to(178%);
+    @include text-shadow(1px 1px 1px rgba(#222, 0.40));
 }
 h3 {
-    @include adjust-font-size-to(135%, 1);
+    @include adjust-font-size-to(138%);
 }
 h4 {
-    @include adjust-font-size-to(120%, 1);
+    @include adjust-font-size-to(122%);
 }
 h5 {
-    @include adjust-font-size-to(110%, 1);
+    @include adjust-font-size-to(109%);
 }
 h6 {
-    @include adjust-font-size-to(110%, 1);
-    color: desaturate(darken($little-blue,10%),10%);
+    @include adjust-font-size-to(105%);
+    color: desaturate(darken($base-color,10%),10%);
 }
 
 main > hgroup {
-    h1 {
-    }
     h2 {
-        color: desaturate(darken($little-blue,7%),7%);
-        @include adjust-font-size-to(145%, 1.55);
+        color: lighten(desaturate($base-color,20%),15%);
+        @include adjust-leading-to(1.8);
+        @include trailer(0.2);
+        margin-left: 0.6em;
+        margin-right: 0.6em;
     }
-    @include trailing-border(1px, 0.05);
-    @include margin-trailer(0.4);
 }
-
 
 header[role=banner] {
     text-align: left;
-
-    @include padding-leader(0.5);
-    @include padding-trailer(0.5);
 
     @include full; // for susy..
     @include breakpoint(700px) {
         text-align: center;
         padding-left: 0.3em;
     }
+    #{headings()} {
+        font-family: $banner-font;
+    }
     h1 {
-        @include adjust-font-size-to(400%, 3);
-        font-family: $banner-font !important;
-        font-weight: 400 !important;
+        @include adjust-font-size-to(380%);
+        @include padding-leader(0.75);
+        font-weight: normal;
     }
     h2 {
         display: none;
@@ -181,6 +186,9 @@ nav[role=navigation] {
                 &:hover {
                     background: rgba(white, 0.20);
                 }
+                &:hover[href="#"] {
+                    background: transparent;
+                }
             }
             h1 {
                 display: none;
@@ -193,31 +201,34 @@ nav[role=navigation] {
 main {
     color: #222;
     background-color: rgba(white, 0.80);
+    @include padding-leader(0.5);
     @include padding-trailer(0.5);
+    @include margin-trailer();
     @include span(12);
     @include breakpoint(450px) {
         @include span(8);
-        @include margin-trailer(1);
-    }
-    @include breakpoint(999px) {
         padding-left: 2em;
         padding-right: 2em;
     }
+    padding-left: 1em;
+    padding-right: 1em;
     @include border-bottom-radius();
 }
 
 
 main+aside {
     background-color: rgba(black,0.30);
+    @include padding-leader(0.5);
     @include padding-trailer(0.5);
+    @include margin-trailer();
     @include span(12);
     @include breakpoint(450px) {
         @include span(4);
-    }
-    @include breakpoint(999px) {
         padding-left: 1em;
         padding-right: 1em;
     }
+    padding-left: 1em;
+    padding-right: 1em;
     @include border-bottom-right-radius();
 }
 

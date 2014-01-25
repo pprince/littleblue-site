@@ -38,6 +38,8 @@ $susy: (
     ),
 );
 
+@import url('http://fonts.googleapis.com/css?family=Droid+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic,700,700italic|Sacramento');
+
 $default-font:  'Droid Sans', 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-$heading-font:  'Droid Serif', 'Adobe Garamond Pro', 'Garamond', 'Garamond ITC', serif;
-$banner-font:   'Ribeye Marrow', 'Adobe Garamond Pro', 'Garamond', 'Garamond ITC', serif;
+$heading-font:  'Droid Serif', serif;
+$banner-font:   'Sacramento', 'Droid Serif', serif;

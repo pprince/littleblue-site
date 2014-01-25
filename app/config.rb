@@ -8,7 +8,8 @@ http_path       = "/"                       # "/"
 sass_dir        = "sass"                    # "sass"
 css_dir         = "build/css"               # "stylesheets"
 images_dir      = "build/images"            # "images"
-font_dir        = "build/fonts"
+fonts_dir       = "build/fonts"
+fonts_path      = "/fonts"
 javascripts_dir = "build/js"
 
 # Environment.  Default is :development.
