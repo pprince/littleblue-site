@@ -65,6 +65,11 @@ module.exports = (grunt) ->
       jekyll:
         files: ['app/jekyll/**']
         tasks: ['build', 'dist']
+      livereload:
+        files: ['htdocs/**']
+        options:
+          livereload: true
+
  
     bower:
       install:
@@ -113,7 +118,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'build',   ['jekyll:build', 'compass:compile', 'copy:build']
   grunt.registerTask 'dist',    ['copy:dist', 'chmod:dist']
   grunt.registerTask 'all',     ['clean', 'install', 'build', 'lint', 'dist', 'watch']
-  # you can also call clean
 
   # ------------ . . . . . .
   # DEFAULT TASK when you just run `grunt`:
