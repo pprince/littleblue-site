@@ -5,6 +5,14 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON('package.json')
     env: process.env
 
+    jekyll:
+      options:
+        src: 'app/jekyll'
+        dest: 'app/build'
+      build:
+      lint:
+        doctor: true
+
     copy:
       options:
         mode: '644'
@@ -67,6 +75,7 @@ module.exports = (grunt) ->
  
 
   # Load plugins that provide tasks.
+  grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-bower-task'
   grunt.loadNpmTasks 'grunt-sync-pkg'
@@ -82,22 +91,17 @@ module.exports = (grunt) ->
   #grunt.loadNpmTasks 'grunt-contrib-nodeunit'
   #... commented-out ones are cantidates for not-usal->removal...
 
-  #
+
   # =================== #
   # TASKS YOU CAN CALL: #
-  # =================== #
   #
   grunt.registerTask    'install',      ['sync', 'bower:install']
   grunt.registerTask    'lint',         ['coffeelint']
   grunt.registerTask    'build',        ['compass:compile']
   grunt.registerTask    'dist',         ['copy:distfiles', 'chmod:distdirs']
   grunt.registerTask    'all',          ['install', 'build', 'lint', 'dist', 'watch']
-  #
+
   # ------------ . . . . . .
   # DEFAULT TASK when you just run `grunt`:
   # ---------------------------------------
   grunt.registerTask    'default', ['build', 'dist']
-  # ------------------------------------- /
-  #
-  # =================== #
-  #
