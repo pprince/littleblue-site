@@ -8,10 +8,12 @@ module.exports = (grunt) ->
     jekyll:
       options:
         src: 'app/jekyll'
-        dest: 'app/build'
       build:
+        options:
+          dest: 'app/build'
       lint:
-        doctor: true
+        options:
+          doctor: true
 
     copy:
       options:
@@ -20,17 +22,12 @@ module.exports = (grunt) ->
       distfiles:
         files: [
           {
-            cwd: 'app/build'
-            src: ['css/**']
-            dest: 'htdocs'
-            expand: true
-          }, {
             cwd: 'app'
-            src: ['images/**', 'fonts/**']
+            src: ['build/**', 'images/**', 'fonts/**']
             dest: 'htdocs'
             expand: true
           }, {
-            cwd: 'app/public'
+            cwd: 'app/build'
             src: ['**']
             dest: 'htdocs'
             expand: true
@@ -47,18 +44,20 @@ module.exports = (grunt) ->
     
     watch:
       statics:
-        files: ['app/build/css/**', 'app/images/**',
-                'app/fonts/**', 'app/public/**']
+        files: ['app/images/**', 'app/fonts/**']
         tasks: ['copy:distfiles', 'chmod:distdirs']
       compass:
         files: ['app/sass/**']
-        tasks: ['compass:compile']
+        tasks: ['build', 'dist']
+      jekyll:
+        files: ['app/jekyll/**']
+        tasks: ['build', 'dist']
  
-    sync: {}
     bower:
       install:
         options:
           copy: false
+    sync: {}
       
     compass:
       compile:
@@ -75,7 +74,7 @@ module.exports = (grunt) ->
  
 
   # Load plugins that provide tasks.
-  grunt.loadNpmTasks('grunt-jekyll');
+  grunt.loadNpmTasks 'grunt-jekyll'
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-bower-task'
   grunt.loadNpmTasks 'grunt-sync-pkg'
@@ -95,11 +94,11 @@ module.exports = (grunt) ->
   # =================== #
   # TASKS YOU CAN CALL: #
   #
-  grunt.registerTask    'install',      ['sync', 'bower:install']
-  grunt.registerTask    'lint',         ['coffeelint']
-  grunt.registerTask    'build',        ['compass:compile']
-  grunt.registerTask    'dist',         ['copy:distfiles', 'chmod:distdirs']
-  grunt.registerTask    'all',          ['install', 'build', 'lint', 'dist', 'watch']
+  grunt.registerTask 'install', ['sync', 'bower:install']
+  grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint']
+  grunt.registerTask 'build',   ['jekyll:build', 'compass:compile']
+  grunt.registerTask 'dist',    ['copy:distfiles', 'chmod:distdirs']
+  grunt.registerTask 'all',     ['install', 'build', 'lint', 'dist', 'watch']
 
   # ------------ . . . . . .
   # DEFAULT TASK when you just run `grunt`:
