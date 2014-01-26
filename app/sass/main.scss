@@ -231,3 +231,5 @@ main+aside {
 
 // Don't show shadows when selecting text
 @include selection-noshadows();
+
+@import "syntax";
