@@ -27,9 +27,15 @@ Features
 
   * New Susy (2.0.0, currently beta)
 
-    * Next-Generation Responsive CSS Grid Framework
+    * Next-Generation CSS Responsive Grid Framework.
 
-      * Simple, clean, excellent.
+    * Clean, elegant, excellent.
+
+  * Jekyll (1.4.3, stable)
+
+    * Awesome blog-aware template preprocessor for static sites.
+
+    * Also the recommended tool for users of Github Pages.
 
   * Integrated Package Management
 
@@ -47,7 +53,7 @@ Features
 
       * provided by virtualenvwrapper.npm
 
-    * bower is available for front-end assets
+    * bower is also in the build, if you wish to use it for front-end assets.
 
   * Grunt
 
@@ -58,3 +64,13 @@ Features
     * watch
 
       * livereload
+
+  * HTML5, CSS3
+
+    * Adheres to web standards.
+
+      * Microformats!
+
+      * Accessibility
+
+    * Blends progressive enhancement and graceful degredation for best overall user experience.
