@@ -28,10 +28,8 @@
             <nav role="navigation">
                 <ul>
                     <li><h1>Main Navigation</h1></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="/projects/">Projects</a></li>
-                    <li><a href="/résumé/">Résumé</a></li>
-                    <li><a href="/contact/">Contact Me</a></li>
+                    <li><a href="/"{% if page.name == 'about' %} class="current"{% endif %}>About</a></li>
+                    <li><a href="/résumé/"{% if page.name == 'résumé' %} class="current"{% endif %}>Résumé</a></li>
                 </ul>
             </nav>
 
@@ -47,21 +45,7 @@
                 <hr>
 
                 <h2>Contact Me</h2>
-                <ul>
-                    <li>Paul A. Prince</li>
-                    <li>Little Blue Technology</li>
-                    <li>
-                        <address>
-                            <ul>
-                                <li>169 Beaver St.</li>
-                                <li>Daniels, WV 25832</li>
-                                <li>USA</li>
-                            </ul>
-                        </address>
-                    </li>
-                    <li>Phone: +1 (304) 278-4401</li>
-                    <li>Email: <a href="mailto:paul@littlebluetech.com">paul@littlebluetech.com</a></li>
-                </ul>
+                {% include contact_info.html %}
             </aside>
 
 

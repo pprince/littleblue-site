@@ -60,14 +60,22 @@ a {
         left: 1px;
     }
 }
-a[href="#"] {
+a[href="#"], a.current {
     @include unstyled-link();
     cursor: default;
 }
 hr {
     @include fade-hr($base-color);
-    margin-top: $base-line-height/2 - 1px; // +1px for the 1px of height.
-    margin-bottom: $base-line-height/2;
+    margin-top: $base-line-height/2; // +1px for the 1px of height.
+    margin-bottom: $base-line-height/2 - 1px;
+}
+.vcard {
+    @include adjust-font-size-to(72%, 3/4);
+    padding-left: 1em;
+    padding-right: 1em;
+    a {
+        @include unstyled-link();
+    }
 }
 
 %button {
@@ -173,7 +181,7 @@ nav[role=navigation] {
                 &:hover {
                     background: rgba(white, 0.20);
                 }
-                &:hover[href="#"] {
+                &:hover[href="#"], &:hover.current {
                     background: transparent;
                 }
             }
@@ -211,6 +219,7 @@ main {
     }
 }
 main+aside {
+    @include adjust-font-size-to(84%);
     background-color: rgba(black,0.30);
     @include border-bottom-right-radius();
 
