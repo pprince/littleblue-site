@@ -21,6 +21,8 @@
 // Compass Vertical Rythyms
 @include establish-baseline;
 
+@include font-face('Overpass', font-files('overpass/overpass_regular-web.woff', 'overpass/overpass_regular-web.ttf', 'overpass/overpass_regular-web.svg'), 'overpass/overpass_regular-web.eot');
+
 body {
     font-family: $default-font;
     color: #ccc;
