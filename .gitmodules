@@ -1,0 +1,3 @@
+[submodule "app/sass/sass_icon_fonts"]
+	path = app/sass/sass_icon_fonts
+	url = git@github.com:pprince/sass_icon_fonts.git
