@@ -20,6 +20,7 @@ module.exports = (grunt) ->
       build:
         options:
           dest: 'app/build'
+          drafts: true
       lint:
         options:
           doctor: true
