@@ -7,7 +7,7 @@ module.exports = (grunt) ->
 
     clean:
       build:
-        src: ['app/build', 'app/.sass-cache']
+        src: ['app/_site', 'app/.sass-cache']
       dist:
         src: ['htdocs/*']
         options:
@@ -19,7 +19,7 @@ module.exports = (grunt) ->
         config: 'app/site/_config.yml'
       build:
         options:
-          dest: 'app/build'
+          dest: 'app/_site'
           drafts: true
       lint:
         options:
@@ -34,14 +34,14 @@ module.exports = (grunt) ->
           {
             cwd: 'app'
             src: ['images/**', 'fonts/**']
-            dest: 'app/build'
+            dest: 'app/_site'
             expand: true
           },
         ]
       dist:
         files: [
           {
-            cwd: 'app/build'
+            cwd: 'app/_site'
             src: ['**']
             dest: 'htdocs'
             expand: true

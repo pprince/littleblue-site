@@ -3,13 +3,12 @@ require 'breakpoint'
 require 'susy'
 require 'sassy-buttons'
 
-#                                           Defaults:
-http_path       = "/"                       # "/"
-sass_dir        = "sass"                    # "sass"
-css_dir         = "build/css"               # "stylesheets"
-images_dir      = "build/images"            # "images"
-fonts_dir       = "build/fonts"
-javascripts_dir = "build/js"
+http_path       = "/"
+sass_dir        = "sass"
+css_dir         = "_site/css"
+images_dir      = "images"
+fonts_dir       = "fonts"
+http_fonts_path = "/fonts"
 
 # Environment.  Default is :development.
 # environment    = :production
@@ -18,7 +17,7 @@ javascripts_dir = "build/js"
 # output_style = :expanded or :nested or :compact or :compressed
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
-relative_assets = true
+relative_assets = false
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false

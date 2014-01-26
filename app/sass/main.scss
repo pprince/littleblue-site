@@ -21,7 +21,28 @@
 // Compass Vertical Rythyms
 @include establish-baseline;
 
-@include font-face('Overpass', font-files('overpass/overpass_regular-web.woff', 'overpass/overpass_regular-web.ttf', 'overpass/overpass_regular-web.svg'), 'overpass/overpass_regular-web.eot');
+
+@include font-face( 'Overpass',
+    font-files(
+        'overpass/overpass_regular-web.woff',
+        'overpass/overpass_regular-web.ttf',
+        'overpass/overpass_regular-web.svg'
+    ),
+    'overpass/overpass_regular-web.eot',
+    normal,
+    normal
+);
+@include font-face( 'Overpass',
+    font-files(
+        'overpass/overpass_bold-web.woff',
+        'overpass/overpass_bold-web.ttf',
+        'overpass/overpass_bold-web.svg'
+    ),
+    'overpass/overpass_bold-web.eot',
+    bold,
+    normal
+);
+
 
 body {
     font-family: $default-font;
@@ -90,19 +111,19 @@ body button, body *[role=button] {
 
 #{headings()}, hgroup {
     font-family: $heading-font;
-    font-weight: bold;
-    font-style: italic;
+    //font-weight: bold;
+    //font-style: italic;
     color: $base-color;
 }
 h1 {
     font-style: normal;
     @include adjust-font-size-to(227%);
-    @include text-shadow(1px 1px 1px rgba(#111, 0.50));
+    @include text-shadow(1px 1px 1px rgba(#111, 0.35));
 }
 h2 {
     font-style: normal;
     @include adjust-font-size-to(178%);
-    @include text-shadow(1px 1px 1px rgba(#111, 0.50));
+    @include text-shadow(1px 1px 1px rgba(#111, 0.35));
 }
 h3 {
     @include adjust-font-size-to(138%);
@@ -123,8 +144,8 @@ main > hgroup {
         color: lighten($base-color,10%);
         @include adjust-leading-to(1.8);
         @include trailer(0.2);
-        margin-left: 0.6em;
-        margin-right: 0.6em;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
     }
 }
 
