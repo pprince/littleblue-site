@@ -7,7 +7,7 @@ module.exports = (grunt) ->
 
     clean:
       build:
-        src: ['app/build']
+        src: ['app/build', 'app/.sass-cache']
       dist:
         src: ['htdocs/*']
         options:
