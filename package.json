@@ -1,6 +1,19 @@
 {
   "name": "littleblue-site",
   "version": "0.1.2",
+  "description": "Source code for my website.",
+  "keywords": "example template html5 css3 compass sass susy grunt",
+  "license": "MIT",
+  "author": {
+    "name": "Paul A. Prince",
+    "email": "paul@littlebluetech.com",
+    "url": "http://littlebluetech.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/pprince/littleblue-site.git"
+  },
+  "private": true,
   "main": "htdocs/index.html",
   "devDependencies": {
     "grunt": "~0.4.2",
@@ -26,7 +39,9 @@
     "decomponentify": "0.0.3",
     "browserify": "~3.19.1",
     "grunt-browserify": "~1.3.0",
-    "grunt-contrib-clean": "~0.5.0"
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-css-metrics": "~0.1.2",
+    "grunt-sloc": "~0.4.2"
   },
   "dependencies": {
     "grunt-jekyll": "~0.4.1"

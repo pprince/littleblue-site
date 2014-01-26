@@ -70,13 +70,14 @@ module.exports = (grunt) ->
         files: ['htdocs/**']
         options:
           livereload: true
-
  
     bower:
       install:
         options:
           copy: false
-    sync: {}
+
+    sync:
+      include: ['name', 'version', 'main', 'ignore', 'private']
       
     compass:
       compile:
@@ -90,6 +91,15 @@ module.exports = (grunt) ->
         indentation:                { level: 'warn' }
         max_line_length:            { level: 'warn' }
         no_trailing_whitespace:     { level: 'warn' }
+
+    cssmetrics:
+      dev:
+        src: ['app/_site/css/**.css']
+
+    sloc:
+      options:
+        tolerant: true
+      '.': ['**.coffee', '**.cs', '**.js', '**.py']
  
 
   # Load plugins that provide tasks.
@@ -103,6 +113,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-css-metrics'
+  grunt.loadNpmTasks 'grunt-sloc'
   #grunt.loadNpmTasks 'grunt-env'
   #grunt.loadNpmTasks 'grunt-contrib-uglify'
   #grunt.loadNpmTasks 'grunt-contrib-concat'
@@ -115,7 +127,7 @@ module.exports = (grunt) ->
   # TASKS YOU CAN CALL: #
   #
   grunt.registerTask 'install', ['sync', 'bower:install']
-  grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint']
+  grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
   grunt.registerTask 'build',   ['jekyll:build', 'compass:compile', 'copy:build']
   grunt.registerTask 'dist',    ['copy:dist', 'chmod:dist']
   grunt.registerTask 'all',     ['clean', 'install', 'build', 'lint', 'dist', 'watch']
