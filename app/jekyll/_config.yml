@@ -1,4 +1,5 @@
 name: Your New Jekyll Site
+drafts: true
 markdown: redcarpet
 pygments: true
 encoding: UTF-8

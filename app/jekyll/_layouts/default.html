@@ -2,43 +2,71 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/main.css">
+
         <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+        <!-- FIXME: For development only. -->
+        <script src="http://vps.littlebluetech.com:35729/livereload.js"></script>
 
     </head>
     <body>
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
+        <!-- for sticky footer -->
+        <div id="wrap">
 
-          {{ content }}
+            <header role="banner">
+                <hgroup>
+                <h1>Little Blue Tech</h1>
+                <h2>A witty tag-line should be invented.</h2>
+                </hgroup>
+            </header>
 
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
+
+            <nav role="navigation">
+                <ul>
+                    <li><h1>Main Navigation</h1></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="/projects/">Projects</a></li>
+                    <li><a href="/résumé/">Résumé</a></li>
+                    <li><a href="/contact/">Contact Me</a></li>
+                </ul>
+            </nav>
+
+
+            <main>{{ content }}</main>
+
+
+            <aside>
+
+                <h2>Some Buttons</h2>
+                <p>Sed ut, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae explicabo.</p> 
+                <a href="/" role="button">Home</a>
+                <a href="//google.com/" role="button">Google</a>
+                <p>Lorem sit amet. Ut enim ad minim veniam, quis nostrud exercitation ullamco labo. Duis aute irure dolor in reprehenderit laborum.</p>
+
+            </aside>
+
+
+            <!-- /for sticky footer -->
+            <div id="push"></div>
+        </div><!-- /div id=wrap -->
+
+        <!-- note: footer must be only element outside of #wrap. -->
+        <footer role="contentinfo">
+
+
+            &copy; 2014
+            <a href="mailto:paul@littlebluetech.com">Paul Prince</a>,
+            released
+            <a href="https://github.com/pprince/littleblue-site/">on GitHub</a>
+            under the
+            <a href="http://opensource.org/licenses/MIT">MIT License</a>.
+
+
+        </footer>
 
     </body>
 </html>
