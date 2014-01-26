@@ -15,8 +15,8 @@ module.exports = (grunt) ->
 
     jekyll:
       options:
-        src: 'app/jekyll'
-        config: 'app/jekyll/_config.yml'
+        src: 'app/site'
+        config: 'app/site/_config.yml'
       build:
         options:
           dest: 'app/build'
@@ -64,7 +64,7 @@ module.exports = (grunt) ->
         files: ['app/sass/**']
         tasks: ['build', 'dist']
       jekyll:
-        files: ['app/jekyll/**']
+        files: ['app/site/**']
         tasks: ['build', 'dist']
       livereload:
         files: ['htdocs/**']
