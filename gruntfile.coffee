@@ -21,6 +21,7 @@ module.exports = (grunt) ->
         options:
           dest: 'app/_site'
           drafts: true
+          future: true
       lint:
         options:
           doctor: true
@@ -59,7 +60,7 @@ module.exports = (grunt) ->
     watch:
       statics:
         files: ['app/images/**', 'app/fonts/**']
-        tasks: ['copy:distfiles', 'chmod:distdirs']
+        tasks: ['copy:dist', 'chmod:dist']
       compass:
         files: ['app/sass/**']
         tasks: ['build', 'dist']

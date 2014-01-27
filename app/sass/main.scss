@@ -106,7 +106,9 @@ hr {
     background-color: #111;
     font-family: 'Inconsolata', monospace;
     overflow: auto;
-    @include rhythm-borders(1px)
+    @include rhythm-borders(1px, 0.5);
+    @include box-shadow();
+    @include border-radius();
 }
 
 %button {
@@ -114,7 +116,16 @@ hr {
     @include box-shadow;
 }
 body button, body *[role=button] {
-    @extend %button
+    @extend %button;
+}
+
+.metadata {
+    text-align: right;
+    @include adjust-font-size-to(85%);
+    color: #444;
+    .label {
+        color: #777;
+    }
 }
 
 #{headings()}, hgroup {

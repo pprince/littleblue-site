@@ -1,4 +1,12 @@
 name: Little Blue
-markdown: redcarpet
-pygments: true
 encoding: UTF-8
+pygments: true
+markdown: redcarpet
+redcarpet:
+    extensions: 
+        - smart
+        - tables
+        - autolink
+        - superscript
+        - strikethrough
+        - no_intra_emphasis

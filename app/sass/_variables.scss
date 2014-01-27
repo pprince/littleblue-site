@@ -7,11 +7,14 @@ $little-blue:   hsl(220, 100%, 60%);
 $base-color:    $little-blue;
 
 // ...for Compass
+//   .. vertical rhythms
 $base-font-size:        16px;
 $base-line-height:      24px;
 $rhythm-unit:           "rem";
 $rem-with-px-fallback:  true;
 $default-border-radius: $base-line-height/3;
+//   .. box-shadow() mixin
+$default-box-shadow-blur: $base-line-height/2 - 3px;
 
 // ...for Sassy-Buttons.
 $sb-base-color:         #245de1;    // Base color of your button
