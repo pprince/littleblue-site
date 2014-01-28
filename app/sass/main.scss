@@ -7,18 +7,15 @@
 @import "sassy-buttons";
 @import "breakpoint";
 @import "susy";
-@import "littlebluelib";
+
+@import "littleblue";
 
 
-// Unlike most imports, '@import "compass/reset";' and
+// Unlike most imports, '@import "compass/reset";' will 
 // actually cause CSS to be generated in the output file.
 @import "compass/reset";
 
-// this comes from susy.
-// DEATH TO THE CSS CONTENT BOX MODEL!
-@include global-box-sizing();
-
-// Compass Vertical Rythyms
+@include global-box-sizing;
 @include establish-baseline;
 
 
