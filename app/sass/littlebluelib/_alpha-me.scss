@@ -104,25 +104,3 @@ Thanks to John W. Long (@johnwlong) whose work is the heart of this mixin.
         #{$property}: #{$attributes} $color-solid;
         #{$property}: #{$attributes} $color;
 }
-
-body { background: #529ef0; }
-.box {
-        width: 100px; height: 100px;
-        position: absolute;
-        margin: auto;
-        top: 0; right: 0; bottom: 0; left: 0;
-
-        text-align:center; line-height: 100px; 
-
-        // 2 attributes
-        @include alpha-me(color, rgba(black,.5));
-
-        // 3 attributes
-        @include alpha-me(background-color, rgba(#dffa14,.5), #529ef0);
-
-        // 3 attributes
-        @include alpha-me(box-shadow, 1px 1px 2px, rgba(white, .25));
-
-        // 4 attributes
-        @include alpha-me(border, 3px solid, rgba(240,20,200,.5), #DADADA);
-}
