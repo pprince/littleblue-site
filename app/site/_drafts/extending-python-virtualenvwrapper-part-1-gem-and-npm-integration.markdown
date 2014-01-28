@@ -15,7 +15,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
-~~~ python
+{% highlight python %}
 def post_activate_source(args):
     return """
 if [ -e "${VIRTUAL_ENV}/.gem" ]; then
@@ -31,13 +31,13 @@ if [ -e "${VIRTUAL_ENV}/.gem" ]; then
 fi
 
 """
-~~~
+{% endhighlight %}
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
-~~~ sh
+{% highlight sh %}
 if [ -e "${VIRTUAL_ENV}/.gem" ]; then
     if [ -n "${_OLD_GEM_HOME+x}" ]; then
         GEM_HOME="$_OLD_GEM_HOME"
@@ -55,7 +55,7 @@ if [ -e "${VIRTUAL_ENV}/.gem" ]; then
         unset GEM_PATH
     fi
 fi
-~~~
+{% endhighlight %}
 
 A Second Section
 ----------------

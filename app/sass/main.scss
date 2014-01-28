@@ -181,6 +181,7 @@ header[role=banner] {
         font-weight: normal;
         padding-left: 1rem;
         padding-right: 1rem;
+        @include outline-text(#ddd);
     }
     h2 {
         display: none;

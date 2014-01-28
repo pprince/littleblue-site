@@ -100,7 +100,7 @@ module.exports = (grunt) ->
     sloc:
       options:
         tolerant: true
-      '.': ['**.coffee', '**.cs', '**.js', '**.py']
+      '.': ['*.coffee', '*.cs', '*.js', '*.py']
  
 
   # Load plugins that provide tasks.
@@ -127,13 +127,13 @@ module.exports = (grunt) ->
   # =================== #
   # TASKS YOU CAN CALL: #
   #
-  grunt.registerTask 'install', ['sync', 'bower:install']
+  grunt.registerTask 'install', ['bower:install']
   grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
-  grunt.registerTask 'build',   ['jekyll:build', 'compass:compile', 'copy:build']
-  grunt.registerTask 'dist',    ['copy:dist', 'chmod:dist']
-  grunt.registerTask 'all',     ['clean', 'install', 'build', 'lint', 'dist', 'watch']
+  grunt.registerTask 'build',   ['clean:build', 'jekyll:build', 'compass:compile', 'copy:build']
+  grunt.registerTask 'dist',    ['clean:dist', 'copy:dist', 'chmod:dist']
+  grunt.registerTask 'all',     ['sync', 'install', 'build', 'lint', 'dist', 'watch']
 
   # ------------ . . . . . .
   # DEFAULT TASK when you just run `grunt`:
   # ---------------------------------------
-  grunt.registerTask 'default', ['clean', 'build', 'dist']
+  grunt.registerTask 'default', ['build', 'dist']
