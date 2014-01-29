@@ -16,7 +16,7 @@ module.exports = (grunt) ->
     jekyll:
       options:
         src: 'app/site'
-        config: 'app/site/_config.yml'
+        config: 'config/jekyll/config.yml'
       build:
         options:
           dest: 'app/_site'
@@ -84,8 +84,9 @@ module.exports = (grunt) ->
     compass:
       compile:
         options:
-          config: 'app/config.rb'
+          config: 'config/compass/config.rb'
           basePath: 'app/'
+          importPath: 'lib/sass'
 
     coffeelint:
       gruntfile: ['gruntfile.coffee']
