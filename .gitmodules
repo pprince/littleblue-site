@@ -1,6 +1,0 @@
-[submodule "app/sass/sass_icon_fonts"]
-	path = lib/sass/sass_icon_fonts
-	url = git@github.com:pprince/sass_icon_fonts.git
-[submodule "app/images/subtlepatterns"]
-	path = app/images/subtlepatterns
-	url = git@github.com:pprince/subtlepatterns.git
