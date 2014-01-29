@@ -9,18 +9,11 @@ css_dir         = "_site/css"
 images_dir      = "images"
 fonts_dir       = "fonts"
 http_fonts_path = "/fonts"
-
-# Environment.  Default is :development.
-# environment    = :production
-
-# You can select your preferred output style here (can be overridden via the command line):
-# output_style = :expanded or :nested or :compact or :compressed
-
-# To enable relative paths to assets via compass helper functions. Uncomment:
 relative_assets = false
-
-# To disable debugging comments that display the original location of your selectors. Uncomment:
-# line_comments = false
+output_style    = :nested
+line_comments   = false
+environment     = :development
+# environment     = :production
 
 
 # If you prefer the indented syntax, you might want to regenerate this
