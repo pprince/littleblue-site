@@ -2,6 +2,8 @@
 layout: post
 title: "Extending Python Virtualenvwrapper"
 subtitle: "Ruby and Node.js Integration"
+titlehtml: "Ex&shy;tend&shy;ing Py&shy;thon Virt&shy;ual&shy;env&shy;wrap&shy;per"
+subtitle: "Ruby and Node.js Inte&shy;grat&shy;ion"
 tags: python virtualenv virtualenvwrapper ruby gem bundler nodejs npm shell sh sysadmin development
 ---
 

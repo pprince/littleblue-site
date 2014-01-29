@@ -2,13 +2,24 @@
 layout: default
 ---
 <div class="post">
-    {% if page.subtitle %}
+    {% if page.subtitle || page.subtitlehtml %}
         <hgroup>
-            <h1>{{ page.title }}&nbsp;:</h1>
-            <h2>{{ page.subtitle }}</h2>
-        </hgroup>
+    {% endif %}
+
+    {% if page.titlehtml %}
+            <h1>{{ page.titlehtml }}</h1>
     {% else %}
-        <h1>{{ page.title }}</h1>
+            <h1>{{ page.title }}&nbsp;:</h1>
+    {% endif %}
+
+    {% if page.subtitlehtml %}
+            <h2>{{ page.subtitlehtml }}</h2>
+    {% else %}
+            <h2>{{ page.subtitle }}</h2>
+    {% endif %}
+
+    {% if page.subtitle || page.subtitlehtml %}
+        </hgroup>
     {% endif %}
 
     <div class="metadata">
