@@ -71,6 +71,7 @@ module.exports = (grunt) ->
         files: ['htdocs/**']
         options:
           livereload: true
+          interrupt: true
  
     bower:
       install:
@@ -131,6 +132,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
   grunt.registerTask 'build',   ['clean:build', 'jekyll:build', 'compass:compile', 'copy:build']
   grunt.registerTask 'dist',    ['clean:dist', 'copy:dist', 'chmod:dist']
+  grunt.registerTask 'run',     ['default', 'watch']
   grunt.registerTask 'all',     ['sync', 'install', 'build', 'lint', 'dist', 'watch']
 
   # ------------ . . . . . .

@@ -5,6 +5,7 @@
 //$little-blue:   #245de1;
 $little-blue:   hsl(220, 100%, 60%);
 $base-color:    $little-blue;
+$accent-color:  lighten(invert($base-color),10%);
 
 // ...for Compass
 //   .. vertical rhythms
@@ -15,25 +16,31 @@ $rem-with-px-fallback:  true;
 $default-border-radius: $base-line-height/3;
 //   .. box-shadow() mixin
 $default-box-shadow-blur: $base-line-height/2 - 3px;
+//   .. text-shadow() mixin
+$default-text-shadow-h-offset:  3px;
+$default-text-shadow-v-offset:  3px;
+$default-text-shadow-blur:      6px;
+$default-text-shadow-spread:    false;
+$default-text-shadow-color:     rgba(black, 0.70);
 
 // ...for Sassy-Buttons.
-$sb-base-color:         #245de1;    // Base color of your button
-$sb-second-color:       false;      // Optional second color of button gradient
-$sb-border-radius:      $default-border-radius/2;       // Button border radius
-$sb-border-width:       2px;        // Button border width
-$sb-padding:            $base-line-height/2 - 1px;      // Button padding
-$sb-font-size:          $base-font-size;                // Button font-size
-$sb-line-height:        $base-line-height;              // Button line-height
-$sb-text-color:         #eee;       // Button text color
-$sb-text-style:         "inset";    // Button text shadow style
-$sb-gradient-style:     "shiny";    // Button gradient style
-$sb-auto-states:        true;       // Automatically create pseudo styles 
+$sb-auto-states:        true;
+$sb-padding:            $base-line-height/2 - 1px;
+$sb-font-size:          $base-font-size;
+$sb-line-height:        $base-line-height;
+$sb-border-radius:      $default-border-radius/2;
+$sb-border-width:       2px;
+$sb-text-color:         #eee;
+$sb-text-style:         "inset";
+$sb-gradient-style:     "shiny";
+$sb-base-color:         $base-color;
+$sb-second-color:       false;
 
 // ...for Susy
 $global-box-sizing:     border-box;
 $susy: (
     columns: 12,
-    container: 900px,
+    container: 1150px,
     gutters: 1/4,
     gutter-position: inside,
     debug: (
@@ -42,8 +49,14 @@ $susy: (
     ),
 );
 
-@import url('http://fonts.googleapis.com/css?family=Droid+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic,700,700italic|Reenie+Beanie|Puritan');
+// Google Fonts:
+// Open+Sans:400,400italic,700,700italic,800&subset=latin
+// Droid+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic,700,700italic
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic&subset=latin|Inconsolata');
 
-$default-font:  'Droid Sans', 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-$heading-font:  'Overpass', serif;
-$banner-font:   'Overpass', 'Droid Serif', serif;
+// FONTS:
+$default-font-face: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+$default-heading-font-face: $default-font-face;
+$default-banner-font-face: $default-font-face;
+$default-banner-heading-font-face: $default-heading-font-face;
+$default-monospace-font-face: 'Inconsolata', monospace;

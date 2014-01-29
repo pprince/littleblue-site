@@ -1,21 +1,22 @@
 ---
 layout: default
 ---
-<div class="metadata">
-    <span class="label">Published</span> <date itemprop="datePublished" pubdate datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %d, %Y' }}</date>
-</div>
-
 <div class="post">
     {% if page.subtitle %}
         <hgroup>
-            <h1>{{ page.title }}</h1>
+            <h1>{{ page.title }}&nbsp;:</h1>
             <h2>{{ page.subtitle }}</h2>
         </hgroup>
     {% else %}
         <h1>{{ page.title }}</h1>
     {% endif %}
 
+    <div class="metadata">
+        <span class="label">Published</span> <date itemprop="datePublished" pubdate datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %d, %Y' }}</date>
+    </div>
+
     <hr>
 
     {{ content }}
+
 </div>

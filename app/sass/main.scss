@@ -18,7 +18,6 @@
 @include global-box-sizing;
 @include establish-baseline;
 
-
 @include font-face( 'Overpass',
     font-files(
         'overpass/overpass_regular-web.woff',
@@ -41,15 +40,20 @@
 );
 
 
-body {
-    font-family: $default-font;
-    color: #ccc;
-    background-color: #333;
-    //background: url('/images/subtle_patterns/pinstriped_suit.png');
+html {
+    height: 100%;
 }
-p {
-    @include margin-leader();
-    @include margin-trailer();
+body {
+    font-family: $default-font-face;
+    color: #ccc;
+    //background-color: #333;
+    //background: url('/images/subtle_patterns/pinstriped_suit.png');
+    @include background( linear_gradient(left top, #555, #111) );
+    background-attachment: fixed;
+    @include breakpoint(450px) {
+        padding-left: 1.2em;
+        padding-right: 1.2em;
+    }
 }
 b, strong {
     font-weight: bold;
@@ -60,6 +64,9 @@ i, em {
 s {
     // FIXME: strike-through text.
 }
+%small {
+    @include adjust-font-size-to(84%, 1);
+}
 a {
     color: $base-color;
     text-decoration: none;
@@ -68,13 +75,13 @@ a {
         color: $base-color;
     }
     &:hover {
-        color: invert($base-color);
+        color: $accent-color;
     }
     &:focus {
-        color: invert($base-color);
+        color: $accent-color;
     }
     &:active {
-        color: darken(invert($base-color),15%);
+        color: darken($accent-color,5%);
         position: relative;
         top: 1px;
         left: 1px;
@@ -89,52 +96,26 @@ hr {
     margin-top: $base-line-height/2; // +1px for the 1px of height.
     margin-bottom: $base-line-height/2 - 1px;
 }
-.vcard {
-    @include adjust-font-size-to(72%, 3/4);
-    padding-left: 1em;
-    padding-right: 1em;
-    a {
-        @include unstyled-link();
-    }
-}
 
-@import "syntax";
-.highlight {
-    background-color: #111;
-    font-family: 'Inconsolata', monospace;
-    overflow: auto;
-    @include rhythm-borders(1px, 0.5);
-    @include box-shadow();
-    @include border-radius();
+p, #{headings()}, hgroup {
+    @include rhythm-margins(0.5, 0.5)
 }
-
-%button {
-    @include sassy-button;
-    @include box-shadow;
-}
-body button, body *[role=button] {
-    @extend %button;
-}
-
-.metadata {
-    text-align: right;
-    @include adjust-font-size-to(85%);
-    color: #444;
-    .label {
-        color: #777;
-    }
-}
-
 #{headings()}, hgroup {
-    font-family: $heading-font;
-    //font-weight: bold;
-    //font-style: italic;
+    font-family: $default-heading-font-face;
+    font-weight: bold;
+    font-style: italic;
     color: $base-color;
+}
+hgroup {
+    #{headings()} {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }
 h1 {
     font-style: normal;
     @include adjust-font-size-to(227%);
-    @include text-shadow(1px 1px 1px rgba(#111, 0.35));
+    @include text-shadow(1px 1px 2px rgba(#111, 0.35));
 }
 h2 {
     font-style: normal;
@@ -155,16 +136,6 @@ h6 {
     color: darken($base-color,10%);
 }
 
-main > hgroup {
-    h2 {
-        color: lighten($base-color,10%);
-        @include adjust-leading-to(1.8);
-        @include trailer(0.2);
-        margin-left: 0.5em;
-        margin-right: 0.5em;
-    }
-}
-
 header[role=banner] {
     text-align: left;
     @include padding-leader(0.7);
@@ -174,36 +145,25 @@ header[role=banner] {
         text-align: center;
     }
     #{headings()} {
-        font-family: $banner-font;
+        font-family: $default-banner-heading-font-face;
+        margin-top: 0;
+        margin-bottom: 0;
     }
     h1 {
         @include adjust-font-size-to(380%);
-        font-weight: normal;
         padding-left: 1rem;
         padding-right: 1rem;
-        @include outline-text(#ddd);
+        letter-spacing: 2px;
+        @include outline-text(#ddd, true);
     }
     h2 {
         display: none;
     }
 }
 
-@include sticky-footer($base-line-height, "#wrap", "#push", "footer[role=contentinfo]");
-#wrap {
-    // for susy..
-    @include container;
-}
-footer[role=contentinfo] {
-    background-color: rgba(black,0.6);
-    text-align: center;
-    max-width: susy-get(container);
-    margin: 0 auto;
-    @include adjust-font-size-to(87%, 1);
-    @include border-top-radius();
-}
-
 nav[role=navigation] {
-    background-color: rgba(black,0.6);
+    font-weight: bold;
+    @include background( linear_gradient(rgba(black,0.20), rgba(black, 0.40) 25%, rgba(black, 0.60)) );
     text-align: center;
     @include full;
     @include border-top-radius();
@@ -233,9 +193,8 @@ nav[role=navigation] {
 }
 
 main, main+aside {
-    @include padding-leader();
-    @include padding-trailer();
-    @include margin-trailer();
+    @include rhythm-padding(0.5, 0.5);
+    @include margin-trailer(1);
 }
 main {
     color: #222;
@@ -257,26 +216,97 @@ main {
         padding-left: 2.8em;
         padding-right: 2.8em;
     }
+    hgroup {
+        #{headings()} {
+        }
+        h1 {
+            color: scale-lightness($base-color, 10%);
+        }
+        h2 {
+            color: scale-lightness($base-color, 20%);
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+        }
+    }
 }
 main+aside {
-    @include adjust-font-size-to(84%);
-    background-color: rgba(black,0.30);
-    @include border-bottom-right-radius();
+    @extend %small;
+
+    @include background( linear_gradient(rgba(black,0.60), rgba(black, 0.20)) );
 
     @include span(12);
     padding-left: 1em;
     padding-right: 1em;
+    @include border-radius();
 
     @include breakpoint(450px) {
-        padding-left: 1em;
-        padding-right: 1em;
+        padding-left: 1.2em;
+        padding-right: 1.2em;
+        @include border-radius();
     }
     @include breakpoint(777px) {
         @include span(4);
         padding-left: 1.8em;
         padding-right: 1.8em;
+        @include border-radius(0px);
+        @include border-bottom-right-radius();
     }
 }
 
-// Don't show shadows when selecting text
-@include selection-noshadows();
+footer[role=contentinfo] {
+    @extend %small;
+    background-color: rgba(black,0.6);
+    text-align: center;
+    max-width: susy-get(container);
+    margin: 0 auto;
+    @include border-top-radius();
+}
+@include sticky-footer($base-line-height, "#wrap", "#push", "footer[role=contentinfo]");
+#wrap {
+    // for susy..
+    @include container;
+}
+
+%button {
+    @include sassy-button;
+    @include box-shadow;
+}
+button, *[role=button] {
+    @extend %button;
+}
+
+.vcard {
+    @include adjust-font-size-to(72%, 3/4);
+    padding-left: 1em;
+    padding-right: 1em;
+    a {
+        @include unstyled-link();
+    }
+}
+
+.metadata {
+    text-align: right;
+    @include adjust-font-size-to(85%);
+    color: #444;
+    .label {
+        color: #777;
+    }
+}
+
+@import "syntax";
+.highlight {
+    background-color: #111;
+    font-family: $default-monospace-font-face;
+    overflow: auto;
+    @include rhythm-borders(1px, 0.5);
+    @include rhythm-margins(1, 1);
+    @include box-shadow();
+    @include border-radius();
+}
+
+@import "compass/css3/selection";
+* {
+    @include selection(#5af, #fff) {
+        text-shadow: none;
+    }
+}
