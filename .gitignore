@@ -5,3 +5,4 @@
 /app/_site/
 !/app/_site/css/README.markdown
 .sass-cache/
+.bundle/
