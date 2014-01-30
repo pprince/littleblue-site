@@ -42,7 +42,7 @@ i, em {
     text-decoration: italic;
 }
 s {
-    // FIXME: strike-through text.
+    text-decoration: line-through;
 }
 %small {
     @include adjust-font-size-to(84%);
@@ -110,7 +110,7 @@ h6 {
     color: darken($base-color,14%);
 }
 hgroup>h1+h2 {
-    @include margin-leader(0);
+    @include margin-leader(1);
 }
 
 header[role=banner] {
@@ -171,6 +171,7 @@ main {
 main>article, main>section {
     color: #222;
     background-color: rgba(white, 0.85);
+    @include padding-trailer;
     @include border-radius;
 
     // responsive
