@@ -17,7 +17,6 @@ module.exports = (grunt) ->
       options:
         src: 'app/site'
         config: 'config/jekyll/config.yml'
-        layouts: 'app/layouts'
       build:
         options:
           dest: 'app/_site'
@@ -59,6 +58,10 @@ module.exports = (grunt) ->
         expand: true
     
     watch:
+      options:
+        spawn: false
+        interrupt: true
+        debounceDelay: 200
       statics:
         files: ['app/images/**', 'app/fonts/**']
         tasks: ['copy:dist', 'chmod:dist']
@@ -72,7 +75,6 @@ module.exports = (grunt) ->
         files: ['htdocs/**']
         options:
           livereload: true
-          interrupt: true
  
     bower:
       install:

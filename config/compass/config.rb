@@ -7,7 +7,7 @@ sass_dir        = "app/stylesheets"
 images_dir      = "app/images"
 fonts_dir       = "app/fonts"
 
-css_dir         = "_site/css"
+css_dir         = "app/_site/css"
 
 http_path       = "/"
 http_fonts_path = "/fonts"
