@@ -96,8 +96,6 @@ a[href="#"], a.current {
 }
 hr {
     @include fade-hr($base-color);
-    margin-top: $base-line-height/2;
-    margin-bottom: $base-line-height/2 - 1px;
 }
 
 p, #{headings()}, hgroup {
@@ -196,7 +194,6 @@ nav[role=navigation] {
 
 main {
     @include container;
-    background: rgba(black, 0.30);
     @include border-bottom-radius();
     @include padding-trailer;
     @include margin-trailer;

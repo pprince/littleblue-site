@@ -4,4 +4,5 @@
     @include background(
         linear-gradient(to right, transparent, $color, transparent)
     );
+    margin-top: -1px;
 }
