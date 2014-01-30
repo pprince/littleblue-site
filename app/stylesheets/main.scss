@@ -8,12 +8,13 @@
 // BlueBox, the collection of handy SASS tools from LittleBlue.
 @import "bluebox";
 
-// other global imports:
+// Other SASS tools
 @import "compass";
 @import "breakpoint";
 @import "susy";
 @import "sassy-buttons";
 
+// this project's submodules
 @import "layouts/sticky_footer";
 
 @include global-box-sizing;
