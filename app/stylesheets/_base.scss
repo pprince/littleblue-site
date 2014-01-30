@@ -8,14 +8,18 @@ $base-color:    $little-blue;
 $accent-color:  lighten(invert($base-color),10%);
 
 // ...for Compass
+//
+
 //   .. vertical rhythms
 $base-font-size:        16px;
 $base-line-height:      24px;
 $rhythm-unit:           "rem";
 $rem-with-px-fallback:  true;
 $default-border-radius: $base-line-height/3;
+
 //   .. box-shadow() mixin
 $default-box-shadow-blur: $base-line-height/2 - 3px;
+
 //   .. text-shadow() mixin
 $default-text-shadow-h-offset:  3px;
 $default-text-shadow-v-offset:  3px;
@@ -37,6 +41,7 @@ $sb-base-color:         $base-color;
 $sb-second-color:       false;
 
 // ...for Susy
+//
 $global-box-sizing:     border-box;
 $susy: (
     columns: 12,
@@ -49,14 +54,4 @@ $susy: (
     ),
 );
 
-// Google Fonts:
-// Open+Sans:400,400italic,700,700italic,800&subset=latin
-// Droid+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic,700,700italic
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic&subset=latin|Inconsolata');
-
-// FONTS:
-$default-font-face: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-$default-heading-font-face: $default-font-face;
-$default-banner-font-face: $default-font-face;
-$default-banner-heading-font-face: $default-heading-font-face;
-$default-monospace-font-face: 'Inconsolata', monospace;
+@import "typography/fonts";
