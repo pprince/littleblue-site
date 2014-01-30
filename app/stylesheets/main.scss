@@ -263,7 +263,8 @@ button, *[role=button] {
 }
 
 .vcard {
-    @include adjust-font-size-to(72%, 3/4);
+    @extend %small;
+    @include adjust-leading-to(3/4);
     padding-left: 1em;
     padding-right: 1em;
     a {
