@@ -66,7 +66,7 @@ s {
     // FIXME: strike-through text.
 }
 %small {
-    @include adjust-font-size-to(84%, 1);
+    @include adjust-font-size-to(84%);
 }
 a {
     color: $base-color;
@@ -135,13 +135,9 @@ h6 {
 }
 
 header[role=banner] {
-    text-align: left;
-    @include padding-leader;
-    @include padding-trailer;
-    @include full; // for susy..
-    @include breakpoint(700px) {
-        text-align: center;
-    }
+    text-align: center;
+    @include rhythm-padding;
+    @include full;
     #{headings()} {
         font-family: $default-banner-heading-font-face;
         margin-top: 0;
@@ -149,10 +145,8 @@ header[role=banner] {
     }
     h1 {
         @include adjust-font-size-to(340%);
-        padding-left: 1rem;
-        padding-right: 1rem;
-        letter-spacing: 2px;
         @include outline-text(#ddd, true);
+        letter-spacing: 2px;
     }
     h2 {
         display: none;
@@ -161,7 +155,6 @@ header[role=banner] {
 
 nav[role=navigation] {
     font-weight: bold;
-    @include background( linear_gradient(rgba(black,0.20), rgba(black, 0.40) 25%, rgba(black, 0.60)) );
     text-align: center;
     @include full;
     @include border-top-radius();
@@ -192,18 +185,14 @@ nav[role=navigation] {
 
 main {
     @include container;
-    @include border-bottom-radius();
-    @include padding-trailer;
-    @include margin-trailer;
-}
-main>article, main>aside {
+    @include border-radius();
+    background: linear-gradient(top right, rgba(black, 0.60), rgba(black, 0.20));
+    @include margin-trailer(1.5);
 }
 main>article {
     color: #222;
-    background-color: rgba(white, 0.80);
-
-    @include border-bottom-radius();
-
+    background-color: rgba(white, 0.85);
+    @include border-radius;
     @include span(12);
     padding-left: 1em;
     padding-right: 1em;
@@ -214,6 +203,9 @@ main>article {
     }
 
     @include breakpoint(777px) {
+        @include border-radius(0px);
+        @include border-top-right-radius;
+        @include border-bottom-radius;
         @include span(8);
         padding-left: 2.8em;
         padding-right: 2.8em;
@@ -233,35 +225,33 @@ main>article {
 }
 main>aside {
     @extend %small;
-
-    @include background( linear_gradient(rgba(black,0.60), rgba(black, 0.20)) );
-
     @include span(12);
     padding-left: 1em;
     padding-right: 1em;
-    @include border-radius();
+    @include padding-trailer;
+    @include border-radius;
 
     @include breakpoint(450px) {
         padding-left: 1.2em;
         padding-right: 1.2em;
-        @include border-radius();
     }
     @include breakpoint(777px) {
         @include span(4);
         padding-left: 1.8em;
         padding-right: 1.8em;
         @include border-radius(0px);
-        @include border-bottom-right-radius();
+        @include border-bottom-right-radius;
     }
 }
 
 footer[role=contentinfo] {
+    @include adjust-leading-to(1.5);
     @extend %small;
-    background-color: rgba(black,0.6);
+    background-color: rgba(black,0.3);
     text-align: center;
     max-width: susy-get(container);
     margin: 0 auto;
-    @include border-top-radius();
+    @include border-top-radius;
 }
 
 %button {
@@ -277,7 +267,7 @@ button, *[role=button] {
     padding-left: 1em;
     padding-right: 1em;
     a {
-        @include unstyled-link();
+        @include unstyled-link;
     }
 }
 
@@ -296,9 +286,9 @@ button, *[role=button] {
     font-family: $default-monospace-font-face;
     overflow: auto;
     @include rhythm-borders(1px, 0.5);
-    @include rhythm-margins(1, 1);
-    @include box-shadow();
-    @include border-radius();
+    @include rhythm-margins;
+    @include box-shadow;
+    @include border-radius;
 }
 
 @import "compass/css3/selection";

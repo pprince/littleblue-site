@@ -41,7 +41,7 @@ $global-box-sizing:     border-box;
 $susy: (
     columns: 12,
     container: 1150px,
-    gutters: 1/4,
+    gutters: 0,
     gutter-position: inside,
     debug: (
         output: overlay,

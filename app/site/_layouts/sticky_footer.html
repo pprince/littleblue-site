@@ -3,31 +3,31 @@ layout: base
 ---
 <div> <!-- sticky footer, wrap -->
 
-    <main>
-
         <header role="banner">
             {% include site_banner.html %}
         </header>
 
-        <nav role="navigation">
+        <main>
 
-            {% include site_navigation.html %}
+            <nav role="navigation">
 
-        </nav>
+                {% include site_navigation.html %}
 
-        <article>
+            </nav>
 
-            {{ content }}
-        
-        </article>
+            <article>
 
-        <aside>
+                {{ content }}
+            
+            </article>
 
-            {% include default_sidebar.html %}
+            <aside>
 
-        </aside>
+                {% include default_sidebar.html %}
 
-    </main>
+            </aside>
+
+        </main>
 
     <div></div> <!-- sticky footer, push -->
 
