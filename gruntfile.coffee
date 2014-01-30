@@ -17,6 +17,7 @@ module.exports = (grunt) ->
       options:
         src: 'app/site'
         config: 'config/jekyll/config.yml'
+        layouts: 'app/layouts'
       build:
         options:
           dest: 'app/_site'
@@ -76,7 +77,8 @@ module.exports = (grunt) ->
     bower:
       install:
         options:
-          copy: false
+          bowerOptions:
+            production: false
 
     sync:
       include: ['name', 'version', 'main', 'ignore', 'private']
@@ -85,7 +87,6 @@ module.exports = (grunt) ->
       compile:
         options:
           config: 'config/compass/config.rb'
-          basePath: 'app/'
           importPath: 'lib/sass'
 
     coffeelint:

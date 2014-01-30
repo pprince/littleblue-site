@@ -19,5 +19,8 @@
     "neat": "~1.5.0",
     "groundwork": "~2.4.0",
     "color-schemer": "*"
+  },
+  "exportsOverride": {
+    "*": {}
   }
 }
