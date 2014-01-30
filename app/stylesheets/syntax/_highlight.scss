@@ -1,0 +1,9 @@
+.highlight {
+    background-color: #111;
+    font-family: $default-monospace-font-face;
+    overflow: auto;
+    @include rhythm-borders(1px, 0.5);
+    @include rhythm-margins;
+    @include box-shadow;
+    @include border-radius;
+}

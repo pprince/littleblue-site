@@ -9,6 +9,29 @@ $default-monospace-font-face: 'Inconsolata', monospace;
 // Fonts Loading:
 // --------------
 
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic&subset=latin|Inconsolata');
-// Open+Sans:400,400italic,700,700italic,800&subset=latin
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Inconsolata:400,700');
 // Droid+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic,700,700italic
+
+
+/********
+@include font-face( 'Overpass',
+    font-files(
+        'overpass/overpass_regular-web.woff',
+        'overpass/overpass_regular-web.ttf',
+        'overpass/overpass_regular-web.svg'
+    ),
+    'overpass/overpass_regular-web.eot',
+    normal,
+    normal
+);
+@include font-face( 'Overpass',
+    font-files(
+        'overpass/overpass_bold-web.woff',
+        'overpass/overpass_bold-web.ttf',
+        'overpass/overpass_bold-web.svg'
+    ),
+    'overpass/overpass_bold-web.eot',
+    bold,
+    normal
+);
+********/
