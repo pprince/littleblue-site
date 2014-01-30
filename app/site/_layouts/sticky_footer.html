@@ -1,0 +1,39 @@
+---
+layout: base
+---
+<div> <!-- sticky footer, wrap -->
+
+    <main>
+
+        <header role="banner">
+            {% include site_banner.html %}
+        </header>
+
+        <nav role="navigation">
+
+            {% include site_navigation.html %}
+
+        </nav>
+
+        <article>
+
+            {{ content }}
+        
+        </article>
+
+        <aside>
+
+            {% include default_sidebar.html %}
+
+        </aside>
+
+    </main>
+
+    <div></div> <!-- sticky footer, push -->
+
+</div>
+
+<!-- sticky footer note: footer must be the only element outside of wrap div. -->
+<footer role="contentinfo">
+    {% include site_footer.html %}
+</footer>

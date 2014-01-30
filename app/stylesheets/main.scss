@@ -10,15 +10,14 @@
 
 // other global imports:
 @import "compass";
-@import "compass/layout";
 @import "breakpoint";
 @import "susy";
 @import "sassy-buttons";
 
+@import "layouts/sticky_footer";
 
 @include global-box-sizing;
 @include establish-baseline;
-
 
 /******************************
 @include font-face( 'Overpass',
@@ -97,12 +96,12 @@ a[href="#"], a.current {
 }
 hr {
     @include fade-hr($base-color);
-    margin-top: $base-line-height/2; // +1px for the 1px of height.
+    margin-top: $base-line-height/2;
     margin-bottom: $base-line-height/2 - 1px;
 }
 
 p, #{headings()}, hgroup {
-    @include rhythm-margins(0.5, 0.5)
+    @include rhythm-margins();
 }
 #{headings()}, hgroup {
     font-family: $default-heading-font-face;
@@ -112,18 +111,17 @@ p, #{headings()}, hgroup {
 }
 hgroup {
     #{headings()} {
-        margin-top: 0;
-        margin-bottom: 0;
+        @include rhythm-margins(0)
     }
 }
 h1 {
     font-style: normal;
-    @include adjust-font-size-to(227%);
+    @include adjust-font-size-to(218%);
     @include text-shadow(1px 1px 2px rgba(#111, 0.35));
 }
 h2 {
     font-style: normal;
-    @include adjust-font-size-to(178%);
+    @include adjust-font-size-to(168%);
     @include text-shadow(1px 1px 1px rgba(#111, 0.35));
 }
 h3 {
@@ -142,8 +140,8 @@ h6 {
 
 header[role=banner] {
     text-align: left;
-    @include padding-leader(0.7);
-    @include padding-trailer(0.3);
+    @include padding-leader;
+    @include padding-trailer;
     @include full; // for susy..
     @include breakpoint(700px) {
         text-align: center;
@@ -154,7 +152,7 @@ header[role=banner] {
         margin-bottom: 0;
     }
     h1 {
-        @include adjust-font-size-to(380%);
+        @include adjust-font-size-to(340%);
         padding-left: 1rem;
         padding-right: 1rem;
         letter-spacing: 2px;
@@ -174,14 +172,14 @@ nav[role=navigation] {
     ul {
         margin: 0 0.25em;
         @include inline-block-list();
-        @include margin-leader(0.25);
-        @include margin-trailer(0.25);
+        @include margin-leader(0.5);
+        @include margin-trailer(0.5);
         li {
             a {
                 display: block;
                 padding: 0 0.6em;
-                @include adjust-font-size-to(100%, 1.5);
-                @include border-radius(($base-line-height*1.5)/2);
+                @include adjust-font-size-to(122%, 2);
+                @include border-radius($base-line-height);
                 &:hover {
                     background: rgba(white, 0.20);
                 }
@@ -196,11 +194,16 @@ nav[role=navigation] {
     }
 }
 
-main, main+aside {
-    @include rhythm-padding(0.5, 0.5);
-    @include margin-trailer(1);
-}
 main {
+    @include container;
+    background: rgba(black, 0.30);
+    @include border-bottom-radius();
+    @include padding-trailer;
+    @include margin-trailer;
+}
+main>article, main>aside {
+}
+main>article {
     color: #222;
     background-color: rgba(white, 0.80);
 
@@ -233,7 +236,7 @@ main {
         }
     }
 }
-main+aside {
+main>aside {
     @extend %small;
 
     @include background( linear_gradient(rgba(black,0.60), rgba(black, 0.20)) );
@@ -264,11 +267,6 @@ footer[role=contentinfo] {
     max-width: susy-get(container);
     margin: 0 auto;
     @include border-top-radius();
-}
-@include sticky-footer($base-line-height, "#wrap", "#push", "footer[role=contentinfo]");
-#wrap {
-    // for susy..
-    @include container;
 }
 
 %button {
