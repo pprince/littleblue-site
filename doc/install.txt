@@ -31,7 +31,8 @@ install things "globally" into the virtualenv root:
 ---------------------------------------------------
     npm install -g grunt-cli
     pip install pygments
-    bundle install --no-cache
+    gem install bundler
+    bundle install
 
 
 install things "locally" into the project dir:
