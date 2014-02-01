@@ -5,6 +5,12 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON('package.json')
     env: process.env
 
+    connect:
+      server:
+        options:
+          port: 10001,
+          base: 'htdocs'
+
     clean:
       build:
         src: ['app/_site', 'app/.sass-cache']
@@ -119,6 +125,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-css-metrics'
   grunt.loadNpmTasks 'grunt-sloc'
   #grunt.loadNpmTasks 'grunt-env'
@@ -136,7 +143,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
   grunt.registerTask 'build',   ['clean:build', 'jekyll:build', 'compass:compile', 'copy:build']
   grunt.registerTask 'dist',    ['clean:dist', 'copy:dist', 'chmod:dist']
-  grunt.registerTask 'run',     ['default', 'watch']
+  grunt.registerTask 'run',     ['build', 'dist', 'connect', 'watch']
   grunt.registerTask 'all',     ['sync', 'install', 'build', 'lint', 'dist', 'watch']
 
   # ------------ . . . . . .
