@@ -1,17 +1,17 @@
 Prerequisites:
 --------------
 
-    These should be installed before continuing.  I typically install them system-wide.
-    
-    You can install even these dependencies into your homedir or another directory;
-    such configurations are left as an exercise.
+These should be installed before continuing.  I typically install them system-wide.
 
-    - nodejs
-    - python 2.7
-        - pip
-        - virtualenv
-        - virtualenvwrapper
-    - ruby 1.9.3
+You can install even these dependencies into your homedir or another directory;
+such configurations are left as an exercise.
+
+- nodejs
+- python 2.7
+    - pip
+    - virtualenv
+    - virtualenvwrapper
+- ruby 1.9.3
 
 
 Install stuff into your home directory:
