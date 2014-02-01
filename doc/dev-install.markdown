@@ -50,7 +50,7 @@ install things "globally" into the virtualenv root:
 ---------------------------------------------------
 
 ```
-pip install -r < requirements.txt
+pip install -r < requirements-dev.txt
 npm install -g grunt-cli
 gem install bundler
 bundle install
