@@ -28,7 +28,8 @@ html {
 body {
     font-family: $default-font-face;
     color: #ccc;
-    @include background( linear_gradient(left top, #777, black) );
+    background: url('/images/backgrounds/denim.png');
+    //@include background( linear_gradient(left top, #777, black) );
     background-attachment: fixed;
     @include breakpoint(450px) {
         padding-left: 1.2em;
