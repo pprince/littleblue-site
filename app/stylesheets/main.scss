@@ -31,7 +31,8 @@ body {
     background-color: #3d434a; // denim.png->#3d434a
     background: url('/images/backgrounds/denim.png');
     @include background(
-        linear_gradient(top left, transparent 20%, rgba(black, 0.5)),
+        radial_gradient(300px circle at center $base-line-height*7, color-stops(rgba(white,0.20), transparent)),
+        linear_gradient(top left, color-stops(transparent 20%, rgba(black, 0.50))),
         url('/images/backgrounds/denim.png')
     );
     background-attachment: fixed;
@@ -51,7 +52,7 @@ s {
 a {
     color: $base-color;
     text-decoration: none;
-    @include transition(all 0.13s);
+    @include transition(all 0.18s);
     &:visited {
         color: $base-color;
     }
