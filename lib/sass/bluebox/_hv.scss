@@ -11,8 +11,8 @@ $default-h-padding: $default-padding !default;
 
 $default-v-padding: $default-padding !default;
 @mixin v-padding($padding: $default-v-padding) {
-    padding-left: $padding;
-    padding-right: $padding;
+    padding-top: $padding;
+    padding-bottom: $padding;
 }
 
 $default-h-margins: $default-margins !default;
@@ -23,6 +23,6 @@ $default-h-margins: $default-margins !default;
 
 $default-v-margins: $default-margins !default;
 @mixin v-margins($margin: $default-v-margins) {
-    margin-left: $margin;
-    margin-right: $margin;
+    margin-top: $margin;
+    margin-bottom: $margin;
 }
