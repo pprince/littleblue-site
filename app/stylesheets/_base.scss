@@ -18,7 +18,8 @@ $rem-with-px-fallback:  true;
 $default-border-radius: $base-line-height/3;
 
 //   .. box-shadow() mixin
-$default-box-shadow-blur: $base-line-height/2 - 3px;
+$default-box-shadow-blur: $base-line-height/2;
+$default-box-shadow-color: #222;
 
 //   .. text-shadow() mixin
 $default-text-shadow-h-offset:  3px;
