@@ -15,7 +15,7 @@ gem 'breakpoint'
 
 #gem 'compass-normalize-plugin', :github => 'jzorn/compass-normalize-plugin'
 
-gem 'jekyll', :github => 'jekyll/jekyll', :tag => 'v1.4.3'
+gem 'jekyll', :github => 'jekyll/jekyll', :tag => 'v1.4.2'
 
 # bundle install --full-index --no-cache --system --retry 3 
 # bundle install --no-cache 
