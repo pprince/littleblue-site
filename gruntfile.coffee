@@ -64,19 +64,18 @@ module.exports = (grunt) ->
         expand: true
     
     watch:
-      options:
-        spawn: false
-        interrupt: true
-        debounceDelay: 200
       statics:
         files: ['app/images/**', 'app/fonts/**']
         tasks: ['copy:dist', 'chmod:dist']
       compass:
-        files: ['app/sass/**']
-        tasks: ['build', 'dist']
+        files: ['app/stylesheets/**']
+        tasks: ['compass:compile']
       jekyll:
         files: ['app/site/**']
-        tasks: ['build', 'dist']
+        tasks: ['jekyll:build']
+      dist:
+        files: ['app/_site/**']
+        tasks: ['dist']
       livereload:
         files: ['htdocs/**']
         options:
@@ -143,10 +142,10 @@ module.exports = (grunt) ->
   grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
   grunt.registerTask 'build',   ['clean:build', 'jekyll:build', 'compass:compile', 'copy:build']
   grunt.registerTask 'dist',    ['clean:dist', 'copy:dist', 'chmod:dist']
-  grunt.registerTask 'run',     ['build', 'dist', 'connect', 'watch']
-  grunt.registerTask 'all',     ['sync', 'install', 'build', 'lint', 'dist', 'watch']
+  grunt.registerTask 'run',     ['connect', 'watch']
+  grunt.registerTask 'all',     ['clean', 'sync', 'install', 'build', 'lint', 'dist', 'connect', 'watch']
 
   # ------------ . . . . . .
   # DEFAULT TASK when you just run `grunt`:
   # ---------------------------------------
-  grunt.registerTask 'default', ['build', 'dist']
+  grunt.registerTask 'default', ['build', 'dist', 'run']

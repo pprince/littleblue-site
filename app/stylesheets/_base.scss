@@ -42,16 +42,27 @@ $sb-second-color:       false;
 
 // ...for Susy
 //
-$global-box-sizing:     border-box;
+$global-box-sizing: border-box;
+
+// layout-small
 $susy: (
     columns: 12,
-    container: 1150px,
-    gutters: 0,
+    container: 1300px,
     gutter-position: inside,
+    gutters: 0,
     debug: (
         output: overlay,
         image: show,
-    ),
+    )
 );
 
+
+// ...Breakpoints
+$breakpoint-small:    450px;
+$breakpoint-medium:   777px;
+$breakpoint-large:   1150px;
+$breakpoint-x-large: 1400px;
+
+
+// ...Fonts
 @import "typography/fonts";

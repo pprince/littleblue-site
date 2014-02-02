@@ -1,0 +1,123 @@
+body {
+    @include container;
+}
+
+
+@include with-layout($susy) {
+
+    // X-SMALL
+    //  smaller phones
+    main {
+        @include span(12 nest);
+    }
+    main>article, main>section {
+        @include span(12);
+        padding-left: $base-line-height*3/4;
+        padding-right: $base-line-height*3/4;
+    }
+    main>aside {
+        @include span(12);
+        padding-left: $base-line-height/2;
+        padding-right: $base-line-height/2;
+    }
+
+    // SMALL
+    //  larger phones and smaller tablets
+    @include breakpoint ($breakpoint-small) {
+        body {
+            padding-left: $base-line-height/2;
+            padding-right: $base-line-height/2;
+        }
+        main {
+            padding-left: $base-line-height/2;
+            padding-right: $base-line-height/2;
+        }
+        main>article, main>section {
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+        }
+        main>aside {
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+    }
+
+    // MEDIUM
+    //  smaller desktops and larger tablets
+    //  TWO COLUMNS
+    @include breakpoint ($breakpoint-medium) {
+        body {
+            padding-left: $base-line-height;
+            padding-right: $base-line-height;
+        }
+        main {
+            padding-left: $base-line-height;
+            padding-right: $base-line-height;
+        }
+        main>article, main>section {
+            @include span(first 8);
+            padding-left: $base-line-height;
+            padding-right: $base-line-height;
+        }
+        main>aside {
+            @include span(last 4);
+            padding-left: $base-line-height;
+            padding-right: 0;
+        }
+    }
+
+    // LARGE
+    //  medium desktops
+    @include breakpoint ($breakpoint-large, '.no-mq') {
+        body {
+            padding-left: $base-line-height;
+            padding-right: $base-line-height;
+        }
+
+        main {
+            @include padding-trailer;
+            padding-left: $base-line-height;
+            padding-right: $base-line-height;
+        }
+
+        main>article, main>section {
+            @include span(first 8);
+            padding-left: $base-line-height*2;
+            padding-right: $base-line-height*2;
+        }
+
+        main>aside {
+            @include span(last 4);
+            padding-left: $base-line-height;
+            padding-right: 0;
+        }
+    }
+
+    // X-LARGE
+    //  larger desktops
+    //  (Not needed for this design.)
+    @include breakpoint ($breakpoint-x-large) {
+        body {
+            padding-left: $base-line-height;
+            padding-right: $base-line-height;
+        }
+
+        main {
+            @include padding-trailer;
+            padding-left: $base-line-height*1.5;
+            padding-right: $base-line-height*1.5;
+        }
+
+        main>article, main>section {
+            @include span(first 8);
+            padding-left: $base-line-height*3;
+            padding-right: $base-line-height*3;
+        }
+
+        main>aside {
+            @include span(last 4);
+            padding-left: $base-line-height*1.5;
+            padding-right: 0;
+        }
+    }
+}

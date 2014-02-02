@@ -31,10 +31,6 @@ body {
     background: url('/images/backgrounds/denim.png');
     //@include background( linear_gradient(left top, #777, black) );
     background-attachment: fixed;
-    @include breakpoint(450px) {
-        padding-left: 1.2em;
-        padding-right: 1.2em;
-    }
 }
 b, strong {
     font-weight: bold;
@@ -164,7 +160,6 @@ nav[role=navigation] {
 }
 
 main {
-    @include container;
     @include border-radius();
     background: linear-gradient(top right, rgba(black, 0.60), rgba(black, 0.20));
     @include margin-trailer(1.5);
@@ -174,44 +169,10 @@ main>article, main>section {
     background-color: rgba(white, 0.85);
     @include padding-trailer;
     @include border-radius;
-
-    // responsive
-    @include span(12);
-    padding-left: 1em;
-    padding-right: 1em;
-
-    @include breakpoint(450px) {
-        padding-left: 2.2em;
-        padding-right: 2.2em;
-    }
-
-    @include breakpoint(777px) {
-        @include span(8);
-        padding-left: 3.4em;
-        padding-right: 3.4em;
-    }
 }
 main>aside {
     @extend %small;
     @include padding-trailer;
-
-    // responsive
-    @include span(12);
-    padding-left: 1em;
-    padding-right: 1em;
-    @include border-radius;
-
-    @include breakpoint(450px) {
-        padding-left: 1.8em;
-        padding-right: 1.8em;
-    }
-    @include breakpoint(777px) {
-        @include span(4);
-        padding-left: 2.2em;
-        padding-right: 2.2em;
-        @include border-radius(0px);
-        @include border-bottom-right-radius;
-    }
 }
 main>aside>h3 {
     display: none;
@@ -278,3 +239,8 @@ article>hgroup:first-child, article>h1:first-child, article>h2:first-child, arti
         text-shadow: none;
     }
 }
+
+
+
+// This project's overrides of the above.
+@import "respond";
