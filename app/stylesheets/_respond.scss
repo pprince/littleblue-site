@@ -12,33 +12,27 @@ body {
     }
     main>article, main>section {
         @include span(12);
-        padding-left: $base-line-height*3/4;
-        padding-right: $base-line-height*3/4;
+        @include h-padding($base-line-height*3/4);
     }
     main>aside {
         @include span(12);
-        padding-left: $base-line-height/2;
-        padding-right: $base-line-height/2;
+        @include h-padding($base-line-height/2);
     }
 
     // SMALL
     //  larger phones and smaller tablets
     @include breakpoint ($breakpoint-small) {
         body {
-            padding-left: $base-line-height/2;
-            padding-right: $base-line-height/2;
+	    @include h-padding($base-line-height/2);
         }
         main {
-            padding-left: $base-line-height/2;
-            padding-right: $base-line-height/2;
+	    @include h-padding($base-line-height/2);
         }
         main>article, main>section {
-            padding-left: 1.5em;
-            padding-right: 1.5em;
+	    @include h-padding;
         }
         main>aside {
-            padding-left: 1em;
-            padding-right: 1em;
+	    @include h-padding($base-line-height*2/3);
         }
     }
 
@@ -47,17 +41,14 @@ body {
     //  TWO COLUMNS
     @include breakpoint ($breakpoint-medium) {
         body {
-            padding-left: $base-line-height;
-            padding-right: $base-line-height;
+            @include h-padding;
         }
         main {
-            padding-left: $base-line-height;
-            padding-right: $base-line-height;
+            @include h-padding;
         }
         main>article, main>section {
             @include span(first 8);
-            padding-left: $base-line-height;
-            padding-right: $base-line-height;
+            @include h-padding;
         }
         main>aside {
             @include span(last 4);
@@ -70,20 +61,17 @@ body {
     //  medium desktops
     @include breakpoint ($breakpoint-large, '.no-mq') {
         body {
-            padding-left: $base-line-height;
-            padding-right: $base-line-height;
+            @include h-padding;
         }
 
         main {
             @include padding-trailer;
-            padding-left: $base-line-height;
-            padding-right: $base-line-height;
+            @include h-padding;
         }
 
         main>article, main>section {
             @include span(first 8);
-            padding-left: $base-line-height*2;
-            padding-right: $base-line-height*2;
+            @include h-padding($base-line-height*2);
         }
 
         main>aside {
@@ -98,20 +86,17 @@ body {
     //  (Not needed for this design.)
     @include breakpoint ($breakpoint-x-large) {
         body {
-            padding-left: $base-line-height;
-            padding-right: $base-line-height;
+            @include h-padding;
         }
 
         main {
             @include padding-trailer;
-            padding-left: $base-line-height*1.5;
-            padding-right: $base-line-height*1.5;
+            @include h-padding($base-line-height*1.5);
         }
 
         main>article, main>section {
             @include span(first 8);
-            padding-left: $base-line-height*3;
-            padding-right: $base-line-height*3;
+            @include h-padding($base-line-height*3);
         }
 
         main>aside {
