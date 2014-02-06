@@ -39,6 +39,16 @@ GIT
       compass (>= 0.12.2)
 
 GIT
+  remote: git://github.com/pprince/bluesy-noise.git
+  revision: f11c8ae2e094cf614660a006becf5c667bfd626a
+  branch: ppdevel
+  specs:
+    bluesy-noise (0.5.0)
+      chunky_png
+      compass
+      rubystats
+
+GIT
   remote: git://github.com/pprince/compass.git
   revision: 71608a52307db8037373207b0f7ebe36b9c1fe51
   branch: ppdevel
@@ -61,16 +71,6 @@ GIT
   specs:
     sass (3.3.0.rc.2)
       listen (>= 1.1.0, < 2.0.0)
-
-GIT
-  remote: git://github.com/pprince/sassy_noise.git
-  revision: f11c8ae2e094cf614660a006becf5c667bfd626a
-  branch: ppdevel
-  specs:
-    bluesy-noise (0.5.0)
-      chunky_png
-      compass
-      rubystats
 
 GEM
   remote: https://rubygems.org/
@@ -116,6 +116,9 @@ GEM
     sassy-maps (0.3.1)
       compass (~> 1.0.0.alpha.13)
       sass (~> 3.3.0.rc.2)
+    sassy_noise (0.1.4)
+      chunky_png
+      compass
     toml (0.1.0)
       parslet (~> 1.5.0)
     yajl-ruby (1.1.0)
@@ -133,4 +136,5 @@ DEPENDENCIES
   jekyll-pandoc-multiple-formats!
   sass!
   sassy-buttons!
+  sassy_noise
   susy!
