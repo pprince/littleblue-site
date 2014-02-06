@@ -1,0 +1,88 @@
+@import "compass";
+
+.some-bluesy-noise {
+    background:
+        gnoise($width: 89, $height: 57, $sigma: 15.0), 
+        gnoise($width: 61, $height: 83, $sigma: 10.0), 
+        rgb(128, 128, 220);
+}
+
+.figure1, .figure2, .figure3, .figure4, .figure5 {
+    text-align: center;
+}
+
+.eg1, .eg2, .eg3, .eg4 {
+    border: 1px solid #fff;
+    float:  left;
+    width:  33%;
+    min-height: 96px;
+}
+.eg1 {
+    clear: left;
+}
+.eg3 {
+    clear: right;
+}
+
+.figure1, .figure2 {
+    display: block;
+    @include clearfix;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+$eg-color: #2288cc;
+
+.figure1 {
+    .eg1 {
+        background: $eg-color;
+    }
+    .eg2 {
+        background: background_noise($size: 31), $eg-color;
+    }
+    .eg3 {
+        background: gnoise($width: 31, $height: 31), $eg-color;
+    }
+}
+
+.figure2 {
+    .eg1 {
+        background: $eg-color;
+    }
+    .eg2 {
+        background:
+            background_noise(),
+            background_noise($size: 17),
+            background_noise($size: 19),
+            background_noise($size: 23),
+            background_noise($size: 29),
+        $eg-color;
+    }
+    .eg3 {
+        background:
+            gnoise($sigma: 8),
+            gnoise($width: 17, $height: 17, $sigma: 2),
+            gnoise($width: 19, $height: 19, $sigma: 3),
+            gnoise($width: 23, $height: 23, $sigma: 4),
+            gnoise($width: 29, $height: 29, $sigma: 6),
+        $eg-color;
+    }
+}
+
+.figure3 {
+    .eg1 {
+        background: $eg-color;
+    }
+    .eg2 {
+        background:
+            background_noise($size: 31, $intensity: 0.65, $opacity: 0.45),
+            background_noise($size: 29, $intensity: 0.65, $opacity: 0.45),
+        $eg-color;
+    }
+    .eg3 {
+        background:
+            gnoise($width: 31, $height: 31, $sigma: 30),
+            gnoise($width: 29, $height: 29, $sigma: 30),
+        $eg-color;
+    }
+}

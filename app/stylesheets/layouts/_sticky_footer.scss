@@ -1,2 +1,2 @@
 @import "compass/layout";
-@include sticky-footer($base-line-height*1.5, "body > div:first-child", "> div:last-child", "footer[role=contentinfo]");
+@include sticky-footer($base-line-height*1.5, "#sticky-footer-wrap", "#sticky-footer-push", "footer[role=contentinfo]");

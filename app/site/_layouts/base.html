@@ -10,7 +10,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="/css/main.css">
+        {% if site.data.css %}
+            {% for cssfile in site.data.css.files %}
+                <link rel="stylesheet" href="{{ cssfile }}">
+            {% endfor %}
+        {% endif %}
 
         <!-- FIXME: For development only. -->
         <script src="http://localhost:35729/livereload.js"></script>

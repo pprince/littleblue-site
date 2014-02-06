@@ -2,28 +2,35 @@
 layout: base
 ---
 <body>
-    <div> <!-- sticky footer, wrap -->
 
-            <header role="banner">
-    {% include site_banner.html %}
-            </header>
+{% if page.css %}
+    {% for cssfile in page.css %}
+        <link rel="stylesheet" href="{{ cssfile }}">
+    {% endfor %}
+{% endif %}
 
-            <main>
-                <nav role="navigation">
-    {% include site_navigation.html %}
-                </nav>
+    <div id="sticky-footer-wrap">
 
-    {{ content }}
+        <header role="banner">
+{% include site_banner.html %}
+        </header>
 
-                <aside>
-    {% include default_sidebar.html %}
-                </aside>
-            </main>
+        <main>
+            <nav role="navigation">
+{% include site_navigation.html %}
+            </nav>
 
-        <div></div> <!-- sticky footer, push -->
+{{ content }}
+
+            <aside>
+{% include default_sidebar.html %}
+            </aside>
+        </main>
+
+        <div id="sticky-footer-push"></div>
     </div>
     <!-- sticky footer note: footer must be the only element outside of wrap div. -->
     <footer role="contentinfo">
-        {% include site_footer.html %}
+{% include site_footer.html %}
     </footer>
 </body>

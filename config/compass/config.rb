@@ -3,6 +3,7 @@ require 'breakpoint'
 require 'susy'
 require 'sassy-buttons'
 require 'bluesy-noise'
+require 'sassy_noise'
 
 sass_dir        = "app/stylesheets"
 images_dir      = "app/images"
