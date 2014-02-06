@@ -32,8 +32,8 @@ body {
     @include background(
         radial_gradient(300px circle at center $base-line-height*3, color-stops(rgba(white,0.20), transparent)),
         linear_gradient(top left, color-stops(transparent 20%, rgba(black, 0.50))),
-        gnoise($width: 127px, $height: 127px, $sigma: 3),
-        gnoise($width: 41px, $height: 41px, $sigma: 1),
+        gnoise($width: 127px, $height: 127px, $sigma: 4),
+        gnoise($width: 41px, $height: 41px, $sigma: 1.5),
         #3d434a
     );
     background-attachment: fixed;
