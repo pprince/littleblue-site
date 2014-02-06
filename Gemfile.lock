@@ -64,13 +64,12 @@ GIT
 
 GIT
   remote: git://github.com/pprince/sassy_noise.git
-  revision: 851ec2a384170972b7cb9bedf4edf6b13ec6f843
+  revision: bba2d71111962d2445d71a7e9cd04f08359ede1a
   branch: ppdevel
   specs:
-    sassy_noise (0.1.4)
+    bluesy-noise (0.5.0)
       chunky_png
       compass
-      rubystats
 
 GEM
   remote: https://rubygems.org/
@@ -111,7 +110,6 @@ GEM
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
     redcarpet (2.3.0)
-    rubystats (0.2.3)
     safe_yaml (0.9.7)
     sassy-maps (0.3.1)
       compass (~> 1.0.0.alpha.13)
@@ -126,11 +124,11 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bluesy-noise!
   breakpoint
   compass!
   jekyll!
   jekyll-pandoc-multiple-formats!
   sass!
   sassy-buttons!
-  sassy_noise!
   susy!
