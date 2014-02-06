@@ -28,12 +28,13 @@ html {
 body {
     font-family: $default-font-face;
     color: #ccc;
-    background-color: #3d434a; // denim.png->#3d434a
-    background: url('/images/backgrounds/denim.png');
+    background: #3d434a; // denim.png->#3d434a
     @include background(
         radial_gradient(300px circle at center $base-line-height*3, color-stops(rgba(white,0.20), transparent)),
         linear_gradient(top left, color-stops(transparent 20%, rgba(black, 0.50))),
-        url('/images/backgrounds/denim.png')
+        gnoise($width: 127px, $height: 127px, $sigma: 3),
+        gnoise($width: 41px, $height: 41px, $sigma: 1),
+        #3d434a
     );
     background-attachment: fixed;
 }
