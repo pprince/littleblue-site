@@ -64,7 +64,7 @@ GIT
 
 GIT
   remote: git://github.com/pprince/sassy_noise.git
-  revision: 37413e9de46fa2a027dd5eac592939922d3ae2a0
+  revision: f11c8ae2e094cf614660a006becf5c667bfd626a
   branch: ppdevel
   specs:
     bluesy-noise (0.5.0)
