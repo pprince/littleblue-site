@@ -20,4 +20,4 @@ gem 'jekyll', :github => 'jekyll/jekyll', :tag => 'v1.4.2'
 # bundle install --full-index --no-cache --system --retry 3 
 # bundle install --no-cache 
 
-gem 'sassy_noise', :github => 'pprince/sassy_noise', :branch => 'ppdevel'
+gem 'bluesy-noise', :github => 'pprince/sassy_noise', :branch => 'ppdevel'
