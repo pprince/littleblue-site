@@ -44,6 +44,7 @@ $sb-second-color:       false;
 // ...for Susy
 //
 $global-box-sizing: border-box;
+$box-sizing: $global-box-sizing;
 
 // layout-small
 $susy: (
@@ -66,4 +67,8 @@ $breakpoint-x-large: 1222px;
 
 
 // ...Fonts
-@import "typography/fonts";
+@import "compass";
+@import "breakpoint";
+@import "susy";
+@import "sassy-buttons";
+

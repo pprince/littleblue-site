@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: git://github.com/jhardy/Sassy-Buttons.git
-  revision: 6746c8fb70844771b19a89a19001c2be9e729a96
+  revision: f0fae9fcfd231de64f09f2983df4549014452656
   specs:
     sassy-buttons (0.2.6)
       compass (>= 0.12.2)

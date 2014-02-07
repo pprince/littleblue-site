@@ -14,17 +14,29 @@
 @import "susy";
 @import "sassy-buttons";
 
+
+
+
+
 // this project's submodules
-@import "layouts/sticky_footer";
+
+@import "typography/fonts";
+@include establish-baseline;
+
+@import "sticky_footer";
 @import "syntax/highlight";
 @import "syntax/theme";
 
-@include global-box-sizing;
-@include establish-baseline;
+@include global-box-sizing(border-box);
 
+
+// In case the page is shorter than the viewport,
+// stretch the body (and page background) to fit it.
 html {
     height: 100%;
 }
+
+
 body {
     font-family: $default-font-face;
     color: #ccc;
@@ -32,8 +44,8 @@ body {
     @include background(
         radial_gradient(300px circle at center $base-line-height*3, color-stops(rgba(white,0.20), transparent)),
         linear_gradient(top left, color-stops(transparent 20%, rgba(black, 0.50))),
-        gnoise($width: 127px, $height: 127px, $sigma: 4),
-        gnoise($width: 41px, $height: 41px, $sigma: 1.5),
+        gnoise($width: 127px, $height: 127px, $sigma: 6),
+        gnoise($width: 41px, $height: 41px, $sigma: 3),
         #3d434a
     );
     background-attachment: fixed;
@@ -42,7 +54,7 @@ b, strong {
     font-weight: bold;
 }
 i, em {
-    text-decoration: italic;
+    font-style: italic;
 }
 s {
     text-decoration: line-through;
