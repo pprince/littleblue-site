@@ -1,0 +1,131 @@
+---
+layout: page
+css:
+    files:
+        - /css/demos/susy/susy-gallery.css
+title: Susy Grids
+subtitle: Quick Demo
+---
+
+<div id="wrap">
+
+<div id="gallery1" class="gallery-container">
+
+<div>Susy:</div>
+<div>Next</div>
+<div>Gen</div>
+<div>Grid</div>
+<div>Tool</div>
+
+</div>
+
+<div id="gallery2" class="gallery-container">
+
+<div>Uno</div>
+<div>Dos</div>
+<div>Tres</div>
+<div>Quatro</div>
+
+</div>
+
+<div id="gallery3" class="gallery-container">
+
+<div>Columns One and Two</div>
+<div>Column Three</div>
+<div>Second line...</div>
+<div>... ...</div>
+<div>... end.</div>
+
+</div>
+
+</div>
+
+
+{% highlight scss %}
+@import "susy";
+
+$susy: (
+    gutters: 0,
+    container: 100%,
+);
+
+#wrap {
+    border: 3px solid green;
+    text-align: center;
+}
+
+#gallery1, #gallery2, #gallery3 {
+    border: 3px solid red;
+    margin: 1em;
+}
+
+#gallery1>div, #gallery2>div, #gallery3>div {
+    border: 2px solid blue;
+    background-color: #faa;
+}
+
+#gallery1 {
+    @include container;
+}
+#gallery1>div {
+    @include span(1 of 5 gutters 1/4 split);
+}
+
+
+#gallery2 {
+    @include container;
+}
+#gallery2>div {
+        @include span(1 of 4 no-gutters);
+}
+
+
+#gallery3 {
+    @include container;
+}
+@include with-layout(3 gutters 1/6 split) {
+    #gallery3>div:first-of-type {
+        @include span(2);
+    }
+    #gallery3>div {
+        @include span(1);
+    }
+}
+{% endhighlight %}
+
+
+{% highlight html %}
+<div id="wrap">
+
+    <div id="gallery1" class="gallery-container">
+
+        <div>Susy:</div>
+        <div>Next</div>
+        <div>Gen</div>
+        <div>Grid</div>
+        <div>Tool</div>
+
+    </div>
+
+    <div id="gallery2" class="gallery-container">
+
+        <div>Uno</div>
+        <div>Dos</div>
+        <div>Tres</div>
+        <div>Quatro</div>
+
+    </div>
+
+    <div id="gallery3" class="gallery-container">
+
+        <div>Columns One and Two</div>
+        <div>Column Three</div>
+        <div>Second line...</div>
+        <div>... ...</div>
+        <div>... end.</div>
+
+    </div>
+
+</div>
+
+{% endhighlight %}
