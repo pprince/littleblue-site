@@ -5,29 +5,19 @@
 // actually cause CSS to be generated in the output file.
 @import "compass/reset";
 
-// BlueBox, the collection of handy SASS tools from LittleBlue.
-@import "bluebox/all";
-
-// Other SASS tools
-@import "compass";
-@import "breakpoint";
-@import "susy";
-@import "sassy-buttons";
-
-
-
-
-
 // this project's submodules
-
-@import "typography/fonts";
-@include establish-baseline;
-
+@import "fonts";
 @import "sticky_footer";
-@import "syntax/highlight";
-@import "syntax/theme";
+@import "syntax"
 
-@include global-box-sizing(border-box);
+// establish our box-sizing model globally
+// (provided by Susy; settings in _base.scss)
+@include global-box-sizing();
+
+
+// establish vertical rhythym a.k.a baseline grid
+// (provided by Compass; settings in _base.scss)
+@include establish-baseline;
 
 
 // In case the page is shorter than the viewport,
