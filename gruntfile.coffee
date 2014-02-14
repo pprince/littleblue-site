@@ -8,8 +8,10 @@ module.exports = (grunt) ->
     connect:
       server:
         options:
-          port: 10001,
+          port: 10001
           base: 'htdocs'
+          hostname: '*'
+          livereload: true
 
     clean:
       build:
