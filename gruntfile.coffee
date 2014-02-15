@@ -8,8 +8,11 @@ module.exports = (grunt) ->
     connect:
       server:
         options:
-          port: 10001,
+          port: 10002
           base: 'htdocs'
+          hostname: '*'
+          livereload: 10012
+
 
     clean:
       build:
@@ -79,7 +82,7 @@ module.exports = (grunt) ->
       livereload:
         files: ['htdocs/**']
         options:
-          livereload: true
+          livereload: 10012
  
     bower:
       install:

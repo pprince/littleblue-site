@@ -1,30 +1,21 @@
 @import "base";
 
 figure {
+    @include rhythm-margins;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     display: block;
     text-align: center;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
     color: #222;
     background-color: #ddd;
     border: 1px solid black;
-}
-
-.eg {
-    float:  left;
-    width:  33.333%;
-    min-height: 96px;
 }
 
 figure > figcaption {
     display: block;
     clear: both;
     width: 100%;
-    color: #ddd;
-    background-color: #222;
 }
 
 $eg-color: #2288cc;
@@ -96,4 +87,12 @@ figure {
     .eg:nth-child(3) {
         background: gnoise($sigma: 50), $eg-color;
     }
+}
+
+#figure5, #figure6, #figure7 {
+    @include container(100%);
+}
+#figure5>div, #figure6>div, #figure7>div {
+    @include span(1 of 10 gutters 1/4 split);
+    @include adjust-leading-to(3);
 }

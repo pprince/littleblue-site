@@ -8,8 +8,10 @@
 // this project's submodules
 @import "fonts";
 @import "typography";
-@import "sticky_footer";
+@import "sticky-footer";
+@import "body-background-fix";
 @import "syntax";
+@import "selection";
 
 // establish our box-sizing model globally
 // (provided by Susy; settings in _base.scss)
@@ -20,17 +22,9 @@
 // (provided by Compass; settings in _base.scss)
 @include establish-baseline;
 
-
-// In case the page is shorter than the viewport,
-// stretch the body (and page background) to fit it.
-html {
-    height: 100%;
-}
-
-
 body {
     color: #ccc;
-    background: #3d434a; // denim.png->#3d434a
+    background: #3d434a;
     @include background(
         radial_gradient(300px circle at center $base-line-height*3, color-stops(rgba(white,0.20), transparent)),
         linear_gradient(top left, color-stops(transparent 20%, rgba(black, 0.50))),
@@ -194,14 +188,6 @@ article>hgroup:first-child, article>h1:first-child, article>h2:first-child, arti
         color: #777;
     }
 }
-
-@import "compass/css3/selection";
-* {
-    @include selection(#5af, #fff) {
-        text-shadow: none;
-    }
-}
-
 
 
 // This project's overrides of the above.
