@@ -37,6 +37,8 @@ body {
         gnoise($width: 41px, $height: 41px, $sigma: 3),
         #3d434a
     );
+
+    // workaround for webkit background gradient bug?
     background-attachment: fixed;
 }
 

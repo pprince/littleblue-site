@@ -62,6 +62,8 @@ Bluesy Noise<br>
 <figcaption><em>Figure 4.</em> Extreme Intensity</figcaption>
 </figure>
 
+Noisy URIs
+----------
 
 <figure id="figure5" class='noisyuris'>
 <figcaption>Basic Noise</figcaption>
