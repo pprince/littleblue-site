@@ -1,31 +1,25 @@
 @import "base";
 
+$eg-color: #2288cc;
+
 figure {
-    @include rhythm-margins;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
     display: block;
+    @include container(90% center);
+    @include rhythm-margins;
     text-align: center;
-    color: #222;
-    background-color: #ddd;
-    border: 1px solid black;
 }
 
 figure > figcaption {
     display: block;
     clear: both;
-    width: 100%;
+    @include span(full);
 }
 
-$eg-color: #2288cc;
-
-figure {
-    .eg:nth-child(1) {
-        border-right: 1px solid #222;
-    }
-    .eg:nth-child(2) {
-        border-right: 1px solid #222;
+#figure1, #figure2, #figure3, #figure4 {
+    .eg {
+        @include span(1 of 3 gutters 1/6 split);
+        @include adjust-leading-to(3);
+        @include rhythm-margins(1/4);
     }
 }
 
@@ -89,10 +83,55 @@ figure {
     }
 }
 
-#figure5, #figure6, #figure7 {
-    @include container(100%);
-}
 #figure5>div, #figure6>div, #figure7>div {
-    @include span(1 of 10 gutters 1/4 split);
+    @include span(1 of 4 gutters 1/5 split);
     @include adjust-leading-to(3);
+    @include rhythm-margins(1/4);
+}
+
+#figure5 {
+    &>div:nth-of-type(1) { background: $eg-color; }
+    &>div:nth-of-type(2) { background: url($base-noise-001), $eg-color; }
+    &>div:nth-of-type(3) { background: url($base-noise-002), $eg-color; }
+    &>div:nth-of-type(4) { background: url($base-noise-003), $eg-color; }
+    &>div:nth-of-type(5) { background: url($base-noise-004), $eg-color; }
+    &>div:nth-of-type(6) { background: url($base-noise-005), $eg-color; }
+    &>div:nth-of-type(7) { background: url($base-noise-010), $eg-color; }
+    &>div:nth-of-type(8) { background: url($base-noise-020), $eg-color; }
+    &>div:nth-of-type(9) { background: url($base-noise-030), $eg-color; }
+    &>div:nth-of-type(10) { background: url($base-noise-040), $eg-color; }
+    &>div:nth-of-type(11) { background: url($base-noise-050), $eg-color; }
+    &>div:nth-of-type(12) { background: url($base-noise-060), $eg-color; }
+    &>div:nth-of-type(13) { background: url($base-noise-070), $eg-color; }
+    &>div:nth-of-type(14) { background: url($base-noise-080), $eg-color; }
+    &>div:nth-of-type(15) { background: url($base-noise-090), $eg-color; }
+    &>div:nth-of-type(16) { background: url($base-noise-100), $eg-color; }
+}
+#figure6 {
+    &>div:nth-of-type(1) { background: $eg-color; }
+    &>div:nth-of-type(2) { background: url($light-noise-005), $eg-color; }
+    &>div:nth-of-type(3) { background: url($light-noise-010), $eg-color; }
+    &>div:nth-of-type(4) { background: url($light-noise-020), $eg-color; }
+    &>div:nth-of-type(5) { background: url($light-noise-030), $eg-color; }
+    &>div:nth-of-type(6) { background: url($light-noise-040), $eg-color; }
+    &>div:nth-of-type(7) { background: url($light-noise-050), $eg-color; }
+    &>div:nth-of-type(8) { background: url($light-noise-060), $eg-color; }
+    &>div:nth-of-type(9) { background: url($light-noise-070), $eg-color; }
+    &>div:nth-of-type(10) { background: url($light-noise-080), $eg-color; }
+    &>div:nth-of-type(11) { background: url($light-noise-090), $eg-color; }
+    &>div:nth-of-type(12) { background: url($light-noise-100), $eg-color; }
+}
+#figure7 {
+    &>div:nth-of-type(1) { background: $eg-color; }
+    &>div:nth-of-type(2) { background: url($dark-noise-005), $eg-color; }
+    &>div:nth-of-type(3) { background: url($dark-noise-010), $eg-color; }
+    &>div:nth-of-type(4) { background: url($dark-noise-020), $eg-color; }
+    &>div:nth-of-type(5) { background: url($dark-noise-030), $eg-color; }
+    &>div:nth-of-type(6) { background: url($dark-noise-040), $eg-color; }
+    &>div:nth-of-type(7) { background: url($dark-noise-050), $eg-color; }
+    &>div:nth-of-type(8) { background: url($dark-noise-060), $eg-color; }
+    &>div:nth-of-type(9) { background: url($dark-noise-070), $eg-color; }
+    &>div:nth-of-type(10) { background: url($dark-noise-080), $eg-color; }
+    &>div:nth-of-type(11) { background: url($dark-noise-090), $eg-color; }
+    &>div:nth-of-type(12) { background: url($dark-noise-100), $eg-color; }
 }

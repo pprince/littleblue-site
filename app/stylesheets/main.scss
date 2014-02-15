@@ -9,7 +9,6 @@
 @import "fonts";
 @import "typography";
 @import "sticky-footer";
-@import "body-background-fix";
 @import "syntax";
 @import "selection";
 
@@ -22,7 +21,13 @@
 // (provided by Compass; settings in _base.scss)
 @include establish-baseline;
 
+html {
+    height: 100%;
+    margin: 0;
+}
 body {
+    height: 100%;
+    margin: 0;
     color: #ccc;
     background: #3d434a;
     @include background(
@@ -32,6 +37,7 @@ body {
         gnoise($width: 41px, $height: 41px, $sigma: 3),
         #3d434a
     );
+    background-attachment: fixed;
 }
 
 a {
