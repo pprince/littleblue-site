@@ -1,18 +1,10 @@
 GIT
   remote: git://github.com/ericam/susy.git
-  revision: c834b9070cc1fb17d493478114754e25c556d7a5
-  tag: 2.0.0.beta.3
+  revision: 02019f15a53808ccc782c42912100b471930fc6d
+  tag: 2.0.0.rc.1
   specs:
-    susy (2.0.0.beta.3)
+    susy (2.0.0.rc.1)
       sass (~> 3.3.0.rc.1)
-
-GIT
-  remote: git://github.com/fauno/jekyll-pandoc-multiple-formats.git
-  revision: abac1ec6e4a74d116a3c122d5ca727a75ee07c6a
-  branch: master
-  specs:
-    jekyll-pandoc-multiple-formats (0.0.6)
-      jekyll
 
 GIT
   remote: git://github.com/jekyll/jekyll.git
@@ -39,6 +31,13 @@ GIT
       compass (>= 0.12.2)
 
 GIT
+  remote: git://github.com/nex3/sass.git
+  revision: 575807f25cdd28ab2d5931f802059d19093fc656
+  tag: 3.3.0.rc.3
+  specs:
+    sass (3.3.0.rc.3)
+
+GIT
   remote: git://github.com/pprince/bluesy-noise.git
   revision: f11c8ae2e094cf614660a006becf5c667bfd626a
   branch: ppdevel
@@ -50,27 +49,28 @@ GIT
 
 GIT
   remote: git://github.com/pprince/compass.git
-  revision: 71608a52307db8037373207b0f7ebe36b9c1fe51
+  revision: 42d126ec415ea9d13cec97fb75affeedab18269a
   branch: ppdevel
   specs:
-    compass (1.0.0.alpha.17)
+    compass (1.0.0.alpha.18)
       chunky_png (~> 1.2)
-      compass-core (~> 1.0.0.alpha.16)
-      compass-import-once (~> 1.0.1)
+      compass-core (~> 1.0.0.alpha.17)
+      compass-import-once (~> 1.0.2)
       json
       listen (>= 1.1.0, < 2.0.0)
-      sass (~> 3.3.0.rc.1)
-    compass-core (1.0.0.alpha.16)
+      sass (~> 3.3.0.rc.3)
+    compass-core (1.0.0.alpha.17)
       multi_json (~> 1.0)
-      sass (>= 3.3.rc.1)
+      sass (>= 3.3.rc.3)
+    compass-import-once (1.0.2)
 
 GIT
-  remote: git://github.com/pprince/sass.git
-  revision: 3f7e7ed25b0334eaf057ccdaca93edebf2b57cfe
+  remote: git://github.com/pprince/jekyll-pandoc-multiple-formats.git
+  revision: a3cd9e293909c75a76e1611f250316f71584b074
   branch: ppdevel
   specs:
-    sass (3.3.0.rc.2)
-      listen (>= 1.1.0, < 2.0.0)
+    jekyll-pandoc-multiple-formats (0.0.6)
+      jekyll
 
 GEM
   remote: https://rubygems.org/
@@ -80,13 +80,12 @@ GEM
       compass (~> 1.0.0.alpha.13)
       sass (~> 3.3.0.rc.2)
       sassy-maps (< 1.0.0)
-    chunky_png (1.2.9)
+    chunky_png (1.3.0)
     classifier (1.3.4)
       fast-stemmer (>= 1.0.0)
     colorator (0.1)
-    commander (4.1.5)
+    commander (4.1.6)
       highline (~> 1.6.11)
-    compass-import-once (1.0.2)
     fast-stemmer (1.0.2)
     ffi (1.9.3)
     ffi (1.9.3-x86-mingw32)

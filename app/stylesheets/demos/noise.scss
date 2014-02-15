@@ -1,0 +1,137 @@
+@import "base";
+
+$eg-color: #2288cc;
+
+figure {
+    display: block;
+    @include container(90% center);
+    @include rhythm-margins;
+    text-align: center;
+}
+
+figure > figcaption {
+    display: block;
+    clear: both;
+    @include span(full);
+}
+
+#figure1, #figure2, #figure3, #figure4 {
+    .eg {
+        @include span(1 of 3 gutters 1/6 split);
+        @include adjust-leading-to(3);
+        @include rhythm-margins(1/4);
+    }
+}
+
+#figure1 {
+    .eg:nth-child(1) {
+        background: $eg-color;
+    }
+    .eg:nth-child(2) {
+        background: background_noise($size: 31), $eg-color;
+    }
+    .eg:nth-child(3) {
+        background: gnoise($width: 31, $height: 31), $eg-color;
+    }
+}
+
+#figure2 {
+    .eg:nth-child(1) {
+        background: $eg-color;
+    }
+    .eg:nth-child(2) {
+        background:
+            background_noise(),
+            background_noise($size: 17),
+            background_noise($size: 19),
+            background_noise($size: 23),
+            background_noise($size: 29),
+        $eg-color;
+    }
+    .eg:nth-child(3) {
+        background:
+            gnoise($sigma: 8),
+            gnoise($width: 17, $height: 17, $sigma: 2),
+            gnoise($width: 19, $height: 19, $sigma: 3),
+            gnoise($width: 23, $height: 23, $sigma: 4),
+            gnoise($width: 29, $height: 29, $sigma: 6),
+        $eg-color;
+    }
+}
+
+#figure3 {
+    .eg:nth-child(1) {
+        background: $eg-color;
+    }
+    .eg:nth-child(2) {
+        background: background_noise($intensity: 0.20, $opacity: 0.50), $eg-color;
+    }
+    .eg:nth-child(3) {
+        background: gnoise($sigma: 20), $eg-color;
+    }
+}
+
+#figure4 {
+    .eg:nth-child(1) {
+        background: $eg-color;
+    }
+    .eg:nth-child(2) {
+        background: background_noise($intensity: 0.60, $opacity: 0.70), $eg-color;
+    }
+    .eg:nth-child(3) {
+        background: gnoise($sigma: 50), $eg-color;
+    }
+}
+
+#figure5>div, #figure6>div, #figure7>div {
+    @include span(1 of 4 gutters 1/5 split);
+    @include adjust-leading-to(3);
+    @include rhythm-margins(1/4);
+}
+
+#figure5 {
+    &>div:nth-of-type(1) { background: $eg-color; }
+    &>div:nth-of-type(2) { background: url($base-noise-001), $eg-color; }
+    &>div:nth-of-type(3) { background: url($base-noise-002), $eg-color; }
+    &>div:nth-of-type(4) { background: url($base-noise-003), $eg-color; }
+    &>div:nth-of-type(5) { background: url($base-noise-004), $eg-color; }
+    &>div:nth-of-type(6) { background: url($base-noise-005), $eg-color; }
+    &>div:nth-of-type(7) { background: url($base-noise-010), $eg-color; }
+    &>div:nth-of-type(8) { background: url($base-noise-020), $eg-color; }
+    &>div:nth-of-type(9) { background: url($base-noise-030), $eg-color; }
+    &>div:nth-of-type(10) { background: url($base-noise-040), $eg-color; }
+    &>div:nth-of-type(11) { background: url($base-noise-050), $eg-color; }
+    &>div:nth-of-type(12) { background: url($base-noise-060), $eg-color; }
+    &>div:nth-of-type(13) { background: url($base-noise-070), $eg-color; }
+    &>div:nth-of-type(14) { background: url($base-noise-080), $eg-color; }
+    &>div:nth-of-type(15) { background: url($base-noise-090), $eg-color; }
+    &>div:nth-of-type(16) { background: url($base-noise-100), $eg-color; }
+}
+#figure6 {
+    &>div:nth-of-type(1) { background: $eg-color; }
+    &>div:nth-of-type(2) { background: url($light-noise-005), $eg-color; }
+    &>div:nth-of-type(3) { background: url($light-noise-010), $eg-color; }
+    &>div:nth-of-type(4) { background: url($light-noise-020), $eg-color; }
+    &>div:nth-of-type(5) { background: url($light-noise-030), $eg-color; }
+    &>div:nth-of-type(6) { background: url($light-noise-040), $eg-color; }
+    &>div:nth-of-type(7) { background: url($light-noise-050), $eg-color; }
+    &>div:nth-of-type(8) { background: url($light-noise-060), $eg-color; }
+    &>div:nth-of-type(9) { background: url($light-noise-070), $eg-color; }
+    &>div:nth-of-type(10) { background: url($light-noise-080), $eg-color; }
+    &>div:nth-of-type(11) { background: url($light-noise-090), $eg-color; }
+    &>div:nth-of-type(12) { background: url($light-noise-100), $eg-color; }
+}
+#figure7 {
+    &>div:nth-of-type(1) { background: $eg-color; }
+    &>div:nth-of-type(2) { background: url($dark-noise-005), $eg-color; }
+    &>div:nth-of-type(3) { background: url($dark-noise-010), $eg-color; }
+    &>div:nth-of-type(4) { background: url($dark-noise-020), $eg-color; }
+    &>div:nth-of-type(5) { background: url($dark-noise-030), $eg-color; }
+    &>div:nth-of-type(6) { background: url($dark-noise-040), $eg-color; }
+    &>div:nth-of-type(7) { background: url($dark-noise-050), $eg-color; }
+    &>div:nth-of-type(8) { background: url($dark-noise-060), $eg-color; }
+    &>div:nth-of-type(9) { background: url($dark-noise-070), $eg-color; }
+    &>div:nth-of-type(10) { background: url($dark-noise-080), $eg-color; }
+    &>div:nth-of-type(11) { background: url($dark-noise-090), $eg-color; }
+    &>div:nth-of-type(12) { background: url($dark-noise-100), $eg-color; }
+}
