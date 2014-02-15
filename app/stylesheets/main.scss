@@ -8,11 +8,11 @@
 // this project's submodules
 @import "fonts";
 @import "sticky_footer";
-@import "syntax"
+@import "syntax";
 
 // establish our box-sizing model globally
 // (provided by Susy; settings in _base.scss)
-@include global-box-sizing();
+@include global-box-sizing;
 
 
 // establish vertical rhythym a.k.a baseline grid
