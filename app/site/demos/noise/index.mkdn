@@ -7,65 +7,10 @@ title: Noise
 subtitle:  Inlining Alpha-PNG Noise Texture Images via Data URIs
 ---
 
-<figure id="figure1">
-<div class="eg">
-Base Color
-</div>
-<div class="eg">
-Sassy Noise
-</div>
-<div class="eg">
-Bluesy Noise
-</div>
-<figcaption><em>Figure 1.</em> Default Options</figcaption>
-</figure>
-
-
-<figure id="figure2">
-<div class="eg">
-Base Color
-</div>
-<div class="eg">
-Sassy Noise
-</div>
-<div class="eg">
-Bluesy Noise
-</div>
-<figcaption><em>Figure 2.</em> Multiple Sizes, Layered x5</figcaption>
-</figure>
-
-
-<figure id="figure3">
-<div class="eg">
-Base Color
-</div>
-<div class="eg">
-Sassy Noise<br>
-</div>
-<div class="eg">
-Bluesy Noise<br>
-</div>
-<figcaption><em>Figure 3.</em> Increased Intensity</figcaption>
-</figure>
-
-
-<figure id="figure4">
-<div class="eg">
-Base Color
-</div>
-<div class="eg">
-Sassy Noise<br>
-</div>
-<div class="eg">
-Bluesy Noise<br>
-</div>
-<figcaption><em>Figure 4.</em> Extreme Intensity</figcaption>
-</figure>
-
 Noisy URIs
-----------
+==========
 
-<figure id="figure5" class='noisyuris'>
+<figure id="figure5">
 <figcaption>Basic Noise</figcaption>
 <div><span>None</span></div>
 <div><span>1%</span></div>
@@ -85,7 +30,7 @@ Noisy URIs
 <div><span>100%</span></div>
 </figure>
 
-<figure id="figure6" class='noisyuris'>
+<figure id="figure6">
 <figcaption>Light Noise</figcaption>
 <div><span>None</span></div>
 <div><span>5%</span></div>
@@ -101,7 +46,7 @@ Noisy URIs
 <div><span>100%</span></div>
 </figure>
 
-<figure id="figure7" class='noisyuris'>
+<figure id="figure7">
 <figcaption>Dark Noise</figcaption>
 <div><span>None</span></div>
 <div><span>5%</span></div>
