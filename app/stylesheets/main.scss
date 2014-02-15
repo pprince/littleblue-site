@@ -7,6 +7,7 @@
 
 // this project's submodules
 @import "fonts";
+@import "typography";
 @import "sticky_footer";
 @import "syntax";
 
@@ -28,7 +29,6 @@ html {
 
 
 body {
-    font-family: $default-font-face;
     color: #ccc;
     background: #3d434a; // denim.png->#3d434a
     @include background(
@@ -38,20 +38,8 @@ body {
         gnoise($width: 41px, $height: 41px, $sigma: 3),
         #3d434a
     );
-    background-attachment: fixed;
 }
-b, strong {
-    font-weight: bold;
-}
-i, em {
-    font-style: italic;
-}
-s {
-    text-decoration: line-through;
-}
-%small {
-    @include adjust-font-size-to(84%);
-}
+
 a {
     color: $base-color;
     text-decoration: none;
@@ -76,47 +64,11 @@ a[href="#"], a.current {
     @include unstyled-link();
     cursor: default;
 }
-hr {
-    @include fade-hr($base-color);
-}
 
-p {
-    @include rhythm-margins();
-}
 #{headings()}, hgroup {
-    font-family: $default-heading-font-face;
-    font-weight: bold;
     color: $base-color;
 }
-h1 {
-    @include margin-leader(2);
-    @include adjust-font-size-to(218%);
-    @include text-shadow(1px 1px 2px rgba(#111, 0.35));
-}
-h2 {
-    @include margin-leader(2);
-    @include adjust-font-size-to(168%);
-    @include text-shadow(1px 1px 1px rgba(#111, 0.35));
-}
-h3 {
-    @include margin-leader;
-    @include adjust-font-size-to(152%);
-}
-h4 {
-    @include margin-leader;
-    @include adjust-font-size-to(138%);
-}
-h5 {
-    @include adjust-font-size-to(122%);
-    color: darken($base-color,8%);
-}
-h6 {
-    @include adjust-font-size-to(114%);
-    color: darken($base-color,14%);
-}
-hgroup>h1+h2 {
-    @include margin-leader(1);
-}
+
 
 header[role=banner] {
     text-align: center;
