@@ -1,10 +1,10 @@
 ---
-layout: demo
+layout: demotest
 css:
     files:
-        - /css/demos/noise.css
+        - /css/demotests/noise.css
 title: Noise
-subtitle:  Inlining Alpha-PNG Noise Texture Images via Data URIs
+subtitle:  Inlining Alpha-PNG Noise Textures with Data URIs
 ---
 
 Noisy URIs
