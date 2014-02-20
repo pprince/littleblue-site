@@ -1,44 +1,71 @@
-// Settings... //
-// ----------- //
+// _base.scss
+// ==========
+//
+// Global Variables, Settings, and Imports.
 
 
 // Color Theme
-//$little-blue:   #245de1;
-$little-blue:   hsl(220, 100%, 60%);
+// -----------
+//
+$little-blue:   hsl(220, 100%, 60%); // #3377ff
+$twitchy-red:   hsl(354, 100%, 31%); // #9f000f;
+//
 $base-color:    $little-blue;
 $accent-color:  lighten(invert($base-color),10%);
 
 
-// ...for Compass
+// Compass
+// -------
 //
-//   .. vertical rhythms
-$base-font-size:        16px;
+// Note: Compass is imported early because other SASS extensions make use of
+// its features if it is detected (e.g., Susy).
+//
+// ### Vertical Rhythms ###
+// 
+// a.k.a. "Baseline Grid", "vertical grid"
+//
+$base-font-size:        16px; // 16px is kindof a magic number; don't change it. FIXME: explaination.
 $base-line-height:      24px;
 $rhythm-unit:           "rem";
 $rem-with-px-fallback:  true;
+// ### border-radius() mixin ###
 $default-border-radius: $base-line-height/3;
-//   .. box-shadow() mixin
+// ### box-shadow() mixin ###
 $default-box-shadow-blur: $base-line-height/2;
 $default-box-shadow-color: #222;
-//   .. text-shadow() mixin
+// ### text-shadow() mixin ###
 $default-text-shadow-h-offset:  3px;
 $default-text-shadow-v-offset:  3px;
 $default-text-shadow-blur:      6px;
 $default-text-shadow-spread:    false;
 $default-text-shadow-color:     rgba(black, 0.70);
-//
 @import "compass";
+@import "compass/layout"; // this is not included when you `@import "compass"` (compass mis-feature.)
 
 
-// ...Breakpoints
-$breakpoint-small:    444px;
-$breakpoint-medium:   777px;
-$breakpoint-large:    999px;
-$breakpoint-x-large: 1222px;
+// Breakpoints
+// -----------
+//
+// a.k.a Responsive Layout.
+//
+// These define the key browser widths where we will make layout changes.
+//
+// We do "mobile first" design.  Whatever styles are specified apply to the
+// smallest screen size.  Then, our default styles are overriden for each wider
+// screen size in `_respond.scss`.
+//
+// Susy will detect and integrate with Breakpoint, so we need to import
+// Breakpoint before Susy.
+//
 @import "breakpoint";
+$breakpoint-small:    444px; // transition point from x-small to small
+$breakpoint-medium:   777px; // transition point from small to medium
+$breakpoint-large:    999px; // etc. etc.
+$breakpoint-x-large: 1222px;
 
 
-// layout-small
+// Susy
+// ----
 $susy: (
     columns: 12,
     container: 1300px,
@@ -47,13 +74,14 @@ $susy: (
     global-box-sizing: border-box,
     debug: (
         output: overlay,
-        image: show,
+        image: hide,
     )
 );
 @import "susy";
 
 
-// ...for Sassy-Buttons.
+// Sassy-Buttons
+// -------------
 $sb-auto-states:        true;
 $sb-padding:            $base-line-height/2 - 1px;
 $sb-font-size:          $base-font-size;
@@ -68,5 +96,9 @@ $sb-second-color:       false;
 @import "sassy-buttons";
 
 
-// BlueBox, the collection of handy SASS tools from Little Blue.
+// BlueBox
+// -------
+//
+// A collection of handy SASS tools from Little Blue (i.e., me.)
+//
 @import "bluebox/all";

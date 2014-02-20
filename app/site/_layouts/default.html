@@ -3,34 +3,37 @@ layout: base
 ---
 <body>
 
-{% if page.css %}
-    {% for cssfile in page.css.files %}
-        <link rel="stylesheet" href="{{ cssfile }}">
-    {% endfor %}
-{% endif %}
+    {% if page.css %}
+        {% for cssfile in page.css.files %}
+            <link rel="stylesheet" href="{{ cssfile }}">
+        {% endfor %}
+    {% endif %}
 
-    <div id="sticky-footer-wrap">
+    <div id="gridcontainer" class="sticky-footer-wrap">
 
         <header role="banner">
-{% include site_banner.html %}
+            {% include site_banner.html %}
         </header>
 
         <main>
             <nav role="navigation">
-{% include site_navigation.html %}
+                {% include site_navigation.html %}
             </nav>
 
-{{ content }}
+
+            {{ content }}
+
 
             <aside>
-{% include default_sidebar.html %}
+                {% include default_sidebar.html %}
             </aside>
         </main>
 
-        <div id="sticky-footer-push"></div>
+        <div class="sticky-footer-push"></div>
     </div>
-    <!-- sticky footer note: footer must be the only element outside of wrap div. -->
-    <footer role="contentinfo">
-{% include site_footer.html %}
+
+    <footer role="contentinfo" class="sticky-footer">
+        {% include site_footer.html %}
     </footer>
+
 </body>

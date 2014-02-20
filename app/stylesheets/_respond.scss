@@ -1,9 +1,8 @@
-body {
-    @include container;
-}
-
-
 @include with-layout($susy) {
+
+    #gridcontainer {
+        @include container;
+    }
 
     // X-SMALL
     //  smaller phones

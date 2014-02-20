@@ -1,6 +1,6 @@
 {
   "name": "littleblue-site",
-  "version": "0.1.2",
+  "version": "0.9.0",
   "private": true,
   "main": [
     "htdocs/index.html"
@@ -9,8 +9,7 @@
     "*"
   ],
   "dependencies": {},
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "exportsOverride": {
     "*": {}
   }

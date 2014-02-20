@@ -67,6 +67,9 @@ module.exports = (grunt) ->
         expand: true
     
     watch:
+      options:
+        interrupt: false
+        spawn: true
       statics:
         files: ['app/images/**', 'app/fonts/**']
         tasks: ['copy:dist', 'chmod:dist']
@@ -78,9 +81,9 @@ module.exports = (grunt) ->
         tasks: ['jekyll:build']
       dist:
         files: ['app/_site/**']
-        tasks: ['dist']
+        tasks: ['copy:dist', 'chmod:dist']
       livereload:
-        files: ['htdocs/**']
+        files: ['htdocs/**/*', 'htdocs/*']
         options:
           livereload: 10012
  

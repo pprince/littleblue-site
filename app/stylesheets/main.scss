@@ -1,16 +1,24 @@
-// this project's variable:
+// main.scss
+// =========
+//
+// This is the site-wide stylesheet, included on every page.
+//
+// It is more efficient to put everything in one file, main.css, than to have
+// the client download many litttle files.
+//
+// For our sanity, however, we seperate our styles into logical chunks and
+// modules, and then piece those together by importing and including them
+// elsewhere.
+
+
 @import "base";
+
 
 // Unlike most imports, '@import "compass/reset";' will 
 // actually cause CSS to be generated in the output file.
+// Therefore, it is not included when you `@import "compass"`.
 @import "compass/reset";
 
-// this project's submodules
-@import "fonts";
-@import "typography";
-@import "sticky-footer";
-@import "syntax";
-@import "selection";
 
 // establish our box-sizing model globally
 // (provided by Susy; settings in _base.scss)
@@ -21,26 +29,30 @@
 // (provided by Compass; settings in _base.scss)
 @include establish-baseline;
 
-html {
-    height: 100%;
-    margin: 0;
-}
+
+// this project's submodules
+@import "fonts";
+@import "typography";
+@import "syntax";
+@import "selection";
+
+
+@include sticky-footer($base-line-height*1.5, ".sticky-footer-wrap", ".sticky-footer-push", ".sticky-footer");
+
 body {
-    height: 100%;
-    margin: 0;
     color: #ccc;
-    background: #3d434a;
-    @include background(
-        radial_gradient(300px circle at center $base-line-height*3, color-stops(rgba(white,0.20), transparent)),
-        linear_gradient(top left, color-stops(transparent 20%, rgba(black, 0.50))),
-        gnoise($width: 127px, $height: 127px, $sigma: 6),
-        gnoise($width: 41px, $height: 41px, $sigma: 3),
+    @include background-with-css2-fallback(
+        url($base-noise-005),
         #3d434a
     );
-
-    // workaround for webkit background gradient bug?
-    background-attachment: fixed;
 }
+
+.sticky-footer-wrap {
+    @include background(
+        radial_gradient(300px circle at center $base-line-height*3, color-stops(rgba(white,0.20), transparent))
+    );
+}
+
 
 a {
     color: $base-color;
@@ -198,5 +210,5 @@ article>hgroup:first-child, article>h1:first-child, article>h2:first-child, arti
 }
 
 
-// This project's overrides of the above.
+// Overrides of the above:
 @import "respond";

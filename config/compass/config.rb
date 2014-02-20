@@ -1,7 +1,9 @@
 # Require any additional compass plugins here.
+require 'compass-import-once'
 require 'breakpoint'
 require 'susy'
 require 'sassy-buttons'
+
 require 'bluesy-noise'
 require 'sassy_noise'
 
