@@ -1,5 +1,5 @@
 # Require any additional compass plugins here.
-require 'compass-import-once'
+require 'compass/import-once/activate'
 require 'breakpoint'
 require 'susy'
 require 'sassy-buttons'

@@ -10,8 +10,9 @@
 $little-blue:   hsl(220, 100%, 60%); // #3377ff
 $twitchy-red:   hsl(354, 100%, 31%); // #9f000f;
 //
-$base-color:    $little-blue;
+$base-color:    $twitchy-red;
 $accent-color:  lighten(invert($base-color),10%);
+$page-bg-color: darken($base-color, 15%);
 
 
 // Compass

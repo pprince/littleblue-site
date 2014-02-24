@@ -44,10 +44,10 @@
         }
         main {
             @include h-padding;
+            @include padding-trailer;
         }
         main>article, main>section {
             @include span(first 8);
-            @include h-padding;
         }
         main>aside {
             @include span(last 4);
@@ -59,24 +59,9 @@
     // LARGE
     //  medium desktops
     @include breakpoint ($breakpoint-large, '.no-mq') {
-        body {
-            @include h-padding;
-        }
-
-        main {
-            @include padding-trailer;
-            @include h-padding;
-        }
 
         main>article, main>section {
-            @include span(first 8);
             @include h-padding($base-line-height*2);
-        }
-
-        main>aside {
-            @include span(last 4);
-            padding-left: $base-line-height;
-            padding-right: 0;
         }
     }
 
@@ -84,24 +69,16 @@
     //  larger desktops
     //  (Not needed for this design.)
     @include breakpoint ($breakpoint-x-large) {
-        body {
-            @include h-padding;
-        }
-
         main {
-            @include padding-trailer;
             @include h-padding($base-line-height*1.5);
         }
 
         main>article, main>section {
-            @include span(first 8);
             @include h-padding($base-line-height*3);
         }
 
         main>aside {
-            @include span(last 4);
             padding-left: $base-line-height*1.5;
-            padding-right: 0;
         }
     }
 }

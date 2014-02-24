@@ -42,8 +42,8 @@
 body {
     color: #ccc;
     @include background-with-css2-fallback(
-        url($base-noise-005),
-        #3d434a
+        url($dark-noise-005),
+        $page-bg-color
     );
 }
 
@@ -201,8 +201,8 @@ article>hgroup:first-child, article>h1:first-child, article>h2:first-child, arti
 }
 
 .metadata {
+    @extend %small;
     text-align: right;
-    @include adjust-font-size-to(85%);
     color: #444;
     .label {
         color: #777;
