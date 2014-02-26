@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem 'rake',
 gem 'jekyll', :github => 'jekyll/jekyll', :tag => 'v1.4.2'
 gem 'jekyll-pandoc-multiple-formats', :github => 'pprince/jekyll-pandoc-multiple-formats', :branch => 'ppdevel'
 #gem 'jekyll-pandoc-multiple-formats', :github => 'fauno/jekyll-pandoc-multiple-formats', :branch => 'master'
