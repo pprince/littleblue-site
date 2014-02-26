@@ -2,7 +2,6 @@
 /node_modules/
 /htdocs/
 /htdocs
-/app/_site/
-!/app/_site/css/README.markdown
+/BUILD
 .sass-cache/
 .bundle/

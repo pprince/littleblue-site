@@ -52,29 +52,29 @@ module.exports = (grunt) ->
 
     compass:
       options:
-        raw: 'require "compass/import-once/activate"\n' +
-          'require "breakpoint"\n' +
-          'require "susy"\n' +
-          'require "sassy-buttons"\n' +
-          'require "bluesy-noise"\n' +
-          'require "sassy_noise"\n' +
-          'sass_dir        = "site/compass/sass"\n' +
-          'images_dir      = "site/compass/images"\n' +
-          'fonts_dir       = "site/compass/fonts"\n' +
-          'http_path       = "/"\n' +
-          'http_fonts_path = "/fonts"\n' +
-          'relative_assets = false\n'
+        bundleExec: true
+        sassDir: 'site/compass/sass'
+        imagesDir: 'site/images'
+        javascriptsDir: 'site/javascript'
+        fontsDir: 'site/fonts'
+        httpPath: '/'
+        httpFontsPath: '/fonts'
+        relativeAssets: false
         importPath: 'lib/sass'
+        require: [ "compass/import-once/activate", "breakpoint", "susy", "sassy-buttons", "bluesy-noise", "sassy_noise" ]
       dev:
         options:
           environment: 'development'
           cssDir: 'BUILD/development/css'
           debugInfo: true
+          outputStyle: 'nested'
       prod:
         options:
           environment: 'production'
           cssDir: 'BUILD/production/css'
           debugInfo: false
+          outputStyle: 'compressed'
+          noLineComments: true
       clean: {}
       compile: {}
 
