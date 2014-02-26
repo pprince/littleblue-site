@@ -17,8 +17,22 @@ module.exports = (grunt) ->
 
     jekyll:
       options:
-        src: 'app/site'
-        config: 'config/jekyll/config.yml'
+        bundleExec: true
+        src: 'site/jekyll'
+        raw: 'encoding: UTF-8\n' +
+          'name: Twitchy\n' +
+          'gems:\n' +
+          '    - jekyll-pandoc-multiple-formats\n' +
+          'markdown: pandoc\n' +
+          'highlighter: none\n' +
+          'pandoc:\n' +
+          '    skip: true\n' +
+          '    output: "./tmp"\n' +
+          '    flags: "--smart"\n' +
+          '    site_flags: "--toc"\n' +
+          '    outputs:\n' +
+          '        pdf:\n' +
+          '        epub:'
       build:
         options:
           dest: 'app/_site'
@@ -29,11 +43,26 @@ module.exports = (grunt) ->
           doctor: true
 
     compass:
+      options:
+        raw: 'require "compass/import-once/activate"\n' +
+          'require "breakpoint"\n' +
+          'require "susy"\n' +
+          'require "sassy-buttons"\n' +
+          'require "bluesy-noise"\n' +
+          'require "sassy_noise"\n' +
+          'sass_dir        = "app/stylesheets"\n' +
+          'images_dir      = "app/images"\n' +
+          'fonts_dir       = "app/fonts"\n' +
+          'css_dir         = "app/_site/css"\n' +
+          'http_path       = "/"\n' +
+          'http_fonts_path = "/fonts"\n' +
+          'relative_assets = false\n' +
+          'line_comments   = false\n' +
+          'output_style    = :nested\n' +
+          'environment     = :development'
+        importPath: 'lib/sass'
       compile:
-        options:
-          config: 'config/compass/config.rb'
-          importPath: 'lib/sass'
-
+        options: {}
 
     copy:
       options:

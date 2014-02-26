@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 gem 'rake'
-gem 'jekyll', :github => 'jekyll/jekyll', :tag => 'v1.4.2'
+gem 'rouge'
+gem 'jekyll', :github => 'jekyll/jekyll', :tag => 'v2.0.0.alpha.1'
 gem 'jekyll-pandoc-multiple-formats', :github => 'pprince/jekyll-pandoc-multiple-formats', :branch => 'ppdevel'
 #gem 'jekyll-pandoc-multiple-formats', :github => 'fauno/jekyll-pandoc-multiple-formats', :branch => 'master'
 gem 'compass', :github => 'pprince/compass', :branch => 'ppdevel'
