@@ -2,14 +2,17 @@ module.exports = (grunt) ->
 
   # configuration for Tasks and Targets
   grunt.initConfig
+    site:
+      name: 'Twitchy'
+
     pkg: grunt.file.readJSON('package.json')
     env: process.env
 
     clean:
-      misc:
-        src: ['**/.sass-cache']
-      build:
-        src: ['app/_site']
+      dev:
+        src: ['BUILD/development']
+      prod:
+        src: ['BUILD/production']
       dist:
         src: ['htdocs/*']
         options:
@@ -20,11 +23,11 @@ module.exports = (grunt) ->
         bundleExec: true
         src: 'site/jekyll'
         raw: 'encoding: UTF-8\n' +
-          'name: Twitchy\n' +
+          'name: <%= site.name %>\n' +
           'gems:\n' +
           '    - jekyll-pandoc-multiple-formats\n' +
-          'markdown: pandoc\n' +
           'highlighter: none\n' +
+          'markdown: pandoc\n' +
           'pandoc:\n' +
           '    skip: true\n' +
           '    output: "./tmp"\n' +
@@ -33,11 +36,16 @@ module.exports = (grunt) ->
           '    outputs:\n' +
           '        pdf:\n' +
           '        epub:'
-      build:
+      dev:
         options:
-          dest: 'app/_site'
+          dest: 'BUILD/development'
           drafts: true
           future: true
+      prod:
+        options:
+          dest: 'BUILD/production'
+          drafts: false
+          future: false
       lint:
         options:
           doctor: true
@@ -50,37 +58,52 @@ module.exports = (grunt) ->
           'require "sassy-buttons"\n' +
           'require "bluesy-noise"\n' +
           'require "sassy_noise"\n' +
-          'sass_dir        = "app/stylesheets"\n' +
-          'images_dir      = "app/images"\n' +
-          'fonts_dir       = "app/fonts"\n' +
-          'css_dir         = "app/_site/css"\n' +
+          'sass_dir        = "site/compass/sass"\n' +
+          'images_dir      = "site/compass/images"\n' +
+          'fonts_dir       = "site/compass/fonts"\n' +
           'http_path       = "/"\n' +
           'http_fonts_path = "/fonts"\n' +
-          'relative_assets = false\n' +
-          'line_comments   = false\n' +
-          'output_style    = :nested\n' +
-          'environment     = :development'
+          'relative_assets = false\n'
         importPath: 'lib/sass'
-      compile:
-        options: {}
+      dev:
+        options:
+          environment: 'development'
+          cssDir: 'BUILD/development/css'
+          debugInfo: true
+      prod:
+        options:
+          environment: 'production'
+          cssDir: 'BUILD/production/css'
+          debugInfo: false
+      clean: {}
+      compile: {}
 
     copy:
       options:
         mode: '644'
         nonull: true
-      build:
+      dev:
         files: [
           {
-            cwd: 'app'
+            cwd: 'site'
             src: ['images/**', 'fonts/*/web/*.woff', 'fonts/*/web/*.svg', 'fonts/*/web/*.eot', 'fonts/*/web/*.ttf', 'fonts/*/web/*.otf']
-            dest: 'app/_site'
+            dest: 'BUILD/development'
+            expand: true
+          },
+        ]
+      prod:
+        files: [
+          {
+            cwd: 'site'
+            src: ['images/**', 'fonts/*/web/*.woff', 'fonts/*/web/*.svg', 'fonts/*/web/*.eot', 'fonts/*/web/*.ttf', 'fonts/*/web/*.otf']
+            dest: 'BUILD/production'
             expand: true
           },
         ]
       dist:
         files: [
           {
-            cwd: 'app/_site'
+            cwd: 'BUILD/production'
             src: ['**']
             dest: 'htdocs'
             expand: true
@@ -111,18 +134,27 @@ module.exports = (grunt) ->
       dist:
         files: ['app/_site/**']
         tasks: ['copy:dist', 'chmod:dist']
-      livereload:
-        files: ['htdocs/**/*', 'htdocs/*']
+      lr_dev:
+        files: ['BUILD/development/**']
         options:
-          livereload: 10012
- 
+          livereload: 2020
+      lr_prod:
+        files: ['BUILD/production/**']
+        options:
+          livereload: 3030
     connect:
-      server:
+      dev:
         options:
-          port: 10002
-          base: 'htdocs'
+          port: 2000
+          base: 'BUILD/development'
           hostname: '*'
-          livereload: 10012
+          livereload: 2020
+       prod:
+        options:
+          port: 3000
+          base: 'BUILD/production'
+          hostname: '*'
+          livereload: 3030
 
 
     bower:
@@ -143,7 +175,9 @@ module.exports = (grunt) ->
 
     cssmetrics:
       dev:
-        src: ['app/_site/css/**.css']
+        src: ['BUILD/development/**.css']
+      prod:
+        src: ['BUILD/production/**.css']
 
     sloc:
       options:
@@ -178,12 +212,11 @@ module.exports = (grunt) ->
   #
   grunt.registerTask 'install', ['bower:install']
   grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
-  grunt.registerTask 'build',   ['clean:build', 'jekyll:build', 'compass:compile', 'copy:build']
+  grunt.registerTask 'dev',     ['clean:dev', 'jekyll:dev', 'compass:dev', 'copy:dev']
+  grunt.registerTask 'prod',    ['clean:prod', 'jekyll:prod', 'compass:prod', 'copy:prod']
   grunt.registerTask 'dist',    ['clean:dist', 'copy:dist', 'chmod:dist']
   grunt.registerTask 'run',     ['connect', 'watch']
-  grunt.registerTask 'all',     ['clean', 'sync', 'install', 'build', 'lint', 'dist', 'connect', 'watch']
-
-  # ------------ . . . . . .
-  # DEFAULT TASK when you just run `grunt`:
-  # ---------------------------------------
-  grunt.registerTask 'default', ['build', 'dist', 'run']
+  grunt.registerTask 'cleanall',['compass:clean', 'clean']
+  grunt.registerTask 'all',     ['cleanall', 'sync', 'install', 'dev', 'prod', 'lint', 'dist', 'connect', 'watch']
+  #
+  grunt.registerTask 'default', ['dev', 'prod', 'run']
