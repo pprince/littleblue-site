@@ -32,10 +32,10 @@ GIT
 
 GIT
   remote: git://github.com/nex3/sass.git
-  revision: 575807f25cdd28ab2d5931f802059d19093fc656
-  tag: 3.3.0.rc.3
+  revision: b038ee13562590556300dc823d5c29d6981db2d6
+  tag: 3.3.0.rc.5
   specs:
-    sass (3.3.0.rc.3)
+    sass (3.3.0.rc.5)
 
 GIT
   remote: git://github.com/pprince/bluesy-noise.git
@@ -104,6 +104,7 @@ GEM
     pygments.rb (0.5.4)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
+    rake (10.1.1)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.3)
       ffi (>= 0.5.0)
@@ -134,6 +135,7 @@ DEPENDENCIES
   compass-import-once
   jekyll!
   jekyll-pandoc-multiple-formats!
+  rake
   sass!
   sassy-buttons!
   sassy_noise

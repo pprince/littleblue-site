@@ -31,12 +31,16 @@
 
 
 // this project's submodules
+// each of these files generates CSS that, all together, will make up main.css
+@import "links";
+@import "background";
 @import "fonts";
 @import "typography";
 @import "syntax";
 @import "selection";
 
 
+// *grumble*
 @include sticky-footer($base-line-height*1.5, ".sticky-footer-wrap", ".sticky-footer-push", ".sticky-footer");
 
 body {
@@ -53,31 +57,6 @@ body {
     );
 }
 
-
-a {
-    color: $base-color;
-    text-decoration: none;
-    @include transition(all 0.18s);
-    &:visited {
-        color: $base-color;
-    }
-    &:hover {
-        color: $accent-color;
-    }
-    &:focus {
-        color: $accent-color;
-    }
-    &:active {
-        color: darken($accent-color,5%);
-        position: relative;
-        top: 1px;
-        left: 1px;
-    }
-}
-a[href="#"], a.current {
-    @include unstyled-link();
-    cursor: default;
-}
 
 #{headings()}, hgroup {
     color: $base-color;

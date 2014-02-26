@@ -1,0 +1,26 @@
+a {
+    &:link,
+    &:visited {
+        color: $link-color;
+        text-decoration: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: lighten($link-color, 10%);
+        text-decoration: underline;
+    }
+
+    &:active {
+        position: relative;
+        top: 1px;
+        left: 1px;
+    }
+}
+
+a.current {
+    @include unstyled-link();
+    cursor: default;
+}
+
