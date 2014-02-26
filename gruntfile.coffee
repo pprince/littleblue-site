@@ -5,15 +5,6 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON('package.json')
     env: process.env
 
-    connect:
-      server:
-        options:
-          port: 10002
-          base: 'htdocs'
-          hostname: '*'
-          livereload: 10012
-
-
     clean:
       misc:
         src: ['**/.sass-cache']
@@ -36,6 +27,13 @@ module.exports = (grunt) ->
       lint:
         options:
           doctor: true
+
+    compass:
+      compile:
+        options:
+          config: 'config/compass/config.rb'
+          importPath: 'lib/sass'
+
 
     copy:
       options:
@@ -89,6 +87,15 @@ module.exports = (grunt) ->
         options:
           livereload: 10012
  
+    connect:
+      server:
+        options:
+          port: 10002
+          base: 'htdocs'
+          hostname: '*'
+          livereload: 10012
+
+
     bower:
       install:
         options:
@@ -98,12 +105,6 @@ module.exports = (grunt) ->
     sync:
       include: ['name', 'version', 'main', 'ignore', 'private']
       
-    compass:
-      compile:
-        options:
-          config: 'config/compass/config.rb'
-          importPath: 'lib/sass'
-
     coffeelint:
       gruntfile: ['gruntfile.coffee']
       options:
