@@ -43,6 +43,7 @@
 // *grumble*
 @include sticky-footer($base-line-height*1.5, ".sticky-footer-wrap", ".sticky-footer-push", ".sticky-footer");
 
+
 body {
     color: #ccc;
     @include background-with-css2-fallback(
@@ -76,9 +77,6 @@ header[role=banner] {
         @include adjust-font-size-to(340%);
         @include outline-text(#ddd, true);
         letter-spacing: 2px;
-    }
-    h2 {
-        display: none;
     }
 }
 
@@ -152,19 +150,6 @@ footer[role=contentinfo] {
 }
 button, *[role=button] {
     @extend %button;
-}
-
-article>hgroup:first-child, article>h1:first-child, article>h2:first-child, article>h3:first-child, article>h4:first-child, {
-    text-align: center;
-    @include rhythm-margins;
-    h1 {
-        color: scale-lightness($base-color, 10%);
-    }
-    h2 {
-        color: scale-lightness($base-color, 20%);
-        margin-left: 0.5em;
-        margin-right: 0.5em;
-    }
 }
 
 .posts, .vcard {
