@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'jekyll', :github => 'jekyll/jekyll', :tag => 'v2.0.0.alpha.1'
+gem 'jekyll', '=1.4.2'
 gem 'jekyll-pandoc-multiple-formats', :github => 'pprince/jekyll-pandoc-multiple-formats', :branch => 'ppdevel'
 
 gem 'sass', :github => 'nex3/sass', :tag => '3.3.0.rc.5'

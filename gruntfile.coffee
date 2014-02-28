@@ -61,12 +61,22 @@ module.exports = (grunt) ->
         httpFontsPath: '/fonts'
         relativeAssets: false
         importPath: 'lib/sass'
-        require: [ "compass/import-once/activate", "breakpoint", "susy", "sassy-buttons", "bluesy-noise", "sassy_noise" ]
+        require: [
+          "compass/import-once/activate",
+          "sassy-strings",
+          "toolkit",
+          "compass-recipes",
+          "compass-normalize",
+          "breakpoint",
+          "susy",
+          "sassy-buttons",
+          "bluesy-noise",
+          "sassy_noise"
+        ]
       dev:
         options:
           environment: 'development'
           cssDir: 'BUILD/development/css'
-          debugInfo: true
           outputStyle: 'nested'
       prod:
         options:
@@ -74,7 +84,6 @@ module.exports = (grunt) ->
           cssDir: 'BUILD/production/css'
           debugInfo: false
           outputStyle: 'compressed'
-          noLineComments: true
       clean: {}
       compile: {}
 
@@ -119,21 +128,13 @@ module.exports = (grunt) ->
         expand: true
     
     watch:
-      options:
-        interrupt: false
-        spawn: true
-      statics:
-        files: ['app/images/**', 'app/fonts/**']
-        tasks: ['copy:dist', 'chmod:dist']
+      options: {}
       compass:
-        files: ['app/stylesheets/**']
-        tasks: ['compass:compile']
+        files: ['site/compass/**']
+        tasks: ['compass:dev', 'compass:prod']
       jekyll:
-        files: ['app/site/**']
+        files: ['site/jekyll/**']
         tasks: ['jekyll:build']
-      dist:
-        files: ['app/_site/**']
-        tasks: ['copy:dist', 'chmod:dist']
       lr_dev:
         files: ['BUILD/development/**']
         options:
