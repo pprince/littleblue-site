@@ -13,6 +13,8 @@ module.exports = (grunt) ->
         src: ['BUILD/development']
       prod:
         src: ['BUILD/production']
+      compass:
+        src: ['.sass-cache']
       dist:
         src: ['htdocs/*']
         options:
@@ -52,15 +54,15 @@ module.exports = (grunt) ->
 
     compass:
       options:
-        bundleExec: true
-        sassDir: 'site/compass/sass'
-        imagesDir: 'site/images'
+        sassDir:        'site/styles'
+        imagesDir:      'site/images'
+        fontsDir:       'site/fonts'
         javascriptsDir: 'site/javascript'
-        fontsDir: 'site/fonts'
-        httpPath: '/'
-        httpFontsPath: '/fonts'
+        httpPath:       '/'
+        httpFontsPath:  '/fonts'
+        importPath:     'site/styles/modules'
         relativeAssets: false
-        importPath: 'lib/sass'
+        bundleExec: true
         require: [
           "compass/import-once/activate",
           "sassy-strings",
@@ -82,9 +84,7 @@ module.exports = (grunt) ->
         options:
           environment: 'production'
           cssDir: 'BUILD/production/css'
-          debugInfo: false
           outputStyle: 'compressed'
-      clean: {}
       compile: {}
 
     copy:
@@ -130,7 +130,7 @@ module.exports = (grunt) ->
     watch:
       options: {}
       compass:
-        files: ['site/compass/**']
+        files: ['site/styles/**/*.{sass,scss}']
         tasks: ['compass:dev', 'compass:prod']
       jekyll:
         files: ['site/jekyll/**']
@@ -156,17 +156,8 @@ module.exports = (grunt) ->
           base: 'BUILD/production'
           hostname: '*'
           livereload: 3030
-
-
-    bower:
-      install:
-        options:
-          bowerOptions:
-            production: false
-
-    sync:
-      include: ['name', 'version', 'main', 'ignore', 'private']
       
+
     coffeelint:
       gruntfile: ['gruntfile.coffee']
       options:
@@ -176,9 +167,9 @@ module.exports = (grunt) ->
 
     cssmetrics:
       dev:
-        src: ['BUILD/development/**.css']
+        src: ['BUILD/development/**/*.css']
       prod:
-        src: ['BUILD/production/**.css']
+        src: ['BUILD/production/**/*.css']
 
     sloc:
       options:
@@ -189,9 +180,7 @@ module.exports = (grunt) ->
   # Load plugins that provide tasks.
   grunt.loadNpmTasks 'grunt-jekyll'
   grunt.loadNpmTasks 'grunt-coffeelint'
-  grunt.loadNpmTasks 'grunt-bower-task'
-  grunt.loadNpmTasks 'grunt-sync-pkg'
-  grunt.loadNpmTasks 'grunt-shell'
+  #grunt.loadNpmTasks 'grunt-shell'
   grunt.loadNpmTasks 'grunt-chmod'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-copy'
@@ -211,13 +200,12 @@ module.exports = (grunt) ->
   # =================== #
   # TASKS YOU CAN CALL: #
   #
-  grunt.registerTask 'install', ['bower:install']
   grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
   grunt.registerTask 'dev',     ['clean:dev', 'jekyll:dev', 'compass:dev', 'copy:dev']
   grunt.registerTask 'prod',    ['clean:prod', 'jekyll:prod', 'compass:prod', 'copy:prod']
   grunt.registerTask 'dist',    ['clean:dist', 'copy:dist', 'chmod:dist']
   grunt.registerTask 'run',     ['connect', 'watch']
-  grunt.registerTask 'cleanall',['compass:clean', 'clean']
-  grunt.registerTask 'all',     ['cleanall', 'sync', 'install', 'dev', 'prod', 'lint', 'dist', 'connect', 'watch']
+  grunt.registerTask 'cleanall',['clean']
+  grunt.registerTask 'all',     ['cleanall', 'install', 'dev', 'prod', 'lint', 'dist', 'connect', 'watch']
   #
   grunt.registerTask 'default', ['dev', 'prod', 'run']

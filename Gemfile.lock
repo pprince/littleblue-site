@@ -75,7 +75,7 @@ GEM
     fast-stemmer (1.0.2)
     ffi (1.9.3)
     ffi (1.9.3-x86-mingw32)
-    highline (1.6.20)
+    highline (1.6.21)
     jekyll (1.4.2)
       classifier (~> 1.3)
       colorator (~> 0.1)
@@ -109,6 +109,8 @@ GEM
     redcarpet (2.3.0)
     rubystats (0.2.3)
     safe_yaml (0.9.7)
+    sass-globbing (1.1.0)
+      sass (>= 3.1)
     sassy-buttons (0.2.6)
       compass (>= 0.12.2)
     sassy-maps (0.3.1)
@@ -148,6 +150,7 @@ DEPENDENCIES
   jekyll (= 1.4.2)
   jekyll-pandoc-multiple-formats!
   sass!
+  sass-globbing
   sassy-buttons
   sassy-strings
   sassy_noise

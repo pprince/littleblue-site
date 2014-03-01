@@ -1,3 +1,0 @@
-Noisy URIs by markdurrant, https://github.com/markdurrant/noisy-uris
-
-Licensed under the terms of the "DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE"...

@@ -1,0 +1,13 @@
+// Susy
+// ----
+$susy: (
+    columns: 12,
+    container: 1300px,
+    gutter-position: inside,
+    gutters: 0,
+    global-box-sizing: border-box,
+    debug: (
+        output: overlay,
+        image: show,
+    )
+);

@@ -1,6 +1,0 @@
-@import "compass/css3/selection";
-* {
-    @include selection(#5af, #fff) {
-        text-shadow: none;
-    }
-}

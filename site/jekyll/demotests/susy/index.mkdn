@@ -2,7 +2,7 @@
 layout: demotest
 css:
     files:
-        - /css/demotests/susy.css
+        - /css/demotests/susydemo.css
 title: Susy
 subtitle: Next-Generation CSS Responsive Grid Tool
 ---

@@ -1,0 +1,111 @@
+@import "base";
+
+header[role=banner] {
+    text-align: center;
+    @include rhythm-padding;
+    @include full;
+    #{headings()} {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    h1 {
+        @include adjust-font-size-to(340%);
+        @include outline-text(#ddd, true);
+        letter-spacing: 2px;
+    }
+}
+
+nav[role=navigation] {
+    font-weight: bold;
+    text-align: center;
+    @include full;
+    @include border-top-radius();
+    ul {
+        margin: 0 0.25em;
+        @include inline-block-list();
+        @include margin-leader(0.5);
+        @include margin-trailer(0.5);
+        li {
+            a {
+                display: block;
+                padding: 0 0.6em;
+                @include adjust-font-size-to(122%, 2);
+                @include border-radius($base-line-height);
+                &:hover {
+                    background: rgba(white, 0.20);
+                }
+                &:hover[href="#"], &:hover.current {
+                    background: transparent;
+                }
+            }
+            h1 {
+                display: none;
+            }
+        }
+    }
+}
+
+main {
+    @include box-shadow;
+    @include border-radius;
+    background: linear-gradient(right top, rgba(black, 0.40), transparent, transparent), rgba(black, 0.1);
+    @include margin-trailer(1.5);
+}
+main>article, main>section {
+    @include box-shadow;
+    color: #222;
+    background-color: rgba(white, 0.85);
+    @include padding-trailer;
+    @include border-radius;
+}
+main>aside {
+    @extend %small;
+    @include padding-trailer;
+}
+main>aside>h3 {
+    display: none;
+}
+main>aside>h3+h4 {
+    @include margin-leader(2);
+}
+
+footer[role=contentinfo] {
+    @include adjust-leading-to(1.5);
+    @extend %small;
+    background-color: rgba(black,0.3);
+    text-align: center;
+    max-width: susy-get(container);
+    margin: 0 auto;
+    @include border-top-radius;
+}
+
+%button {
+    @include sassy-button;
+    @include box-shadow;
+}
+button, *[role=button] {
+    @extend %button;
+}
+
+.posts, .vcard {
+    padding-left: 1em;
+}
+
+.vcard {
+    @extend %small;
+    @include adjust-leading-to(3/4);
+    a {
+        @include unstyled-link;
+    }
+}
+
+.metadata {
+    @extend %small;
+    text-align: right;
+    color: #444;
+    .label {
+        color: #777;
+    }
+}
+
+

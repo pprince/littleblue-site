@@ -4,6 +4,7 @@ gem 'jekyll', '=1.4.2'
 gem 'jekyll-pandoc-multiple-formats', :github => 'pprince/jekyll-pandoc-multiple-formats', :branch => 'ppdevel'
 
 gem 'sass', :github => 'nex3/sass', :tag => '3.3.0.rc.5'
+gem 'sass-globbing'
 
 gem 'compass', :github => 'pprince/compass', :branch => 'ppdevel' # 1.0.0.alpha.18
 gem 'compass-import-once', :require => "compass/import-once/activate"

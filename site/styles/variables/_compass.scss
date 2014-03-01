@@ -1,0 +1,25 @@
+// Compass
+// -------
+//
+// Note: Compass is imported early because other SASS extensions make use of
+// its features if it is detected (e.g., Susy).
+//
+// ### Vertical Rhythms ###
+// 
+// a.k.a. "Baseline Grid", "vertical grid"
+
+$base-font-size:        16px; // 16px is kindof a magic number; don't change it. FIXME: explaination.
+$base-line-height:      24px;
+$rhythm-unit:           "rem";
+$rem-with-px-fallback:  true;
+// ### border-radius() mixin ###
+$default-border-radius: $base-line-height/3;
+// ### box-shadow() mixin ###
+$default-box-shadow-blur: $base-line-height/2;
+$default-box-shadow-color: #222;
+// ### text-shadow() mixin ###
+$default-text-shadow-h-offset:  3px;
+$default-text-shadow-v-offset:  3px;
+$default-text-shadow-blur:      6px;
+$default-text-shadow-spread:    false;
+$default-text-shadow-color:     rgba(black, 0.70);
