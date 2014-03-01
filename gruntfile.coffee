@@ -206,6 +206,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'dist',    ['clean:dist', 'copy:dist', 'chmod:dist']
   grunt.registerTask 'run',     ['connect', 'watch']
   grunt.registerTask 'cleanall',['clean']
-  grunt.registerTask 'all',     ['cleanall', 'install', 'dev', 'prod', 'lint', 'dist', 'connect', 'watch']
+  grunt.registerTask 'all',     ['cleanall', 'dev', 'prod', 'lint', 'dist', 'connect', 'watch']
   #
   grunt.registerTask 'default', ['dev', 'prod', 'run']
