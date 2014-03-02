@@ -82,6 +82,7 @@ module.exports = (grunt) ->
           "toolkit",
           "compass-recipes",
           "compass-normalize",
+          "harsh",
           "breakpoint",
           "susy",
           "sassy-buttons",
@@ -220,8 +221,8 @@ module.exports = (grunt) ->
   grunt.registerTask 'build',       ['builddev', 'buildprod']
   grunt.registerTask 'dev',         ['clean:dev', 'builddev']
   grunt.registerTask 'prod',        ['clean:prod', 'buildprod']
-  grunt.registerTask 'rundev',      ['connect:dev', 'watch:dev']
-  grunt.registerTask 'runprod',     ['connect:prod', 'watch:prod']
+  grunt.registerTask 'rundev',      ['connect:dev', 'watch']
+  grunt.registerTask 'runprod',     ['connect:prod', 'watch']
   grunt.registerTask 'run',         ['connect', 'watch']
   grunt.registerTask 'dist',        ['clean:dist', 'copy:dist', 'chmod:dist']
   grunt.registerTask 'lint',        ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
