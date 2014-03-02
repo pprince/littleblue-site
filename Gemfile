@@ -23,3 +23,5 @@ gem 'bluesy-noise', :github => 'pprince/bluesy-noise', :branch => 'ppdevel'
 
 #gem 'rake'  # needed for installing __?
 #gem 'rouge' # needed for __?
+
+gem 'oily_png'

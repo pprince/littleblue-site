@@ -3,7 +3,8 @@
 
 @include with-layout($susy) {
 
-    #gridcontainer {
+
+    .sticky-footer-wrap, .sticky-footer {
         @include container;
     }
 

@@ -37,7 +37,8 @@ module.exports = (grunt) ->
           '    site_flags: "--toc"\n' +
           '    outputs:\n' +
           '        pdf:\n' +
-          '        epub:'
+          '        epub:\n' +
+          'permalink: pretty'
       dev:
         options:
           dest: 'BUILD/development'
