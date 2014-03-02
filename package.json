@@ -44,7 +44,8 @@
     "grunt-sloc": "~0.4.2",
     "grunt-contrib-connect": "~0.6.0",
     "grunt-jekyll": "pprince/grunt-jekyll",
-    "bower": "~1.2.8"
+    "bower": "~1.2.8",
+    "config.json": "0.0.2"
   },
   "dependencies": {}
 }

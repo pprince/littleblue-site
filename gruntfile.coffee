@@ -2,11 +2,9 @@ module.exports = (grunt) ->
 
   # configuration for Tasks and Targets
   grunt.initConfig
-    site:
-      name: 'Twitchy'
-
     pkg: grunt.file.readJSON('package.json')
     env: process.env
+    config: require('config.json');
 
     clean:
       dev:
@@ -38,7 +36,7 @@ module.exports = (grunt) ->
         bundleExec: true
         src: 'site/jekyll'
         raw: 'encoding: UTF-8\n' +
-          'name: <%= site.name %>\n' +
+          'name: <%= config.name %>\n' +
           'gems:\n' +
           '    - jekyll-pandoc-multiple-formats\n' +
           'highlighter: none\n' +
