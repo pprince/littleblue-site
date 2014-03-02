@@ -13,6 +13,9 @@
     "garnish": "0.2"
   },
   "exportsOverride": {
+    "garnish": {
+      "sass": "src/**/*.{scss,sass}"
+    },
     "*": {}
   }
 }

@@ -10,15 +10,28 @@ module.exports = (grunt) ->
 
     clean:
       dev:
-        src: ['BUILD/development']
+        src: ['BUILD/development/']
       prod:
-        src: ['BUILD/production']
+        src: ['BUILD/production/']
+      build:
+        src: ['BUILD/']
       compass:
-        src: ['.sass-cache']
+        src: ['.sass-cache/']
+      bower:
+        src: ['bower_components/', 'lib/']
       dist:
         src: ['htdocs/*']
         options:
           force: true
+
+
+    bower:
+      install:
+        options:
+          cleanTargetDir: false
+          verbose: true
+          copy: false
+
 
     jekyll:
       options:
@@ -53,6 +66,7 @@ module.exports = (grunt) ->
         options:
           doctor: true
 
+
     compass:
       options:
         sassDir:        'site/styles'
@@ -61,7 +75,7 @@ module.exports = (grunt) ->
         javascriptsDir: 'site/javascript'
         httpPath:       '/'
         httpFontsPath:  '/fonts'
-        importPath:     'site/styles/modules'
+        importPath:     ['site/styles/modules', 'bower_components/garnish/src']
         relativeAssets: false
         bundleExec: true
         require: [
@@ -87,6 +101,7 @@ module.exports = (grunt) ->
           cssDir: 'BUILD/production/css'
           outputStyle: 'compressed'
       compile: {}
+
 
     copy:
       options:
@@ -176,7 +191,7 @@ module.exports = (grunt) ->
       options:
         tolerant: true
       '.': ['*.coffee', '*.cs', '*.js', '*.py']
- 
+
 
   # Load plugins that provide tasks.
   grunt.loadNpmTasks 'grunt-jekyll'
@@ -190,6 +205,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-css-metrics'
   grunt.loadNpmTasks 'grunt-sloc'
+  grunt.loadNpmTasks 'grunt-bower-task'
   #grunt.loadNpmTasks 'grunt-env'
   #grunt.loadNpmTasks 'grunt-contrib-uglify'
   #grunt.loadNpmTasks 'grunt-contrib-concat'
@@ -201,12 +217,17 @@ module.exports = (grunt) ->
   # =================== #
   # TASKS YOU CAN CALL: #
   #
-  grunt.registerTask 'lint',    ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
-  grunt.registerTask 'dev',     ['clean:dev', 'jekyll:dev', 'compass:dev', 'copy:dev']
-  grunt.registerTask 'prod',    ['clean:prod', 'jekyll:prod', 'compass:prod', 'copy:prod']
-  grunt.registerTask 'dist',    ['clean:dist', 'copy:dist', 'chmod:dist']
-  grunt.registerTask 'run',     ['connect', 'watch']
-  grunt.registerTask 'cleanall',['clean']
-  grunt.registerTask 'all',     ['cleanall', 'dev', 'prod', 'lint', 'dist', 'connect', 'watch']
+  grunt.registerTask 'builddev',    ['jekyll:dev', 'compass:dev', 'copy:dev']
+  grunt.registerTask 'buildprod',   ['jekyll:prod', 'compass:prod', 'copy:prod']
+  grunt.registerTask 'build',       ['builddev', 'buildprod']
+  grunt.registerTask 'dev',         ['clean:dev', 'builddev']
+  grunt.registerTask 'prod',        ['clean:prod', 'buildprod']
+  grunt.registerTask 'rundev',      ['connect:dev', 'watch:dev']
+  grunt.registerTask 'runprod',     ['connect:prod', 'watch:prod']
+  grunt.registerTask 'run',         ['connect', 'watch']
+  grunt.registerTask 'dist',        ['clean:dist', 'copy:dist', 'chmod:dist']
+  grunt.registerTask 'lint',        ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
   #
-  grunt.registerTask 'default', ['dev', 'prod', 'run']
+  grunt.registerTask 'all',         ['clean', 'bower', 'lint', 'dev', 'prod', 'dist', 'run']
+  #
+  grunt.registerTask 'default', ['builddev', 'rundev']

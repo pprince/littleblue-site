@@ -23,8 +23,12 @@ gem 'susy', :github => 'ericam/susy', :tag => '2.0.0.rc.1'
 # Breakpoint is already stable; great job guyz!
 gem 'breakpoint'
 
-# MOAR COMPASS EXTENSIONS!
+# Also almost out, but I currently use a reset rather than normalize so, meh.
 gem 'normalize-scss', '=3.0.0.alpha.2'
+
+# EVEN MOAR COMPASS EXTENSIONS!
+# Although we `require` them here, you will still need to `@import` (from your
+# SASS and SCSS files) the things you want to use from Compass/Sass extensions.
 gem 'compass-inuit'
 gem 'sassy-buttons'
 gem 'harsh'

@@ -140,6 +140,8 @@ GEM
     sassy_noise (0.1.4)
       chunky_png
       compass
+    scut (0.9.1)
+      sass (~> 3.2, >= 3.2.0)
     singularitygs (1.1.2)
       breakpoint (>= 2.0.1)
       compass (>= 0.12.2)
@@ -177,5 +179,6 @@ DEPENDENCIES
   sassy-buttons
   sassy-strings
   sassy_noise
+  scut
   susy!
   toolkit
