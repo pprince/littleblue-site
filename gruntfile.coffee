@@ -1,11 +1,12 @@
 module.exports = (grunt) ->
 
-  # configuration for Tasks and Targets
   grunt.initConfig
-    pkg: grunt.file.readJSON('package.json')
-    env: process.env
-    config: require('config.json')
 
+    pkg: grunt.file.readJSON('package.json')
+
+    env: process.env
+
+    config: grunt.file.readJSON('config.json')
 
     clean:
       dev:
@@ -37,7 +38,7 @@ module.exports = (grunt) ->
         bundleExec: true
         src: 'site/jekyll'
         raw: 'encoding: UTF-8\n' +
-          'name: <%= config.name %>\n' +
+          'name: <%= config.site_name %>\n' +
           'gems:\n' +
           '    - jekyll-pandoc-multiple-formats\n' +
           'highlighter: none\n' +
@@ -89,8 +90,9 @@ module.exports = (grunt) ->
           "compass-recipes",
           "sassy-strings",
           "sassy-buttons",
-          "bluesy-noise",
+          "compass-inuit",
           "sassy_noise",
+          "bluesy-noise",
           "harsh"
         ]
       dev:
@@ -184,6 +186,11 @@ module.exports = (grunt) ->
         max_line_length:            { level: 'warn' }
         no_trailing_whitespace:     { level: 'warn' }
 
+    jshint:
+      options:
+        reporter: require('jshint-stylish')
+      dev: ['site/javascripts/**/*.js']
+
     cssmetrics:
       dev:
         src: ['BUILD/development/**/*.css']
@@ -192,17 +199,13 @@ module.exports = (grunt) ->
 
 
   # Load plugins that provide tasks.
-  grunt.loadNpmTasks 'grunt-contrib-clean'
-  grunt.loadNpmTasks 'grunt-contrib-copy'
-  grunt.loadNpmTasks 'grunt-contrib-compass'
-  grunt.loadNpmTasks 'grunt-contrib-watch'
-  grunt.loadNpmTasks 'grunt-contrib-connect'
-  grunt.loadNpmTasks 'grunt-bower-task'
-  grunt.loadNpmTasks 'grunt-jekyll'
-  grunt.loadNpmTasks 'grunt-chmod'
-  grunt.loadNpmTasks 'grunt-coffeelint'
-  grunt.loadNpmTasks 'grunt-css-metrics'
-  #... commented-out ones are cantidates for not-usal->removal...
+  require('load-grunt-tasks')(grunt)
+  
+  #
+  #require('load-grunt-tasks')(grunt)
+
+  #
+  require('time-grunt')(grunt)
 
 
   # Tasks You Can Call
@@ -210,17 +213,17 @@ module.exports = (grunt) ->
 
   # Build, Test, & Deploy
   # ---------------------
-  grunt.registerTask 'builddev',    ['jekyll:dev', 'compass:dev', 'copy:dev']
-  grunt.registerTask 'buildprod',   ['jekyll:prod', 'compass:prod', 'copy:prod']
-  grunt.registerTask 'build',       ['builddev', 'buildprod']
-  grunt.registerTask 'dev',         ['clean:dev', 'builddev']
-  grunt.registerTask 'prod',        ['clean:prod', 'buildprod']
+  grunt.registerTask 'build:dev',   ['jekyll:dev', 'compass:dev', 'copy:dev']
+  grunt.registerTask 'build:prod',  ['jekyll:prod', 'compass:prod', 'copy:prod']
+  grunt.registerTask 'build',       ['build:dev', 'build:prod']
+  grunt.registerTask 'dev',         ['clean:dev', 'build:dev']
+  grunt.registerTask 'prod',        ['clean:prod', 'build:prod']
 
   # Test with a Local Webserver and Live Reload
   # -------------------------------------------
-  grunt.registerTask 'rundev',      ['connect:dev', 'watch']
-  grunt.registerTask 'runprod',     ['connect:prod', 'watch']
-  grunt.registerTask 'run',         ['connect', 'watch']
+  grunt.registerTask 'run:dev',      ['connect:dev', 'watch']
+  grunt.registerTask 'run:prod',     ['connect:prod', 'watch']
+  grunt.registerTask 'run',          ['connect', 'watch']
 
   # Deploy: Copy Production Build to htdocs/
   # ----------------------------------------
@@ -236,4 +239,4 @@ module.exports = (grunt) ->
 
   # Default Task, Or:  What Happens When You Just Run `grunt`?
   # ----------------------------------------------------------
-  grunt.registerTask 'default',     ['builddev', 'rundev']
+  grunt.registerTask 'default',     ['build:dev', 'run:dev']

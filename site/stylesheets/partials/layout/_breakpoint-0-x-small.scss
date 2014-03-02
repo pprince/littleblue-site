@@ -1,0 +1,16 @@
+@import "garnish";
+@include with-layout($susy) {
+    // X-SMALL
+    //  smaller phones
+    main {
+        @include span(12 nest);
+    }
+    main>article, main>section {
+        @include span(12);
+        @include padding-h($base-line-height*3/4);
+    }
+    main>aside {
+        @include span(12);
+        @include padding-h($base-line-height/2);
+    }
+}

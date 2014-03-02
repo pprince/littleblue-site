@@ -1,0 +1,7 @@
+@import "garnish";
+@include with-layout($susy) {
+    // SMALL
+    //  larger phones and smaller tablets
+    @include breakpoint ($breakpoint-small) {
+    }
+}
