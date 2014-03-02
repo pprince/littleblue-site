@@ -1,6 +1,8 @@
 Bitcons
 =======
 
-Free, from http://somerandomdude.com/work/bitcons/
+a set of bitmap icons for the web
 
-So, thank you P.J. Onori for the sweet retro bitmap icons.
+by P.J. Onori
+
+from http://somerandomdude.com/work/bitcons/

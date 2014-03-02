@@ -1,8 +1,8 @@
 Sanscons
 ========
 
-Free, from http://somerandomdude.com/work/sanscons
-
 "a CSS-friendly version of Bitcons -- allowing you to set custom backgrounds on your icons."
 
-thank you P.J. Onori
+by P.J. Onori
+
+from http://somerandomdude.com/work/sanscons
