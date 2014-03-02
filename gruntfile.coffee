@@ -6,6 +6,7 @@ module.exports = (grunt) ->
     env: process.env
     config: require('config.json')
 
+
     clean:
       dev:
         src: ['BUILD/development/']
@@ -73,21 +74,24 @@ module.exports = (grunt) ->
         javascriptsDir: 'site/javascript'
         httpPath:       '/'
         httpFontsPath:  '/fonts'
-        importPath:     ['site/stylesheets/modules', 'bower_components/garnish/src']
+        importPath: [
+          'site/stylesheets/modules',
+          'bower_components/garnish/src'
+        ]
         relativeAssets: false
         bundleExec: true
         require: [
           "compass/import-once/activate",
-          "sassy-strings",
-          "toolkit",
-          "compass-recipes",
-          "compass-normalize",
-          "harsh",
+          "normalize-scss",
           "breakpoint",
           "susy",
+          "toolkit",
+          "compass-recipes",
+          "sassy-strings",
           "sassy-buttons",
           "bluesy-noise",
-          "sassy_noise"
+          "sassy_noise",
+          "harsh"
         ]
       dev:
         options:
@@ -186,47 +190,50 @@ module.exports = (grunt) ->
       prod:
         src: ['BUILD/production/**/*.css']
 
-    sloc:
-      options:
-        tolerant: true
-      '.': ['*.coffee', '*.cs', '*.js', '*.py']
-
 
   # Load plugins that provide tasks.
-  grunt.loadNpmTasks 'grunt-jekyll'
-  grunt.loadNpmTasks 'grunt-coffeelint'
-  #grunt.loadNpmTasks 'grunt-shell'
-  grunt.loadNpmTasks 'grunt-chmod'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-connect'
-  grunt.loadNpmTasks 'grunt-css-metrics'
-  grunt.loadNpmTasks 'grunt-sloc'
   grunt.loadNpmTasks 'grunt-bower-task'
-  #grunt.loadNpmTasks 'grunt-env'
-  #grunt.loadNpmTasks 'grunt-contrib-uglify'
-  #grunt.loadNpmTasks 'grunt-contrib-concat'
-  #grunt.loadNpmTasks 'grunt-contrib-jshint'
-  #grunt.loadNpmTasks 'grunt-contrib-nodeunit'
+  grunt.loadNpmTasks 'grunt-jekyll'
+  grunt.loadNpmTasks 'grunt-chmod'
+  grunt.loadNpmTasks 'grunt-coffeelint'
+  grunt.loadNpmTasks 'grunt-css-metrics'
   #... commented-out ones are cantidates for not-usal->removal...
 
 
-  # =================== #
-  # TASKS YOU CAN CALL: #
-  #
+  # Tasks You Can Call
+  # ==================
+
+  # Build, Test, & Deploy
+  # ---------------------
   grunt.registerTask 'builddev',    ['jekyll:dev', 'compass:dev', 'copy:dev']
   grunt.registerTask 'buildprod',   ['jekyll:prod', 'compass:prod', 'copy:prod']
   grunt.registerTask 'build',       ['builddev', 'buildprod']
   grunt.registerTask 'dev',         ['clean:dev', 'builddev']
   grunt.registerTask 'prod',        ['clean:prod', 'buildprod']
+
+  # Test with a Local Webserver and Live Reload
+  # -------------------------------------------
   grunt.registerTask 'rundev',      ['connect:dev', 'watch']
   grunt.registerTask 'runprod',     ['connect:prod', 'watch']
   grunt.registerTask 'run',         ['connect', 'watch']
+
+  # Deploy: Copy Production Build to htdocs/
+  # ----------------------------------------
   grunt.registerTask 'dist',        ['clean:dist', 'copy:dist', 'chmod:dist']
-  grunt.registerTask 'lint',        ['coffeelint', 'jekyll:lint', 'cssmetrics', 'sloc']
-  #
+
+  # Automatically Complain About (and Analyse) Your Code:
+  # -----------------------------------------------------
+  grunt.registerTask 'lint',        ['coffeelint', 'jekyll:lint', 'cssmetrics']
+ 
+  # Task 'all'; mainly for debugging this Gruntfile
+  # -----------------------------------------------
   grunt.registerTask 'all',         ['clean', 'bower', 'lint', 'dev', 'prod', 'dist', 'run']
-  #
-  grunt.registerTask 'default', ['builddev', 'rundev']
+
+  # Default Task, Or:  What Happens When You Just Run `grunt`?
+  # ----------------------------------------------------------
+  grunt.registerTask 'default',     ['builddev', 'rundev']
