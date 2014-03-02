@@ -69,13 +69,13 @@ module.exports = (grunt) ->
 
     compass:
       options:
-        sassDir:        'site/styles'
+        sassDir:        'site/stylesheets'
         imagesDir:      'site/images'
         fontsDir:       'site/fonts'
         javascriptsDir: 'site/javascript'
         httpPath:       '/'
         httpFontsPath:  '/fonts'
-        importPath:     ['site/styles/modules', 'bower_components/garnish/src']
+        importPath:     ['site/stylesheets/modules', 'bower_components/garnish/src']
         relativeAssets: false
         bundleExec: true
         require: [
@@ -146,7 +146,7 @@ module.exports = (grunt) ->
     watch:
       options: {}
       compass:
-        files: ['site/styles/**/*.{sass,scss}']
+        files: ['site/stylesheets/**/*.{sass,scss}']
         tasks: ['compass:dev', 'compass:prod']
       jekyll:
         files: ['site/jekyll/**']
