@@ -4,7 +4,7 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     env: process.env
-    config: require('config.json');
+    config: require('config.json')
 
     clean:
       dev:
