@@ -153,7 +153,7 @@ module.exports = (grunt) ->
         tasks: ['compass:dev', 'compass:prod']
       jekyll:
         files: ['site/jekyll/**']
-        tasks: ['jekyll:build']
+        tasks: ['jekyll:dev', 'jekyll:prod']
       lr_dev:
         files: ['BUILD/development/**']
         options:
