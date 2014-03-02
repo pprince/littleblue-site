@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html>
 
@@ -18,6 +20,18 @@
 
     </head>
 
-{{ content }}
+    <body>
+
+        {% if page.css %}
+            {% for cssfile in page.css.files %}
+                <link rel="stylesheet" href="{{ cssfile }}">
+            {% endfor %}
+        {% endif %}
+
+
+        {{ content }}
+
+
+    </body>
 
 </html>
