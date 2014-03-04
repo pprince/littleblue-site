@@ -1,4 +1,4 @@
-// main.scss";
+// main.scss
 // =========
 
 // This is the *site-wide* stylesheet, included on every page.
@@ -7,35 +7,19 @@
 // It is more efficient to put everything in this one file (main.css) than to
 // have the client download many little files.
 
-// This file is where we can pull in partials etc. that generate CSS code.
+// This file is where we can pull in partials etc. that generate CSS output code.
 
 
 // Import Global Configuration/Settings Variables
 // ----------------------------------------------
-// this doesn't generate any CSS code
+// this, however, mustn't generate any CSS code
 @import "base";
 
 
-// Load Google Web Fonts
-// ---------------------
-// this will generate only an @import statement in the output CSS
+// Google Web Fonts
+// ----------------
+// this will generate only an @import statement in the output code
 @import url('http://fonts.googleapis.com' + $google-fonts-uri);
-
-
-// Core Compass/SASS Extensions
-// ----------------------------
-// These are specified in this order (compass, breakpoint, susy) on purpose.
-@import "compass";
-@import "breakpoint";
-@import "susy";
-
-
-// Additional Compass/SASS Extensions
-// ----------------------------------
-// fixme: shouldn't these go some place else?
-@import "sassy-buttons";
-@import "harsh";
-@import "garnish";
 
 
 // Reset or Normalize
@@ -50,19 +34,20 @@
 
 
 // set box-sizing model, globally
-// (provided by Susy; settings in _base.scss)
+// (provided by Susy)
 @include global-box-sizing;
 
 
 // establish vertical rhythym, a.k.a baseline grid
-// (provided by Compass; settings in _base.scss)
+// (provided by Compass)
 @include establish-baseline;
 
 
-// Import Our Partials
-// -------------------
+// Our Partials
+// ------------
 
-// That is, all the various parts that will go together and generate main.css:
+// These are the files with the little bits and pieces of our `main.css`.
+
 @import "partials/typography";
 @import "partials/links";
 @import "partials/syntax";

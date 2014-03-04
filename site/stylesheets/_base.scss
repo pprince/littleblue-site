@@ -1,3 +1,5 @@
+// Project Configuration
+// =====================
 @import "variables/selectors";
 @import "variables/fonts";
 @import "variables/colors";
@@ -5,3 +7,29 @@
 @import "variables/breakpoints";
 @import "variables/susy";
 @import "variables/sassy_buttons";
+
+
+// Compass Extensions (ruby gems)
+// ------------------------------
+
+// Note: These are specified in this order (compass, breakpoint, susy) on purpose.
+// Note: This list should be synchronized with the ones in the Gemfile and Gruntfile.
+@import "compass";
+@import "breakpoint";
+@import "susy";
+@import "toolkit";
+@import "scut";
+@import "sassy-buttons";
+@import "harsh";
+
+
+// Pure SASS Modules
+// -----------------
+
+// this one is plain sass; no gem made available.
+@import "garnish";
+
+
+// Note: These are not all of the Compass/SASS extensions that are available
+// for you to use in your stylesheets.  Several more are installed by default;
+// to use them, just put the appropriate `@import` in your module or partial.

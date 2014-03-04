@@ -82,19 +82,18 @@ module.exports = (grunt) ->
         relativeAssets: false
         bundleExec: true
         require: [
-          "compass/import-once/activate",
-          "normalize-scss",
-          "breakpoint",
-          "susy",
-          "toolkit",
-          "compass-recipes",
-          "sassy-strings",
-          "sassy-buttons",
-          "compass-inuit",
-          "sassy_noise",
-          "bluesy-noise",
+          "compass/import-once/activate"
+          #sass-globbing  ## currently broken: compass/import-once and sass-globbing break each other.
+          "normalize-scss"
+          "breakpoint"
+          "susy"
+          "toolkit"
+          "compass-recipes"
+          "sassy-buttons"
+          "sassy_noise"
+          "bluesy-noise"
           "harsh"
-        ]
+        ] ## Note: This list should be sync'd with the list of gems to install (i.e., the Gemfile.)
       dev:
         options:
           environment: 'development'
@@ -106,6 +105,24 @@ module.exports = (grunt) ->
           cssDir: 'BUILD/production/css'
           outputStyle: 'compressed'
       compile: {}
+
+
+    prettify:
+      options:
+        condense: true
+        indent: 4
+        indent_inner_html: false
+        indent_scripts: 'normal'
+      dev:
+        expand: true
+        cwd: 'BUILD/development'
+        src: ['**/*.html']
+        dest: 'BUILD/development'
+      prod:
+        expand: true
+        cwd: 'BUILD/production'
+        src: ['**/*.html']
+        dest: 'BUILD/production'
 
 
     copy:
@@ -156,6 +173,12 @@ module.exports = (grunt) ->
       jekyll:
         files: ['site/jekyll/**']
         tasks: ['jekyll:dev', 'jekyll:prod']
+      prettify_dev:
+        files: ['BUILD/**/development/**/*.html']
+        tasks: ['prettify:dev']
+      prettify_prod:
+        files: ['BUILD/**/production/**/*.html']
+        tasks: ['prettify:prod']
       lr_dev:
         files: ['BUILD/development/**']
         options:
@@ -211,15 +234,13 @@ module.exports = (grunt) ->
   # Tasks You Can Call
   # ==================
 
-  # Build, Test, & Deploy
+  # Build
   # ---------------------
-  grunt.registerTask 'build:dev',   ['jekyll:dev', 'compass:dev', 'copy:dev']
-  grunt.registerTask 'build:prod',  ['jekyll:prod', 'compass:prod', 'copy:prod']
+  grunt.registerTask 'build:dev',   ['jekyll:dev', 'compass:dev', 'copy:dev', 'prettify:dev']
+  grunt.registerTask 'build:prod',  ['jekyll:prod', 'compass:prod', 'copy:prod', 'prettify:prod']
   grunt.registerTask 'build',       ['build:dev', 'build:prod']
-  grunt.registerTask 'dev',         ['clean:dev', 'build:dev']
-  grunt.registerTask 'prod',        ['clean:prod', 'build:prod']
 
-  # Test with a Local Webserver and Live Reload
+  # Test
   # -------------------------------------------
   grunt.registerTask 'run:dev',      ['connect:dev', 'watch']
   grunt.registerTask 'run:prod',     ['connect:prod', 'watch']
