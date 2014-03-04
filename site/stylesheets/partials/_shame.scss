@@ -1,20 +1,3 @@
-@import "bluebox/outline-text";
-
-header[role=banner] {
-    text-align: center;
-    @include rhythm-padding;
-    @include full;
-    #{headings()} {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    h1 {
-        @include adjust-font-size-to(340%);
-        @include outline-text(#ddd, true);
-        letter-spacing: 2px;
-    }
-}
-
 nav[role=navigation] {
     font-weight: bold;
     text-align: center;

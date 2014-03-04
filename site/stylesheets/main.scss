@@ -48,10 +48,10 @@
 
 // These are the files with the little bits and pieces of our `main.css`.
 
+@import "partials/normalize_background";
 @import "partials/typography";
 @import "partials/links";
 @import "partials/syntax";
-@import "partials/layout/grid-containers";
-@import "partials/layout/respond";
+@import "partials/respond";
 @import "partials/selection";
 @import "partials/shame";

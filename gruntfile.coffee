@@ -166,7 +166,12 @@ module.exports = (grunt) ->
         expand: true
     
     watch:
-      options: {}
+      options:
+        spawn: true
+        interrupt: false
+        debounceDelay: 5000
+      grunt:
+        files: ['gruntfile.coffee']
       compass:
         files: ['site/stylesheets/**/*.{sass,scss}']
         tasks: ['compass:dev', 'compass:prod']
@@ -199,7 +204,7 @@ module.exports = (grunt) ->
           port: 3000
           base: 'BUILD/production'
           hostname: '*'
-          livereload: 3030
+          ivereload: 3030
       
 
     coffeelint:

@@ -1,8 +1,0 @@
-@import "garnish";
-@include with-layout($susy) {
-    // X-LARGE
-    //  larger desktops
-    //  (Not needed for this design.)
-    @include breakpoint ($breakpoint-x-large) {
-    }
-}

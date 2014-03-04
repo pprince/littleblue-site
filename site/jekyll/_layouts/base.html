@@ -13,20 +13,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <!--
-            Include site- and page-specific .css stylesheets.
-            Although HTML 5 permits <link> elements inside <body>,
-            prior specifications mandate that it be inside <head>.
-        -->
-
-        <!-- site-wide css file(s), (typically just one, `main.scss`.) -->
         {% if site.data.css %}
             {% for cssfile in site.data.css.files %}
                 <link rel="stylesheet" href="{{ cssfile }}">
             {% endfor %}
         {% endif %}
 
-        <!-- page-specific css file(s), if any (usually there are none.) -->
+
         {% if page.css %}
             {% for cssfile in page.css.files %}
                 <link rel="stylesheet" href="{{ cssfile }}">
