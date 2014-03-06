@@ -59,7 +59,7 @@ gem "compass-import-once", :require => "compass/import-once/activate"
 gem "breakpoint", "~> 2.4.1"
 
 # SusyNext aka Susy 2.0 is almost out!  w00t!
-gem "susy", :github => "ericam/susy", :tag => "2.0.0.rc.1"
+gem "susy", :github => "ericam/susy", :tag => "2.0.0.rc.2"
 
 # Apparently Toolkit 2.0 is also almost out.  It looks OK.
 gem "toolkit", "=2.0.0.alpha.10"

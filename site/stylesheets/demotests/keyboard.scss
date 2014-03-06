@@ -1,0 +1,95 @@
+@import "base";
+
+//@import "compass";
+//@import "breakpoint";
+//@import "susy";
+//@import "garnish";
+
+$key-size: 2.3em;
+$pad-keys: 0.1em; 
+$pad-grid: 0.2em;
+$keyboard-width-in-keyunits: 23;
+$grid-columns-per-keyunit: 4;
+
+$grid: (
+    columns: 92,
+    column-width: $key-size/$grid-columns-per-keyunit,
+    gutters: ($pad-grid/$key-size)*$grid-columns-per-keyunit,
+    gutter-position: split,
+    last-flow: from,
+);
+
+@include with-layout($grid static) {
+
+    #keyboard
+    {
+        margin-top: 1em;
+        margin-bottom: 1em;
+
+        @include container();
+
+        .key,
+        .spacer,
+        .led,
+        {
+            margin-top: gutters();
+            margin-bottom: gutters();
+            overflow: hidden;
+
+            &:first-child {
+              @include first;
+            }
+            &:last-child {
+              @include last;
+              border-right: 1px dashed green;
+            }
+
+            // width
+            @include span($grid-columns-per-keyunit);
+            &.narrow {
+              @include span(0.5*$grid-columns-per-keyunit);
+            }
+            &.wide {
+              @include span(1.5*$grid-columns-per-keyunit);
+            }
+            &.wider {
+              @include span(1.75*$grid-columns-per-keyunit);
+            }
+            &.double-wide {
+              @include span(2*$grid-columns-per-keyunit);
+            }
+            &.widest {
+              @include span(2.5*$grid-columns-per-keyunit);
+            }
+            &.full-width {
+              @include full;
+            }
+            &.spacebar {
+                @include span(5.5*$grid-columns-per-keyunit);
+            }
+
+            // height
+            height: span($grid-columns-per-keyunit);
+            &.double-tall {
+              height: span(2*$grid-columns-per-keyunit);
+            }
+
+            &.stepped {
+                border-right-width: 2 * susy-get(column-width);
+                border-right-style: solid;
+                border-right-color: rgba(red, 0.10);
+            }
+        }
+
+        .key {
+            background-color: #fcc;
+        }
+        .led {
+            background-color: #cfc;
+        }
+        .spacer {
+            background-color: #eee;
+        }
+        background-color: #ddd;
+    } 
+}

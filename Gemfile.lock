@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/ericam/susy.git
-  revision: 02019f15a53808ccc782c42912100b471930fc6d
-  tag: 2.0.0.rc.1
+  revision: 26d33f278bd0f9195c50d393d342fd1ca28fc6fc
+  tag: 2.0.0.rc.2
   specs:
-    susy (2.0.0.rc.1)
+    susy (2.0.0.rc.2)
       sass (~> 3.3.0.rc.1)
 
 GIT
@@ -95,7 +95,7 @@ GEM
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
     maruku (0.7.1)
-    multi_json (1.8.4)
+    multi_json (1.9.0)
     normalize-scss (3.0.0.alpha.2)
       compass-core (>= 1.0.0.alpha.13)
       sass (>= 3.3.0.pre.rc.1)
@@ -125,7 +125,7 @@ GEM
     safe_yaml (0.9.7)
     sassy-buttons (0.2.6)
       compass (>= 0.12.2)
-    sassy-maps (0.3.1)
+    sassy-maps (0.3.2)
       compass (~> 1.0.0.alpha.13)
       sass (~> 3.3.0.rc.2)
     sassy_noise (0.1.4)

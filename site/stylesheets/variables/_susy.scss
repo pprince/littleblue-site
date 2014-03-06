@@ -1,9 +1,8 @@
 // Susy
 // ----
 $susy: (
-    container: 1300px,
     global-box-sizing: border-box,
     debug: (
-        image: show,
+        output: overlay
     )
 );

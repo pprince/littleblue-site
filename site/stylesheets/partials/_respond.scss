@@ -10,7 +10,7 @@
     #{ $selector-sticky-footer-foot }, 
     #{ $selector-page-wrap },
     {
-        @include container;
+        @include container(1300px);
     }
 
     #{ $selector-page-banner }
