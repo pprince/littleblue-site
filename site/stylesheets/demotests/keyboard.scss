@@ -6,11 +6,10 @@
 //@import "garnish";
 
 $keyboard-color: #ddd;
-$key-color: red;
+$key-color: #ddf;
 
-$key-size: 5.2em;
-$pad-keys: 0.4em; 
-$pad-grid: 0.2em;
+$pad-keys: 5%; 
+$pad-grid: 5%;
 
 $keyboard-columns: 23;
 $keyboard-rows: 7;
@@ -20,34 +19,63 @@ $grid: (
     gutters: 0
 );
 
+.level1, .level2, .level3, .level4 {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+}
+.level1 {
+    left: 0;
+    bottom: 0;
+}
+.level2 {
+    left: 0;
+    top: 0;
+}
+.level3 {
+    right: 0;
+    bottom: 0;
+}
+.level4 {
+    right: 0;
+    top: 0;
+}
+
+
+.keycap {
+    position: absolute;
+    left: $pad-keys;
+    right: $pad-keys;
+    top: $pad-keys;
+    bottom: $pad-keys;
+    background-color: $key-color;
+    padding: $pad-keys;
+    @include border-radius(10%);
+    @include box-shadow(
+        rgba(black, 0.08) 0 0 1.2em 0.2em inset,
+        rgba(black, 0.08) 0 0 0.6em 0
+    );
+    border-style: solid;
+    border-width: 0.8em 1em 1.2em 1em;
+    border-top-color: rgba(black, 0.08);
+    border-right-color: rgba(black, 0.04);
+    border-bottom-color: rgba(white, 0.10);
+    border-left-color: rgba(white, 0.04);
+
+    span, .span {
+        font-size: 90%;
+        line-height: 1;
+    }
+}
+
+figure {
+    padding: 50px;
+}
+
 @include with-layout($grid) {
 
-    .keycap {
-        position: absolute;
-        left: 2%;
-        right: 2%;
-        top: 2%;
-        bottom: 2%;
-        background-color: $key-color;
-        @include border-radius(1.5em);
-        @include box-shadow(
-            rgba(black, 0.08) 0 0 1.2em 0.2em inset,
-            rgba(black, 0.08) 0 0 0.6em 0
-        );
-        border-style: solid;
-        border-width: 0.8em 1em 1.2em 1em;
-        border-top-color: rgba(black, 0.08);
-        border-right-color: rgba(black, 0.04);
-        border-bottom-color: rgba(white, 0.10);
-        border-left-color: rgba(white, 0.04);
-
-        span, .span {
-            font-size: 90%;
-            line-height: 1;
-        }
-    }
-
     .keyboard {
+        font-size: 70%;
         position: relative;
 
         &:before {
@@ -55,14 +83,6 @@ $grid: (
             display: block;
             padding-top: $keyboard_rows/$keyboard_columns * 100%;
         }
-
-        @include border-radius(0.9em);
-        @include box-shadow(
-            rgba(black, 0.20) 0 0 0.3em 0 inset,
-            rgba(black, 0.30) 0 0 0.7em 0
-        );
-        font-size: 60%;
-        line-height: 1;
 
         background-color: $keyboard-color;
         .led {
