@@ -8,8 +8,8 @@
 $keyboard-color: #ddd;
 $key-color: #ddf;
 
-$pad-keys: 5%; 
-$pad-grid: 5%;
+$key-padding: 0.5em; 
+$key-margin: 5%;
 
 $keyboard-columns: 23;
 $keyboard-rows: 7;
@@ -44,12 +44,12 @@ $grid: (
 
 .keycap {
     position: absolute;
-    left: $pad-keys;
-    right: $pad-keys;
-    top: $pad-keys;
-    bottom: $pad-keys;
     background-color: $key-color;
-    padding: $pad-keys;
+    left: $key-margin;
+    right: $key-margin;
+    top: $key-margin;
+    bottom: $key-margin;
+    padding: $key-padding;
     @include border-radius(10%);
     @include box-shadow(
         rgba(black, 0.08) 0 0 1.2em 0.2em inset,
@@ -64,7 +64,6 @@ $grid: (
 
     span, .span {
         font-size: 90%;
-        line-height: 1;
     }
 }
 
@@ -76,6 +75,7 @@ figure {
 
     .keyboard {
         font-size: 70%;
+        line-height: 1;
         position: relative;
 
         &:before {

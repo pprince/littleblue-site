@@ -17,8 +17,6 @@ module.exports = (grunt) ->
         src: ['BUILD/']
       compass:
         src: ['.sass-cache/']
-      bower:
-        src: ['bower_components/', 'lib/']
       dist:
         src: ['htdocs/*']
         options:
@@ -54,14 +52,26 @@ module.exports = (grunt) ->
           'permalink: pretty'
       dev:
         options:
-          dest: 'BUILD/development'
+          dest: 'BUILD/development/jekyll'
           drafts: true
           future: true
+      watchdev:
+        options:
+          dest: 'BUILD/development/jekyll'
+          drafts: true
+          future: true
+          watch: true
       prod:
         options:
-          dest: 'BUILD/production'
+          dest: 'BUILD/production/jekyll'
           drafts: false
           future: false
+      watchprod:
+        options:
+          dest: 'BUILD/production/jekyll'
+          drafts: false
+          future: false
+          watch: true
       lint:
         options:
           doctor: true
@@ -97,13 +107,25 @@ module.exports = (grunt) ->
       dev:
         options:
           environment: 'development'
-          cssDir: 'BUILD/development/css'
+          cssDir: 'BUILD/development/compass/css'
           outputStyle: 'nested'
+      watchdev:
+        options:
+          environment: 'development'
+          cssDir: 'BUILD/development/compass/css'
+          outputStyle: 'nested'
+          watch: true
       prod:
         options:
           environment: 'production'
-          cssDir: 'BUILD/production/css'
+          cssDir: 'BUILD/production/compass'
           outputStyle: 'compressed'
+      watchprod:
+        options:
+          environment: 'production'
+          cssDir: 'BUILD/production/compass'
+          outputStyle: 'compressed'
+          watch: true
       compile: {}
 
 
@@ -115,14 +137,14 @@ module.exports = (grunt) ->
         indent_scripts: 'normal'
       dev:
         expand: true
-        cwd: 'BUILD/development'
+        cwd: 'BUILD/development/jekyll'
         src: ['**/*.html']
-        dest: 'BUILD/development'
+        dest: 'BUILD/development/prettyhtml'
       prod:
         expand: true
-        cwd: 'BUILD/production'
+        cwd: 'BUILD/production/jekyll'
         src: ['**/*.html']
-        dest: 'BUILD/production'
+        dest: 'BUILD/production/prettyhtml'
 
 
     copy:
@@ -137,13 +159,49 @@ module.exports = (grunt) ->
             dest: 'BUILD/development'
             expand: true
           },
+          {
+            cwd: 'BUILD/development/compass'
+            src: '**'
+            dest: 'BUILD/development/OUTPUT'
+            expand: true
+          },
+          {
+            cwd: 'BUILD/development/jekyll'
+            src: '**'
+            dest: 'BUILD/development/OUTPUT'
+            expand: true
+          },
+          {
+            cwd: 'BUILD/development/prettyhtml'
+            src: '**'
+            dest: 'BUILD/development/OUTPUT'
+            expand: true
+          },
         ]
       prod:
         files: [
           {
             cwd: 'site'
             src: ['images/**', 'fonts/*/web/*.woff', 'fonts/*/web/*.svg', 'fonts/*/web/*.eot', 'fonts/*/web/*.ttf', 'fonts/*/web/*.otf']
-            dest: 'BUILD/production'
+            dest: 'BUILD/production/OUTPUT'
+            expand: true
+          },
+          {
+            cwd: 'BUILD/production/compass'
+            src: '**'
+            dest: 'BUILD/production/OUTPUT'
+            expand: true
+          },
+          {
+            cwd: 'BUILD/production/jekyll'
+            src: '**'
+            dest: 'BUILD/production/OUTPUT'
+            expand: true
+          },
+          {
+            cwd: 'BUILD/production/prettyhtml'
+            src: '**'
+            dest: 'BUILD/production/OUTPUT'
             expand: true
           },
         ]
@@ -164,47 +222,50 @@ module.exports = (grunt) ->
         filter: 'isDirectory'
         src: ['htdocs/**', 'htdocs/']
         expand: true
-    
-    watch:
+   
+    concurrent:
       options:
-        spawn: true
-        interrupt: false
-        debounceDelay: 5000
-      grunt:
-        files: ['gruntfile.coffee']
-      compass:
-        files: ['site/stylesheets/**/*.{sass,scss}']
-        tasks: ['compass:dev', 'compass:prod']
-      jekyll:
-        files: ['site/jekyll/**']
-        tasks: ['jekyll:dev', 'jekyll:prod']
+        limit: 6
+        logConcurrentOutput: true
+      watchdev: ['watch', 'compass:watchdev', 'jekyll:watchdev']
+      watchprod: ['watch', 'compass:watchprod', 'jekyll:watchprod']
+
+    watch:
+      options: {}
+      gruntfile: ['gruntfile.coffee']
       prettify_dev:
-        files: ['BUILD/**/development/**/*.html']
-        tasks: ['prettify:dev']
+        files: ['BUILD/development/jekyll/**/*.html']
+        tasks: ['newer:prettify:dev']
       prettify_prod:
-        files: ['BUILD/**/production/**/*.html']
-        tasks: ['prettify:prod']
+        files: ['BUILD/production/jekyll/**/*.html']
+        tasks: ['newer:prettify:prod']
+      copy_dev:
+        files: ['BUILD/development/compass/**/*', 'BUILD/development/prettyhtml']
+        tasks: ['newer:copy:dev']
+      copy_prod:
+        files: ['BUILD/production/compass/**/*', 'BUILD/production/prettyhtml']
+        tasks: ['newer:copy:prod']
       lr_dev:
-        files: ['BUILD/development/**']
+        files: ['BUILD/development/OUTPUT/**/*']
         options:
           livereload: 2020
       lr_prod:
-        files: ['BUILD/production/**']
+        files: ['BUILD/production/OUTPUT/**/*']
         options:
           livereload: 3030
     connect:
       dev:
         options:
           port: 2000
-          base: 'BUILD/development'
+          base: 'BUILD/development/OUTPUT'
           hostname: '*'
           livereload: 2020
        prod:
         options:
           port: 3000
-          base: 'BUILD/production'
+          base: 'BUILD/production/OUTPUT'
           hostname: '*'
-          ivereload: 3030
+          livereload: 3030
       
 
     coffeelint:
@@ -221,18 +282,15 @@ module.exports = (grunt) ->
 
     cssmetrics:
       dev:
-        src: ['BUILD/development/**/*.css']
+        src: ['BUILD/development/OUTPUT/*.css']
       prod:
-        src: ['BUILD/production/**/*.css']
+        src: ['BUILD/production/OUTPUT/*.css']
 
 
   # Load plugins that provide tasks.
   require('load-grunt-tasks')(grunt)
-  
-  #
-  #require('load-grunt-tasks')(grunt)
 
-  #
+  # Keep track of and report how long each task takes to run.
   require('time-grunt')(grunt)
 
 
@@ -241,15 +299,15 @@ module.exports = (grunt) ->
 
   # Build
   # ---------------------
-  grunt.registerTask 'build:dev',   ['jekyll:dev', 'compass:dev', 'copy:dev', 'prettify:dev']
-  grunt.registerTask 'build:prod',  ['jekyll:prod', 'compass:prod', 'copy:prod', 'prettify:prod']
+  grunt.registerTask 'build:dev',   ['jekyll:dev', 'compass:dev', 'prettify:dev', 'copy:dev']
+  grunt.registerTask 'build:prod',  ['jekyll:prod', 'compass:prod', 'prettify:prod', 'copy:prod']
   grunt.registerTask 'build',       ['build:dev', 'build:prod']
 
   # Test
   # -------------------------------------------
-  grunt.registerTask 'run:dev',      ['connect:dev', 'watch']
-  grunt.registerTask 'run:prod',     ['connect:prod', 'watch']
-  grunt.registerTask 'run',          ['connect', 'watch']
+  grunt.registerTask 'run:dev',      ['connect:dev', 'concurrent:watchdev']
+  grunt.registerTask 'run:prod',     ['connect:prod', 'concurrent:watchprod']
+  grunt.registerTask 'run',          ['run:dev']
 
   # Deploy: Copy Production Build to htdocs/
   # ----------------------------------------
