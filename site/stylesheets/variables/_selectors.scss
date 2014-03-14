@@ -8,7 +8,8 @@ $selector-page-wrap:            '.page-wrap';
 
 // These 4 page parts are almost always well-represented in markup:
 $selector-page-banner:  'header[role=banner]';
-$selector-page-middle:  'main, [role=main]';
+$selector-page-middle:  '.inner-wrap'; // middle WRAPS AROUND all between page header and footer
+$selector-main-content: 'main';
 $selector-page-navbar:  'nav[role=navigation]';
-$selector-page-sidebar: 'main > aside';
+$selector-page-sidebar: 'main + aside';
 $selector-page-footer:  'footer[role=contentinfo]';

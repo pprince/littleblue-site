@@ -1,20 +1,8 @@
 // Color Theme
 // -----------
 
-$little-blue:               hsl(220, 100%, 60%); // #3377ff
-$twitchy-red:               hsl(354, 100%, 31%); // #9f000f;
+$little-blue:               hsl(220, 100%, 60%);
+$twitchy-red:               hsl(351, 100%, 31%);
 
 $base-color:                $twitchy-red;
-$alt1-color:                $little-blue;
-$alt2-color:                mix($twitchy-red, $little-blue);
-$alt3-color:                #ddd;
-$alt4-color:                #222;
-
-$background-color-dark:     darken($base-color, 50%);
-$background-color-light:    tint($base-color, 10%);
-$background-color:          $background-color-dark;
-
-$text-color:    $alt3-color;
-$link-color:    invert($base-color);
-$accent-color:  lighten(invert($base-color),10%);
-$page-bg-color: darken($base-color, 15%);
+$link-color:                adjust-hue($twitchy-red, 45);

@@ -16,6 +16,24 @@
 @import "base";
 
 
+// Compass Extensions (ruby gems)
+// ------------------------------
+
+// Note: These are specified in this order (compass, breakpoint, susy) on purpose.
+// Note: This list should be synchronized with the ones in the Gemfile and Gruntfile.
+@import "compass";
+@import "breakpoint";
+@import "susy";
+@import "scut";
+@import "sassy-buttons";
+
+// Pure SASS Modules
+// -----------------
+
+// this one is plain sass; no gem made available.
+@import "garnish";
+
+
 // Google Web Fonts
 // ----------------
 // this will generate only an @import statement in the output code
@@ -48,10 +66,11 @@
 
 // These are the files with the little bits and pieces of our `main.css`.
 
-@import "partials/normalize_background";
-@import "partials/typography";
-@import "partials/links";
-@import "partials/syntax";
-@import "partials/respond";
-@import "partials/selection";
-@import "partials/shame";
+@import "./partials/_*";
+//@import "partials/normalize_background";
+//@import "partials/typography";
+//@import "partials/links";
+//@import "partials/syntax";
+//@import "partials/respond";
+//@import "partials/selection";
+//@import "partials/shame";

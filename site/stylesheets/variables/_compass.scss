@@ -13,10 +13,10 @@ $base-line-height:      24px;
 $rhythm-unit:           "rem";
 $rem-with-px-fallback:  true;
 // ### border-radius() mixin ###
-$default-border-radius: $base-line-height/3;
+$default-border-radius: $base-line-height/2;
 // ### box-shadow() mixin ###
-$default-box-shadow-blur: $base-line-height/2;
-$default-box-shadow-color: #222;
+$default-box-shadow-blur: $base-line-height;
+$default-box-shadow-color: rgba(black, 0.50);
 // ### text-shadow() mixin ###
 $default-text-shadow-h-offset:  3px;
 $default-text-shadow-v-offset:  3px;

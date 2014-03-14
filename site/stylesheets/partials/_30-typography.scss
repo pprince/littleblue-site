@@ -15,11 +15,11 @@ s {
 }
 
 p {
-    @include rhythm-margins();
+    @include rhythm-margins(0.5);
 }
 
 #{headings()} {
-    @include rhythm-margins();
+    @include rhythm-margins(0.5);
     font-family: $default-heading-font-face;
     font-weight: bold;
 }

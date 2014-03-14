@@ -1,0 +1,129 @@
+@import "garnish";
+@import "compass/layout/sticky-footer";
+@import "noisy-uris";
+@import "alpha-me";
+
+@include with-layout(12) {
+
+    // BASE
+    // ====
+
+    // X-SMALL and up
+    // -------
+    //
+    // Is the default, defines the base that is overridden later above certain widths (breakpoints).
+    // e.g., smaller/portrait phones, ie6 unless you specify a fallback, ...
+
+    html {
+        min-height: 100%;
+        background: $base-color;
+    }
+
+    #{$selector-page-banner},
+    #{$selector-page-navbar},
+    #{$selector-main-content},
+    #{$selector-page-sidebar},
+    #{$selector-page-footer} {
+    }
+
+    #{ $selector-sticky-footer-wrap },
+    #{ $selector-sticky-footer-foot }, 
+    #{ $selector-page-wrap },
+    {
+        @include container(1300px);
+    }
+
+    #{$selector-page-footer} {
+        text-align: center;
+    }
+
+    #{$selector-page-navbar} {
+    }
+
+    #{ $selector-page-banner }
+    {
+        @include span(full);
+        @include margin-trailer;
+        text-align: center;
+    }
+
+    #{$selector-page-middle} {
+        @include span(full nest);
+        @include alpha-me(background-color, rgba(black, 0.20), $base-color);
+    }
+
+    #{$selector-main-content} {
+        @include alpha-me(background-color, rgba(white, 0.30), $base-color);
+    }
+
+    #{$selector-main-content},
+    #{$selector-page-sidebar} {
+        @include span(full);
+        @include margin-trailer;
+        padding: $base-line-height/2 $base-line-height;
+    }
+
+
+    // OVERRIDES
+    // =========
+
+
+    // SMALL and up
+    // -----
+
+    // e.g., larger/landscape phones, smaller tablets
+    @include breakpoint ($breakpoint-small) {
+        @include sticky-footer(
+            $sticky-footer-height,
+            $selector-sticky-footer-wrap,
+            $selector-sticky-footer-push,
+            $selector-sticky-footer-foot
+        );
+
+        body {
+            @include padding-h($base-line-height/2);
+            @include background(
+                url($base-noise-005),
+                linear-gradient(to top right,
+                    adjust-hue($base-color, 270),
+                    $base-color
+                )
+            );
+        }
+    }
+
+
+    // MEDIUM and up
+    // ------
+
+    // e.g., smaller desktops, larger tablets
+    // TWO COLUMNS
+    @include breakpoint ($breakpoint-medium) {
+        #{$selector-main-content} {
+            @include span(first 8);
+        }
+        #{$selector-page-sidebar} {
+            @include span(last 4);
+        }
+        body {
+                @include padding-h($base-line-height);
+        }
+    }
+
+
+    // LARGE and up
+    // -----
+
+    // medium desktops
+    @include breakpoint ($breakpoint-large, '.no-mq') {
+    }
+
+
+    // X-LARGE and up
+    // -------
+
+    // larger desktops
+    // (Not needed for this design.)
+    @include breakpoint ($breakpoint-x-large) {
+    }
+}

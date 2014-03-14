@@ -92,17 +92,13 @@ module.exports = (grunt) ->
         relativeAssets: false
         bundleExec: true
         require: [
-          "compass/import-once/activate"
-          #sass-globbing  ## currently broken: compass/import-once and sass-globbing break each other.
-          "normalize-scss"
+          #"compass/import-once/activate"
+          "sass-globbing"
           "breakpoint"
           "susy"
-          "toolkit"
-          "compass-recipes"
           "sassy-buttons"
           "sassy_noise"
           "bluesy-noise"
-          "harsh"
         ] ## Note: This list should be sync'd with the list of gems to install (i.e., the Gemfile.)
       dev:
         options:
@@ -232,7 +228,8 @@ module.exports = (grunt) ->
 
     watch:
       options: {}
-      gruntfile: ['gruntfile.coffee']
+      grunt:
+        files: ['gruntfile.coffee']
       prettify_dev:
         files: ['BUILD/development/jekyll/**/*.html']
         tasks: ['newer:prettify:dev']
@@ -247,10 +244,12 @@ module.exports = (grunt) ->
         tasks: ['newer:copy:prod']
       lr_dev:
         files: ['BUILD/development/OUTPUT/**/*']
+        tasks: ['notify:reload']
         options:
           livereload: 2020
       lr_prod:
         files: ['BUILD/production/OUTPUT/**/*']
+        tasks: ['notify:reload']
         options:
           livereload: 3030
     connect:
@@ -266,7 +265,14 @@ module.exports = (grunt) ->
           base: 'BUILD/production/OUTPUT'
           hostname: '*'
           livereload: 3030
-      
+
+    notify:
+      reload:
+        options:
+          title: "Build Complete"
+          message: "Site reloaded."
+
+
 
     coffeelint:
       gruntfile: ['gruntfile.coffee']

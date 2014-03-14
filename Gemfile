@@ -27,11 +27,12 @@ gem "jekyll-pandoc-multiple-formats", :github => "pprince/jekyll-pandoc-multiple
 # Sass and Compass
 # ================
 
-# Sass 3.3 is almost out!  w00t!
-gem "sass", :github => "nex3/sass", :tag => "3.3.0.rc.6"
+# Sass 3.3 is out!  w00t!
+gem "sass", "~>3.3.0"
 
 # I have forked this one, only for a tiny change!  I need to contribute it upstream!
-gem "compass", :github => "pprince/compass", :branch => "ppdevel" # 1.0.0.alpha.18
+gem "compass", :github => "pprince/compass", :branch => "gemspec_ruby_listen" # 1.0.0.alpha.18
+#gem "compass", :github => "chriseppstein/compass", :branch => "master" # 1.0.0.alpha.19 UNRELEASED
 
 
 # Compass Extensions
@@ -42,48 +43,28 @@ gem "compass", :github => "pprince/compass", :branch => "ppdevel" # 1.0.0.alpha.
 # maintained in the Gruntfile (`gruntfile.coffee`), and this should be
 # synchronized with that one.
 
-
 # ### Auto-Imported ###
-
-# The following extensions in this section are automatically imported when you
-# `@import "base"`.  You can use their features in your modules, partials,
-# etc., without `@import`-ing anything yourself.
 
 # I wanted to use both sass-globbing and compass-import-once, but they
 # interfere with each other; sass-globbing has been disabled.
 # See: https://github.com/chriseppstein/compass/issues/1529
 gem "compass-import-once", :require => "compass/import-once/activate"
-#gem "sass-globbing"
+gem "sass-globbing"
 
 # Breakpoint is already stable; great job guyz!
-gem "breakpoint", "~> 2.4.1"
+gem "breakpoint", "~> 2.4"
 
 # SusyNext aka Susy 2.0 is almost out!  w00t!
-gem "susy", :github => "ericam/susy", :tag => "2.0.0.rc.2"
-
-# Apparently Toolkit 2.0 is also almost out.  It looks OK.
-gem "toolkit", "=2.0.0.alpha.10"
+gem "susy", "~>2.0"
 
 # This one seems OK to include in global import because it's specifically
 # non-conflicting.
 gem "scut", "~> 0.9.1"
 
-gem "harsh"
 gem "sassy-buttons"
 
 
 # ### Additionally Available ###
-
-# EVEN MOAR COMPASS EXTENSIONS!
-# Although we `require` them here, you will still need to `@import` (from your
-# SASS and SCSS files) the things you want to use from Compass/Sass extensions.
-
-# These are *not* automatically imported into your stylesheets.
-
-# Also almost out, but I currently *reset* rather than normalize, so, meh.
-gem "normalize-scss", "=3.0.0.alpha.2"
-
-gem "compass-recipes"
 
 gem "sassy_noise"
 gem "bluesy-noise", :github => "pprince/bluesy-noise", :branch => "ppdevel"
