@@ -16,14 +16,7 @@
 
     html {
         min-height: 100%;
-        background: $base-color;
-    }
-
-    #{$selector-page-banner},
-    #{$selector-page-navbar},
-    #{$selector-main-content},
-    #{$selector-page-sidebar},
-    #{$selector-page-footer} {
+        background: darken($base-color, 10%);
     }
 
     #{ $selector-sticky-footer-wrap },
@@ -37,23 +30,18 @@
         text-align: center;
     }
 
-    #{$selector-page-navbar} {
-    }
-
     #{ $selector-page-banner }
     {
         @include span(full);
-        @include margin-trailer;
         text-align: center;
     }
 
     #{$selector-page-middle} {
         @include span(full nest);
-        @include alpha-me(background-color, rgba(black, 0.20), $base-color);
+        @include alpha-me(background-color, rgba(black, 0.25), $base-color);
     }
 
     #{$selector-main-content} {
-        @include alpha-me(background-color, rgba(white, 0.30), $base-color);
     }
 
     #{$selector-main-content},
@@ -61,8 +49,12 @@
         @include span(full);
         @include margin-trailer;
         padding: $base-line-height/2 $base-line-height;
+        @include alpha-me(background-color, rgba(white, 0.50), $base-color);
     }
 
+    #{$selector-sticky-footer-foot} {
+        @include rhythm-padding();
+    }
 
     // OVERRIDES
     // =========
@@ -73,22 +65,33 @@
 
     // e.g., larger/landscape phones, smaller tablets
     @include breakpoint ($breakpoint-small) {
-        @include sticky-footer(
-            $sticky-footer-height,
-            $selector-sticky-footer-wrap,
-            $selector-sticky-footer-push,
-            $selector-sticky-footer-foot
-        );
-
-        body {
-            @include padding-h($base-line-height/2);
+        html {
             @include background(
                 url($base-noise-005),
                 linear-gradient(to top right,
-                    adjust-hue($base-color, 270),
-                    $base-color
-                )
+                    shade(adjust-hue($base-color, 270), 20%),
+                    shade($base-color, 20%)
+                ) no-repeat fixed
             );
+        }
+
+        body {
+            @include padding-h($base-line-height/2);
+        }
+
+        #{$selector-main-content} {
+            @include border-radius;
+            @include box-shadow();
+        }
+
+        #{ $selector-page-middle } {
+            @include border-radius;
+            @include box-shadow;
+        }
+
+        #{$selector-page-sidebar} {
+            background-color: transparent;
+            color: #ddd;
         }
     }
 
@@ -106,8 +109,17 @@
             @include span(last 4);
         }
         body {
-                @include padding-h($base-line-height);
+            @include padding-h($base-line-height);
         }
+        #{ $selector-page-middle } {
+            @include padding-h(gutter());
+        }
+        @include sticky-footer(
+            $sticky-footer-height,
+            $selector-sticky-footer-wrap,
+            $selector-sticky-footer-push,
+            $selector-sticky-footer-foot
+        );
     }
 
 

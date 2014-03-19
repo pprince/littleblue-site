@@ -237,10 +237,10 @@ module.exports = (grunt) ->
         files: ['BUILD/production/jekyll/**/*.html']
         tasks: ['newer:prettify:prod']
       copy_dev:
-        files: ['BUILD/development/compass/**/*', 'BUILD/development/prettyhtml']
+        files: ['BUILD/development/compass/**/*', 'BUILD/development/jekyll/**/*', 'BUILD/development/prettyhtml']
         tasks: ['newer:copy:dev']
       copy_prod:
-        files: ['BUILD/production/compass/**/*', 'BUILD/production/prettyhtml']
+        files: ['BUILD/production/compass/**/*', 'BUILD/production/jekyll/**/*', 'BUILD/production/prettyhtml']
         tasks: ['newer:copy:prod']
       lr_dev:
         files: ['BUILD/development/OUTPUT/**/*']
