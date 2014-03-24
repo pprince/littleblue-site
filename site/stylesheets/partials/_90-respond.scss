@@ -1,7 +1,5 @@
 @import "garnish";
 @import "compass/layout/sticky-footer";
-@import "noisy-uris";
-@import "alpha-me";
 
 @include with-layout(12) {
 
@@ -13,11 +11,6 @@
     //
     // Is the default, defines the base that is overridden later above certain widths (breakpoints).
     // e.g., smaller/portrait phones, ie6 unless you specify a fallback, ...
-
-    html {
-        min-height: 100%;
-        background: darken($base-color, 10%);
-    }
 
     #{ $selector-sticky-footer-wrap },
     #{ $selector-sticky-footer-foot }, 
@@ -38,10 +31,6 @@
 
     #{$selector-page-middle} {
         @include span(full nest);
-        @include alpha-me(background-color, rgba(black, 0.25), $base-color);
-    }
-
-    #{$selector-main-content} {
     }
 
     #{$selector-main-content},
@@ -49,7 +38,6 @@
         @include span(full);
         @include margin-trailer;
         padding: $base-line-height/2 $base-line-height;
-        @include alpha-me(background-color, rgba(white, 0.50), $base-color);
     }
 
     #{$selector-sticky-footer-foot} {
@@ -65,16 +53,6 @@
 
     // e.g., larger/landscape phones, smaller tablets
     @include breakpoint ($breakpoint-small) {
-        html {
-            @include background(
-                url($base-noise-005),
-                linear-gradient(to top right,
-                    shade(adjust-hue($base-color, 270), 20%),
-                    shade($base-color, 20%)
-                ) no-repeat fixed
-            );
-        }
-
         body {
             @include padding-h($base-line-height/2);
         }
@@ -87,11 +65,6 @@
         #{ $selector-page-middle } {
             @include border-radius;
             @include box-shadow;
-        }
-
-        #{$selector-page-sidebar} {
-            background-color: transparent;
-            color: #ddd;
         }
     }
 

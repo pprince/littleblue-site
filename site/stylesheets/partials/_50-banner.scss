@@ -1,0 +1,8 @@
+@import "bluebox/outline-text";
+
+#{ $selector-page-banner } h1
+{
+    @include adjust-font-size-to(400%);
+    color: $base-color;
+    @include outline-text(white);
+}

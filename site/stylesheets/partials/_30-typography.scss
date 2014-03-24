@@ -41,3 +41,17 @@ h5 {
 h6 {
     @include adjust-font-size-to(114%);
 }
+
+ul {
+    list-style-type:	    circle;
+    list-style-position:    outside;
+}
+
+ol {
+    list-style-type:	    decimal;
+    list-style-position:    outside;
+}
+
+ul ul, ol ul, ul ol, ol ol {
+    margin-left: 1em;
+}
