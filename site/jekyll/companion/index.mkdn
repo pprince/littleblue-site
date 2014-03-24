@@ -1,0 +1,17 @@
+---
+layout: page
+title: Wildstar Companion App (BETA)
+name: companion
+---
+
+{{ page.title }}
+=====
+
+  * [Dungeon Guides](dungeons/)
+  * [Raid Guides](raids/)
+  * [Healer Guides](healer/)
+  * [Tank Guides](tanks/)
+  * [Crafting Guides](crafting/)
+  * [PvP Guides](pvp/)
+  * [Basic Gameplay Tips](basic/)
+  * [Advanced Gameplay Tips](advanced/)
