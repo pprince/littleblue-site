@@ -5,4 +5,5 @@
     @include adjust-font-size-to(400%);
     color: $base-color;
     @include outline-text(white);
+    @include margin-trailer;
 }

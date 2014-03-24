@@ -1,6 +1,7 @@
 nav[role=navigation] {
     font-weight: bold;
     text-align: center;
+    @include rhythm-margins(0.5);
     @include full;
     ul {
         @include inline-block-list();
@@ -12,6 +13,7 @@ nav[role=navigation] {
                 @include border-radius($base-line-height);
                 &:hover {
                     background: rgba(white, 0.20);
+                    text-decoration: none;
                 }
                 &:hover[href="#"], &:hover.current {
                     background: transparent;

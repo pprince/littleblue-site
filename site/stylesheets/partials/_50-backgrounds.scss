@@ -18,7 +18,7 @@ html {
 }
 
 #{$selector-main-content} {
-    @include alpha-me(background-color, rgba(white, 0.50), $base-color);
+    @include alpha-me(background-color, rgba(black, 0.50), $base-color);
 }
 
 
