@@ -2,10 +2,8 @@ module.exports = (grunt) ->
 
   grunt.initConfig
 
-    pkg: grunt.file.readJSON('package.json')
-
     env: process.env
-
+    pkg: grunt.file.readJSON('package.json')
     config: grunt.file.readJSON('config.json')
 
     clean:
@@ -341,9 +339,9 @@ module.exports = (grunt) ->
 
     cssmetrics:
       dev:
-        src: ['BUILD/development/OUTPUT/*.css']
+        src: ['BUILD/development/OUTPUT/**/*.css']
       prod:
-        src: ['BUILD/production/OUTPUT/*.css']
+        src: ['BUILD/production/OUTPUT/**/*.css']
 
 
 
