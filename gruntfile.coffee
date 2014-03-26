@@ -1,10 +1,15 @@
+
 module.exports = (grunt) ->
 
   grunt.initConfig
 
+
     env: process.env
+
     pkg: grunt.file.readJSON('package.json')
+
     config: grunt.file.readJSON('config.json')
+
 
     clean:
       dev:
@@ -19,14 +24,6 @@ module.exports = (grunt) ->
         src: ['htdocs/*']
         options:
           force: true
-
-
-    bower:
-      install:
-        options:
-          cleanTargetDir: false
-          verbose: true
-          copy: false
 
 
     jekyll:
@@ -142,19 +139,16 @@ module.exports = (grunt) ->
     browserify:
       options:
         transform: ['coffeeify']
-
       libs:
         src: []
         dest: 'BUILD/js/libs-bundle.js'
         options:
           require: ['jquery']
-
       dev:
         src: ['site/javascripts/*.{js,coffee}']
         dest: 'BUILD/development/js/main-bundle.js'
         options:
           external: ['jQuery']
-
       prod:
         src: '<%= browserify.dev.src %>'
         dest: 'BUILD/production/js/main-bundle.js'
@@ -165,14 +159,12 @@ module.exports = (grunt) ->
     concat:
       options:
         separator: ";\n"
-
       dev:
         src: ['BUILD/js/libs-bundle.js', 'BUILD/development/js/main-bundle.js']
         dest: 'BUILD/development/OUTPUT/js/bundle.js'
         options:
           bundleOptions:
             debug: true
-
       prod:
         src: ['BUILD/js/libs-bundle.js', 'BUILD/production/js/main-bundle.js']
         dest: 'BUILD/production/OUTPUT/js/bundle.js'
