@@ -18,10 +18,15 @@ Features
 --------
 
   * New Compass
+
   * New SASS (3.3.0, currently release-cantidate)
+
     * Write SASS or SCSS instead of CSS
+
       * More capable than LESS!
+
       * Automatically generate codes for browser backward compatability and graceful degredation.
+
          * CSS3 prefixes, etc.
 
   * New *Susy* (2.0.0, currently release-cantidate)
