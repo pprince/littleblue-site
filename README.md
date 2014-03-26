@@ -17,7 +17,7 @@ integrate Django or another Python web back-end framework at some point.
 Features
 --------
 
-  * New Compass (1.0.0, currently alpha)
+  * New Compass
   * New SASS (3.3.0, currently release-cantidate)
     * Write SASS or SCSS instead of CSS
       * More capable than LESS!
