@@ -16,7 +16,7 @@
     #{ $selector-sticky-footer-foot }, 
     #{ $selector-page-wrap },
     {
-        @include container(1300px);
+        @include container(1600px);
     }
 
     #{$selector-page-footer} {

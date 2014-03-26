@@ -31,7 +31,23 @@
 
     <body>
 
+
         {{ content }}
+
+
+        {% if site.data.js %}
+            {% for jsfile in site.data.js.files %}
+                <script src="{{ jsfile }}" type="text/javascript"></script>
+            {% endfor %}
+        {% endif %}
+
+
+        {% if page.js %}
+            {% for jsfile in page.js.files %}
+                <script src="{{ jsfile }}" type="text/javascript"></script>
+            {% endfor %}
+        {% endif %}
+
 
     </body>
 

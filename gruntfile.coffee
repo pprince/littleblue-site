@@ -15,8 +15,8 @@ module.exports = (grunt) ->
         src: ['BUILD/production/']
       build:
         src: ['BUILD/']
-      compass:
-        src: ['.sass-cache/']
+      cache:
+        src: ['.cache/']
       dist:
         src: ['htdocs/*']
         options:
@@ -79,6 +79,7 @@ module.exports = (grunt) ->
 
     compass:
       options:
+        cacheDir:       '.cache/compass'
         sassDir:        'site/stylesheets'
         imagesDir:      'site/images'
         fontsDir:       'site/fonts'
@@ -114,12 +115,12 @@ module.exports = (grunt) ->
       prod:
         options:
           environment: 'production'
-          cssDir: 'BUILD/production/compass'
+          cssDir: 'BUILD/production/compass/css'
           outputStyle: 'compressed'
       watchprod:
         options:
           environment: 'production'
-          cssDir: 'BUILD/production/compass'
+          cssDir: 'BUILD/production/compass/css'
           outputStyle: 'compressed'
           watch: true
       compile: {}
@@ -141,6 +142,47 @@ module.exports = (grunt) ->
         cwd: 'BUILD/production/jekyll'
         src: ['**/*.html']
         dest: 'BUILD/production/prettyhtml'
+
+
+    browserify:
+      options:
+        transform: ['coffeeify']
+
+      libs:
+        src: []
+        dest: 'BUILD/js/libs-bundle.js'
+        options:
+          require: ['jquery']
+
+      dev:
+        src: ['site/javascripts/*.{js,coffee}']
+        dest: 'BUILD/development/js/main-bundle.js'
+        options:
+          external: ['jQuery']
+
+      prod:
+        src: '<%= browserify.dev.src %>'
+        dest: 'BUILD/production/js/main-bundle.js'
+        options:
+          external: ['jQuery']
+
+
+    concat:
+      options:
+        separator: ";\n"
+
+      dev:
+        src: ['BUILD/js/libs-bundle.js', 'BUILD/development/js/main-bundle.js']
+        dest: 'BUILD/development/OUTPUT/js/bundle.js'
+        options:
+          bundleOptions:
+            debug: true
+
+      prod:
+        src: ['BUILD/js/libs-bundle.js', 'BUILD/production/js/main-bundle.js']
+        dest: 'BUILD/production/OUTPUT/js/bundle.js'
+        options:
+          stripBanners: true
 
 
     copy:
@@ -204,7 +246,7 @@ module.exports = (grunt) ->
       dist:
         files: [
           {
-            cwd: 'BUILD/production'
+            cwd: 'BUILD/production/OUTPUT'
             src: ['**']
             dest: 'htdocs'
             expand: true
@@ -226,8 +268,18 @@ module.exports = (grunt) ->
       watchdev: ['watch', 'compass:watchdev', 'jekyll:watchdev']
       watchprod: ['watch', 'compass:watchprod', 'jekyll:watchprod']
 
+    newer:
+      options:
+        cache: '.cache/grunt-newer'
+
     watch:
       options: {}
+      browserify_dev:
+        files: '<%= browserify.dev.src %>'
+        tasks: ['browserify:dev', 'concat:dev']
+      browserify_prod:
+        files: '<%= browserify.prod.src %>'
+        tasks: ['browserify:prod', 'concat:prod']
       grunt:
         files: ['gruntfile.coffee']
       prettify_dev:
@@ -252,6 +304,7 @@ module.exports = (grunt) ->
         tasks: ['notify:reload']
         options:
           livereload: 3030
+
     connect:
       dev:
         options:
@@ -293,6 +346,7 @@ module.exports = (grunt) ->
         src: ['BUILD/production/OUTPUT/*.css']
 
 
+
   # Load plugins that provide tasks.
   require('load-grunt-tasks')(grunt)
 
@@ -305,8 +359,8 @@ module.exports = (grunt) ->
 
   # Build
   # ---------------------
-  grunt.registerTask 'build:dev',   ['jekyll:dev', 'compass:dev', 'prettify:dev', 'copy:dev']
-  grunt.registerTask 'build:prod',  ['jekyll:prod', 'compass:prod', 'prettify:prod', 'copy:prod']
+  grunt.registerTask 'build:dev',   ['jekyll:dev', 'compass:dev', 'prettify:dev', 'copy:dev', 'browserify:dev', 'concat:dev']
+  grunt.registerTask 'build:prod',  ['jekyll:prod', 'compass:prod', 'prettify:prod', 'copy:prod', 'browserify:prod', 'concat:prod']
   grunt.registerTask 'build',       ['build:dev', 'build:prod']
 
   # Test
@@ -325,7 +379,7 @@ module.exports = (grunt) ->
  
   # Task 'all'; mainly for debugging this Gruntfile
   # -----------------------------------------------
-  grunt.registerTask 'all',         ['clean', 'bower', 'lint', 'dev', 'prod', 'dist', 'run']
+  grunt.registerTask 'all',         ['clean', 'bower', 'lint', 'build', 'dist', 'run']
 
   # Default Task, Or:  What Happens When You Just Run `grunt`?
   # ----------------------------------------------------------

@@ -14,7 +14,7 @@ source "https://rubygems.org"
 # Version 1.4.3 has a bug on windows-only that will not be patched until next version.
 # Version 2.0.0.alpha has problems running under grunt-jekyll
 # So, we use version:
-gem "jekyll", "=1.4.2"
+gem "jekyll", "=1.5.0"
 
 
 # Jekyll Plugins
@@ -28,11 +28,11 @@ gem "jekyll-pandoc-multiple-formats", :github => "pprince/jekyll-pandoc-multiple
 # ================
 
 # Sass 3.3 is out!  w00t!
-gem "sass", "~>3.3.0"
+gem "sass", "~>3.3.4"
 
-# I have forked this one, only for a tiny change!  I need to contribute it upstream!
-gem "compass", :github => "pprince/compass", :branch => "gemspec_ruby_listen" # 1.0.0.alpha.18
-#gem "compass", :github => "chriseppstein/compass", :branch => "master" # 1.0.0.alpha.19 UNRELEASED
+# I have forked this one, only for a tiny change; see compass issue #1306
+gem "compass", :github => "pprince/compass", :branch => "gemspec_ruby_listen"
+#gem "compass", "=1.0.0.alpha.19"
 
 
 # Compass Extensions
@@ -46,20 +46,21 @@ gem "compass", :github => "pprince/compass", :branch => "gemspec_ruby_listen" # 
 # ### Auto-Imported ###
 
 # I wanted to use both sass-globbing and compass-import-once, but they
-# interfere with each other; sass-globbing has been disabled.
+# interfere with each other; compass-import-once has been disabled elsewhere.
 # See: https://github.com/chriseppstein/compass/issues/1529
-gem "compass-import-once", :require => "compass/import-once/activate"
-gem "sass-globbing"
+gem "compass-import-once", "~>1.0.4", :require => "compass/import-once/activate"
+gem "sass-globbing", "~>1.1.0"
 
-# Breakpoint is already stable; great job guyz!
-gem "breakpoint", "~> 2.4"
 
-# SusyNext aka Susy 2.0 is almost out!  w00t!
-gem "susy", "~>2.0"
+# Breakpoint is out!
+gem "breakpoint", "~>2.4"
+
+# SusyNext aka Susy 2 is out!  w00t!
+gem "susy", "~>2.1.1"
 
 # This one seems OK to include in global import because it's specifically
 # non-conflicting.
-gem "scut", "~> 0.9.1"
+gem "scut"
 
 gem "sassy-buttons"
 
@@ -79,4 +80,4 @@ gem "chunky_png", "~> 1.3.0"
 gem "oily_png", "~> 1.1.1"
 
 # for git psdiff
-gem "psd", "~> 2.1.0"
+gem "psd", "~> 2.1.2"

@@ -3,5 +3,4 @@
 /htdocs/
 /htdocs
 /BUILD
-.sass-cache/
-.bundle/
+/.cache/
