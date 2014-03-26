@@ -6,13 +6,15 @@
     "htdocs/index.html"
   ],
   "ignore": [
-    "*"
+    "**/*"
   ],
   "exportsOverride": {
     "*": {}
   },
   "dependencies": {},
   "devDependencies": {
-    "garnish": "0.2"
+    "jquery": "~2.1.0",
+    "garnish": "~0.2.0",
+    "icomoon": "~0.0.1"
   }
 }

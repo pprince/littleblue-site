@@ -17,71 +17,65 @@ integrate Django or another Python web back-end framework at some point.
 Features
 --------
 
-  * New Compass
+  - **Compass 1.0** *1.0.0 Alpha Pre-Release*
 
-  * New SASS (3.3.0, currently release-cantidate)
+    "Compass is an open-source *CSS Authoring Framework*."
 
-    * Write SASS or SCSS instead of CSS
+    [Compass 1.0 Documentation](http://beta.compass-style.org/) --- this is a **_must-read!_**
 
-      * More capable than LESS!
+    - **SASS** *Stable*
+    
+      - Better than LESS! ...
 
-      * Automatically generate codes for browser backward compatability and graceful degredation.
+    - **Susy 2** *Stable*
 
-         * CSS3 prefixes, etc.
+      - Intuitive Syntax for Responsive Grids/Spans.
 
-  * New *Susy* (2.0.0, currently release-cantidate)
+  - **Jekyll** *1.5.0 Stable*
 
-    * Next-Generation CSS Grid Framework.
+    - "Blog-aware" static site generator.
 
-    * Responsive.
+    - Liquid template language is very similar to Django's.
 
-    * Clean, elegant, excellent.
-
-  * Current *Jekyll* (1.4.3, stable)
-
-    * Awesome blog-aware template preprocessor for static sites.
-
-    * Also the recommended tool for users of Github Pages.
-
-  * Package Management
+  - Package Management
 
     It's very simple for any developer to quickly replicate a self-contained
     environment with all the build dependencies baked in; this should get a
     team up-and-running quickly.
 
-    * python: pip+virtualenv
+    - python: pip+virtualenv
 
-      * virtualenvwrapper is strongly recommended, along with my virtualenvwrapper.gem and virtualenvwrapper.npm extensions
+      - virtualenvwrapper is strongly recommended, along with my virtualenvwrapper.gem and virtualenvwrapper.npm extensions
 
-    * ruby-gem
+    - ruby-gem
 
-      * provided by virtualenvwrapper.gem
+      - provided by virtualenvwrapper.gem
 
-    * node-npm
+    - node-npm
 
-      * provided by virtualenvwrapper.npm
+      - provided by virtualenvwrapper.npm
 
-    * bower is also in the build, if you wish to use it for front-end assets.
+    - bower is also in the build, if you wish to use it for front-end assets.
 
-  * Grunt
+  - Grunt
 
-    * install
+    - install
 
-    * build
+    - build
 
-    * watch
+    - watch
 
-      * livereload
+      - livereload
 
-  * HTML5, CSS3
+  - HTML5, CSS3
 
-    * Adheres to web standards.
+    - Adheres to web standards.
 
-      * Microformats!
+      - Microformats!
 
-      * Accessibility
+      - Accessibility
 
-  * Blends progressive enhancement and graceful degredation for best overall user experience.
+  - Blends progressive enhancement and graceful degredation for best overall user experience.
 
 
 Installation
