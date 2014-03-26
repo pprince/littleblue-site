@@ -323,6 +323,9 @@ module.exports = (grunt) ->
           message: "Site reloaded."
 
 
+    jsonlint:
+      all:
+        src: ['*.json', 'site/**/*.json']
 
     coffeelint:
       gruntfile: ['gruntfile.coffee']
@@ -372,7 +375,7 @@ module.exports = (grunt) ->
 
   # Automatically Complain About (and Analyse) Your Code:
   # -----------------------------------------------------
-  grunt.registerTask 'lint',        ['coffeelint', 'jekyll:lint', 'cssmetrics']
+  grunt.registerTask 'lint',        ['jsonlint', 'coffeelint', 'jekyll:lint', 'cssmetrics']
  
   # Task 'all'; mainly for debugging this Gruntfile
   # -----------------------------------------------
