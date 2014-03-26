@@ -47,5 +47,7 @@
     "coffeeify": "~0.6.0",
     "grunt-jsonlint": "~1.0.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "uniq": "0.0.2"
+  }
 }
