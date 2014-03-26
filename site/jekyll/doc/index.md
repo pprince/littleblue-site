@@ -1,24 +1,31 @@
+---
+layout: page
+title: Developer Documentation
+subtitle: pprince/multi-site & BlueBox
+---
 
-Developer Documentation
-=======================
 
+Major Components
+================
 
-Features
---------
+Compass/Sass and Susy
+---------------------
 
-  - **Compass 1.0** *1.0.0 Alpha Pre-Release*
+  - **Compass**
+  
+    *1.0.0 Alpha Pre-Release*
 
-    "Compass is an open-source *CSS Authoring Framework*."
+    "… an open-source *CSS Authoring Framework*."
 
     [Compass 1.0 Documentation](http://beta.compass-style.org/) --- this is a **_must-read!_**
 
-    - **SASS** *Stable*
+  - **SASS** *Stable*
     
-      - Better than LESS! ...
+    - Better than LESS! ...
 
-    - **Susy 2** *Stable*
+  - **Susy 2** *Stable*
 
-      - Intuitive Syntax for Responsive Grids/Spans.
+    - Intuitive Syntax for Responsive Grids/Spans.
 
   - **Jekyll** *1.5.0 Stable*
 
