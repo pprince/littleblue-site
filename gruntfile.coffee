@@ -35,6 +35,7 @@ module.exports = (grunt) ->
       options:
         bundleExec: true
         src: 'site/jekyll'
+        dest: 'BUILD/development/jekyll'
         raw: 'encoding: UTF-8\n' +
           'name: <%= config.site_name %>\n' +
           'gems:\n' +
@@ -52,23 +53,19 @@ module.exports = (grunt) ->
           'permalink: pretty'
       dev:
         options:
-          dest: 'BUILD/development/jekyll'
           drafts: true
           future: true
       watchdev:
         options:
-          dest: 'BUILD/development/jekyll'
           drafts: true
           future: true
           watch: true
       prod:
         options:
-          dest: 'BUILD/production/jekyll'
           drafts: false
           future: false
       watchprod:
         options:
-          dest: 'BUILD/production/jekyll'
           drafts: false
           future: false
           watch: true
