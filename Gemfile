@@ -81,3 +81,8 @@ gem "oily_png", "~> 1.1.1"
 
 # for git psdiff
 gem "psd", "~> 2.1.2"
+
+# For Listen to work for GruntJS on Windows...
+# see: http://jekyllrb.com/docs/windows/#installation
+require 'rbconfig'
+gem 'wdm', '~> 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
