@@ -8,10 +8,11 @@ subtitle: pprince/multi-site & BlueBox
 Major Components
 ================
 
+
 Compass/Sass and Susy
 ---------------------
 
-  - **Compass**
+  - **Compass-SASS**
   
     *1.0.0 Alpha Pre-Release*
 
@@ -19,13 +20,11 @@ Compass/Sass and Susy
 
     [Compass 1.0 Documentation](http://beta.compass-style.org/) --- this is a **_must-read!_**
 
-  - **SASS** *Stable*
-    
-    - Better than LESS! ...
+    … it's more capable than LESS!
 
-  - **Susy 2** *Stable*
+    - **Susy 2** *Stable*
 
-    - Intuitive Syntax for Responsive Grids/Spans.
+      - Intuitive Syntax for Responsive Grids/Spans.
 
   - **Jekyll** *1.5.0 Stable*
 
@@ -33,27 +32,46 @@ Compass/Sass and Susy
 
     - Liquid template language is very similar to Django's.
 
-  - Package Management
 
-    It's very simple for any developer to quickly replicate a self-contained
-    environment with all the build dependencies baked in; this should get a
-    team up-and-running quickly.
+Package Management
+------------------
 
-    - python: pip+virtualenv
+It's very simple for any developer to quickly replicate a self-contained
+environment with all the build dependencies baked in; this should get a
+team up-and-running quickly.
 
-      - virtualenvwrapper is strongly recommended, along with my virtualenvwrapper.gem and virtualenvwrapper.npm extensions
+  - ### python ###
 
-    - ruby-gem
+    - **pip**
 
-      - provided by virtualenvwrapper.gem
+    - virtualenvwrapper is strongly recommended, along with my
+    *virtualenvwrapper.npm* extension and my fork of the *virtualenvwrapper.gem* extension (more below.)
 
-    - node-npm
+  - ### ruby ###
 
-      - provided by virtualenvwrapper.npm
+    - **gem**
 
-    - bower is also in the build, if you wish to use it for front-end assets.
+    - virtual/isolated environment provided by:
+    
+      - **bundler** + *virtualenvwrapper.gem* helper.
 
-  - Grunt
+  - ### node ###
+
+    - **npm**
+
+    - virtual/isolated environment provided by:
+    
+      - npm solves this problem itself,  plus *virtualenvwrapper.npm* helper.
+
+  - ### Front-End Assets ###
+
+    - **bower** for quickly downloading and versioning JavaScript, SASS/CSS/etc. libraries.
+
+
+Build Tools and Development Workflow
+------------------------------------
+
+  - **Grunt**
 
     - install
 
@@ -63,25 +81,13 @@ Compass/Sass and Susy
 
       - livereload
 
-  - HTML5, CSS3
-
-    - Adheres to web standards.
-
-      - Microformats!
-
-      - Accessibility
-
-  - Blends progressive enhancement and graceful degredation for best overall user experience.
-
 
 Installation
 ------------
 
 The following instructions and information should assist you in quickly
 configuring a self-contained replica of my development environment.  Advanced
-users may feel free to improvise.  I assume you will have forked this
-repository; substitute the path to your own git repositories as appropriate
-below.
+users may feel free to improvise.
 
 
 ### System Prerequisites ###
@@ -215,8 +221,17 @@ grunt install   # -->  Runs `bower install`.
 ```
 
 
-LICENSE
+Copying
 =======
+
+Important Note
+--------------
+
+While many of this project's dependencies are also MIT-licensed, some are under
+the GPL and other licenses.
+
+MIT License
+-----------
 
 Copyright (c) 2013-2014, Paul Prince.  All rights reserved.
 
