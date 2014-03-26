@@ -383,4 +383,6 @@ module.exports = (grunt) ->
 
   # Default Task, Or:  What Happens When You Just Run `grunt`?
   # ----------------------------------------------------------
-  grunt.registerTask 'default',     ['build:dev', 'run:dev']
+  grunt.registerTask 'prod',    ['build:prod', 'run:prod']
+  grunt.registerTask 'dev',     ['build:dev', 'run:dev']
+  grunt.registerTask 'default', ['dev']
