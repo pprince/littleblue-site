@@ -38,8 +38,8 @@ module.exports = (grunt) ->
           'highlighter: none\n' +
           'markdown: pandoc\n' +
           'pandoc:\n' +
-          '    skip: true\n' +
-          '    output: "./tmp"\n' +
+          '    skip: "true"\n' +
+          '    output: "tmp"\n' +
           '    flags: "--smart"\n' +
           '    site_flags: "--toc"\n' +
           '    outputs:\n' +
@@ -140,20 +140,25 @@ module.exports = (grunt) ->
       options:
         transform: ['coffeeify']
       libs:
-        src: []
+        src: ['<%= browserify.libs.options.shim.jquery.path %>']
         dest: 'BUILD/js/libs-bundle.js'
         options:
-          require: ['jquery']
+          shim:
+            jquery:
+              path: './bower_components/jquery/dist/jquery.js'
+              exports: '$'
       dev:
         src: ['site/javascripts/*.{js,coffee}']
         dest: 'BUILD/development/js/main-bundle.js'
         options:
-          external: ['jQuery']
+          alias: ['<%= browserify.libs.options.shim.jquery.path %>:jquery']
+          external: ['<%= browserify.libs.options.shim.jquery.path %>']
       prod:
         src: '<%= browserify.dev.src %>'
         dest: 'BUILD/production/js/main-bundle.js'
         options:
-          external: ['jQuery']
+          alias: ['<%= browserify.libs.options.shim.jquery.path %>:jquery']
+          external: ['<%= browserify.libs.options.shim.jquery.path %>']
 
 
     concat:
@@ -171,6 +176,14 @@ module.exports = (grunt) ->
         options:
           stripBanners: true
 
+    bowercopy:
+      iconfont:
+        files:
+          'site/fonts': ['{icomoon,etlinefont-bower}/fonts/{icomoon,et-line}.{eot,svg,ttf,woff}']
+      jslibs:
+        files:
+          'site/javascripts/libs': ['jquery/dist/jquery.js']
+         
 
     copy:
       options:
@@ -349,8 +362,8 @@ module.exports = (grunt) ->
 
   # Build
   # ---------------------
-  grunt.registerTask 'build:dev',   ['jekyll:dev', 'compass:dev', 'prettify:dev', 'copy:dev', 'browserify:dev', 'concat:dev']
-  grunt.registerTask 'build:prod',  ['jekyll:prod', 'compass:prod', 'prettify:prod', 'copy:prod', 'browserify:prod', 'concat:prod']
+  grunt.registerTask 'build:dev',   ['bowercopy', 'jekyll:dev', 'compass:dev', 'prettify:dev', 'copy:dev', 'browserify:libs', 'browserify:dev', 'concat:dev']
+  grunt.registerTask 'build:prod',  ['bowercopy', 'jekyll:prod', 'compass:prod', 'prettify:prod', 'copy:prod', 'browserify:libs', 'browserify:prod', 'concat:prod']
   grunt.registerTask 'build',       ['build:dev', 'build:prod']
 
   # Test
@@ -369,7 +382,7 @@ module.exports = (grunt) ->
  
   # Task 'all'; mainly for debugging this Gruntfile
   # -----------------------------------------------
-  grunt.registerTask 'all',         ['clean', 'bower', 'lint', 'build', 'dist', 'run']
+  grunt.registerTask 'all',         ['clean', 'build', 'lint', 'dist', 'run']
 
   # Default Task, Or:  What Happens When You Just Run `grunt`?
   # ----------------------------------------------------------

@@ -1,7 +1,7 @@
 .highlight {
-    @include rhythm-borders; //fixme: this should probably not be here.
-    background-color: #111; //fixme: color theming
-    color: #eee; //fixme: color theming
+    @include rhythm-borders;
+    background-color: #111;
+    color: #eee;
     font-family: $default-monospace-font-face;
     overflow: auto;
 }

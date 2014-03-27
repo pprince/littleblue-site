@@ -221,6 +221,18 @@ grunt install   # -->  Runs `bower install`.
 ```
 
 
+Known Issues
+============
+
+  1. The build is slower than perhaps it could be.  It's not too bad.  I'm just
+  going to deal with it.
+
+  2. When you run `grunt`, or `grunt run`, etc., to start the watching and
+  serving process, you're going to have to wait around for Jekyll to go through
+  two whole builds.  Other than the wasted time at start-up, it works really
+  well.
+
+
 Copying
 =======
 

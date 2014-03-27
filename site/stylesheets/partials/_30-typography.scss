@@ -44,15 +44,17 @@ h6 {
 }
 
 ul {
+    margin-left: $base-line-height;
     list-style-type:	    circle;
     list-style-position:    outside;
 }
 
 ol {
+    margin-left: $base-line-height;
     list-style-type:	    decimal;
     list-style-position:    outside;
 }
 
-ul ul, ol ul, ul ol, ol ol {
-    margin-left: 1em;
+pre {
+    overflow: auto;
 }
