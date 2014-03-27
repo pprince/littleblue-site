@@ -1,0 +1,350 @@
+@font-face {
+	font-family: 'et-line';
+	src:url('fonts/et-line.eot');
+	src:url('fonts/et-line.eot?#iefix') format('embedded-opentype'),
+		url('fonts/et-line.woff') format('woff'),
+		url('fonts/et-line.ttf') format('truetype'),
+		url('fonts/et-line.svg#et-line') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+/*
+[data-icon]:before {
+	font-family: 'et-line';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display:inline-block;
+}
+*/
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+/*
+%icon-etline-mobile, %icon-etline-laptop, %icon-etline-desktop, %icon-etline-tablet, %icon-etline-phone, %icon-etline-document, %icon-etline-documents, %icon-etline-search, %icon-etline-clipboard, %icon-etline-newspaper, %icon-etline-notebook, %icon-etline-book-open, %icon-etline-browser, %icon-etline-calendar, %icon-etline-presentation, %icon-etline-picture, %icon-etline-pictures, %icon-etline-video, %icon-etline-camera, %icon-etline-printer, %icon-etline-toolbox, %icon-etline-briefcase, %icon-etline-wallet, %icon-etline-gift, %icon-etline-bargraph, %icon-etline-grid, %icon-etline-expand, %icon-etline-focus, %icon-etline-edit, %icon-etline-adjustments, %icon-etline-ribbon, %icon-etline-hourglass, %icon-etline-lock, %icon-etline-megaphone, %icon-etline-shield, %icon-etline-trophy, %icon-etline-flag, %icon-etline-map, %icon-etline-puzzle, %icon-etline-basket, %icon-etline-envelope, %icon-etline-streetsign, %icon-etline-telescope, %icon-etline-gears, %icon-etline-key, %icon-etline-paperclip, %icon-etline-attachment, %icon-etline-pricetags, %icon-etline-lightbulb, %icon-etline-layers, %icon-etline-pencil, %icon-etline-tools, %icon-etline-tools-2, %icon-etline-scissors, %icon-etline-paintbrush, %icon-etline-magnifying-glass, %icon-etline-circle-compass, %icon-etline-linegraph, %icon-etline-mic, %icon-etline-strategy, %icon-etline-beaker, %icon-etline-caution, %icon-etline-recycle, %icon-etline-anchor, %icon-etline-profile-male, %icon-etline-profile-female, %icon-etline-bike, %icon-etline-wine, %icon-etline-hotairballoon, %icon-etline-globe, %icon-etline-genius, %icon-etline-map-pin, %icon-etline-dial, %icon-etline-chat, %icon-etline-heart, %icon-etline-cloud, %icon-etline-upload, %icon-etline-download, %icon-etline-target, %icon-etline-hazardous, %icon-etline-piechart, %icon-etline-speedometer, %icon-etline-global, %icon-etline-compass, %icon-etline-lifesaver, %icon-etline-clock, %icon-etline-aperture, %icon-etline-quote, %icon-etline-scope, %icon-etline-alarmclock, %icon-etline-refresh, %icon-etline-happy, %icon-etline-sad, %icon-etline-facebook, %icon-etline-twitter, %icon-etline-googleplus, %icon-etline-rss, %icon-etline-tumblr, %icon-etline-linkedin, %icon-etline-dribbble {
+*/
+
+%icon-etline {
+	font-family: 'et-line';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display:inline-block;
+}
+
+%icon-etline-mobile:before {
+	content: "\e000";
+}
+%icon-etline-laptop:before {
+	content: "\e001";
+}
+%icon-etline-desktop:before {
+	content: "\e002";
+}
+%icon-etline-tablet:before {
+	content: "\e003";
+}
+%icon-etline-phone:before {
+	content: "\e004";
+}
+%icon-etline-document:before {
+	content: "\e005";
+}
+%icon-etline-documents:before {
+	content: "\e006";
+}
+%icon-etline-search:before {
+	content: "\e007";
+}
+%icon-etline-clipboard:before {
+	content: "\e008";
+}
+%icon-etline-newspaper:before {
+	content: "\e009";
+}
+%icon-etline-notebook:before {
+	content: "\e00a";
+}
+%icon-etline-book-open:before {
+	content: "\e00b";
+}
+%icon-etline-browser:before {
+	content: "\e00c";
+}
+%icon-etline-calendar:before {
+	content: "\e00d";
+}
+%icon-etline-presentation:before {
+	content: "\e00e";
+}
+%icon-etline-picture:before {
+	content: "\e00f";
+}
+%icon-etline-pictures:before {
+	content: "\e010";
+}
+%icon-etline-video:before {
+	content: "\e011";
+}
+%icon-etline-camera:before {
+	content: "\e012";
+}
+%icon-etline-printer:before {
+	content: "\e013";
+}
+%icon-etline-toolbox:before {
+	content: "\e014";
+}
+%icon-etline-briefcase:before {
+	content: "\e015";
+}
+%icon-etline-wallet:before {
+	content: "\e016";
+}
+%icon-etline-gift:before {
+	content: "\e017";
+}
+%icon-etline-bargraph:before {
+	content: "\e018";
+}
+%icon-etline-grid:before {
+	content: "\e019";
+}
+%icon-etline-expand:before {
+	content: "\e01a";
+}
+%icon-etline-focus:before {
+	content: "\e01b";
+}
+%icon-etline-edit:before {
+	content: "\e01c";
+}
+%icon-etline-adjustments:before {
+	content: "\e01d";
+}
+%icon-etline-ribbon:before {
+	content: "\e01e";
+}
+%icon-etline-hourglass:before {
+	content: "\e01f";
+}
+%icon-etline-lock:before {
+	content: "\e020";
+}
+%icon-etline-megaphone:before {
+	content: "\e021";
+}
+%icon-etline-shield:before {
+	content: "\e022";
+}
+%icon-etline-trophy:before {
+	content: "\e023";
+}
+%icon-etline-flag:before {
+	content: "\e024";
+}
+%icon-etline-map:before {
+	content: "\e025";
+}
+%icon-etline-puzzle:before {
+	content: "\e026";
+}
+%icon-etline-basket:before {
+	content: "\e027";
+}
+%icon-etline-envelope:before {
+	content: "\e028";
+}
+%icon-etline-streetsign:before {
+	content: "\e029";
+}
+%icon-etline-telescope:before {
+	content: "\e02a";
+}
+%icon-etline-gears:before {
+	content: "\e02b";
+}
+%icon-etline-key:before {
+	content: "\e02c";
+}
+%icon-etline-paperclip:before {
+	content: "\e02d";
+}
+%icon-etline-attachment:before {
+	content: "\e02e";
+}
+%icon-etline-pricetags:before {
+	content: "\e02f";
+}
+%icon-etline-lightbulb:before {
+	content: "\e030";
+}
+%icon-etline-layers:before {
+	content: "\e031";
+}
+%icon-etline-pencil:before {
+	content: "\e032";
+}
+%icon-etline-tools:before {
+	content: "\e033";
+}
+%icon-etline-tools-2:before {
+	content: "\e034";
+}
+%icon-etline-scissors:before {
+	content: "\e035";
+}
+%icon-etline-paintbrush:before {
+	content: "\e036";
+}
+%icon-etline-magnifying-glass:before {
+	content: "\e037";
+}
+%icon-etline-circle-compass:before {
+	content: "\e038";
+}
+%icon-etline-linegraph:before {
+	content: "\e039";
+}
+%icon-etline-mic:before {
+	content: "\e03a";
+}
+%icon-etline-strategy:before {
+	content: "\e03b";
+}
+%icon-etline-beaker:before {
+	content: "\e03c";
+}
+%icon-etline-caution:before {
+	content: "\e03d";
+}
+%icon-etline-recycle:before {
+	content: "\e03e";
+}
+%icon-etline-anchor:before {
+	content: "\e03f";
+}
+%icon-etline-profile-male:before {
+	content: "\e040";
+}
+%icon-etline-profile-female:before {
+	content: "\e041";
+}
+%icon-etline-bike:before {
+	content: "\e042";
+}
+%icon-etline-wine:before {
+	content: "\e043";
+}
+%icon-etline-hotairballoon:before {
+	content: "\e044";
+}
+%icon-etline-globe:before {
+	content: "\e045";
+}
+%icon-etline-genius:before {
+	content: "\e046";
+}
+%icon-etline-map-pin:before {
+	content: "\e047";
+}
+%icon-etline-dial:before {
+	content: "\e048";
+}
+%icon-etline-chat:before {
+	content: "\e049";
+}
+%icon-etline-heart:before {
+	content: "\e04a";
+}
+%icon-etline-cloud:before {
+	content: "\e04b";
+}
+%icon-etline-upload:before {
+	content: "\e04c";
+}
+%icon-etline-download:before {
+	content: "\e04d";
+}
+%icon-etline-target:before {
+	content: "\e04e";
+}
+%icon-etline-hazardous:before {
+	content: "\e04f";
+}
+%icon-etline-piechart:before {
+	content: "\e050";
+}
+%icon-etline-speedometer:before {
+	content: "\e051";
+}
+%icon-etline-global:before {
+	content: "\e052";
+}
+%icon-etline-compass:before {
+	content: "\e053";
+}
+%icon-etline-lifesaver:before {
+	content: "\e054";
+}
+%icon-etline-clock:before {
+	content: "\e055";
+}
+%icon-etline-aperture:before {
+	content: "\e056";
+}
+%icon-etline-quote:before {
+	content: "\e057";
+}
+%icon-etline-scope:before {
+	content: "\e058";
+}
+%icon-etline-alarmclock:before {
+	content: "\e059";
+}
+%icon-etline-refresh:before {
+	content: "\e05a";
+}
+%icon-etline-happy:before {
+	content: "\e05b";
+}
+%icon-etline-sad:before {
+	content: "\e05c";
+}
+%icon-etline-facebook:before {
+	content: "\e05d";
+}
+%icon-etline-twitter:before {
+	content: "\e05e";
+}
+%icon-etline-googleplus:before {
+	content: "\e05f";
+}
+%icon-etline-rss:before {
+	content: "\e060";
+}
+%icon-etline-tumblr:before {
+	content: "\e061";
+}
+%icon-etline-linkedin:before {
+	content: "\e062";
+}
+%icon-etline-dribbble:before {
+	content: "\e063";
+}

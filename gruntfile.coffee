@@ -140,13 +140,13 @@ module.exports = (grunt) ->
       options:
         transform: ['coffeeify']
       libs:
-        src: ['<%= browserify.libs.options.shim.jquery.path %>']
-        dest: 'BUILD/js/libs-bundle.js'
         options:
           shim:
             jquery:
-              path: './bower_components/jquery/dist/jquery.js'
+              path: 'site/javascripts/libs/jquery.js'
               exports: '$'
+        src: ['site/javascripts/libs/*.{js,coffee} %>']
+        dest: 'BUILD/js/libs-bundle.js'
       dev:
         src: ['site/javascripts/*.{js,coffee}']
         dest: 'BUILD/development/js/main-bundle.js'
@@ -193,7 +193,7 @@ module.exports = (grunt) ->
         files: [
           {
             cwd: 'site'
-            src: ['images/**', 'fonts/*/web/*.woff', 'fonts/*/web/*.svg', 'fonts/*/web/*.eot', 'fonts/*/web/*.ttf', 'fonts/*/web/*.otf']
+            src: ['images/**/*.{png,gif,jpg,jpeg}', 'fonts/*/web/*.{woff,svg,eot,ttf,otf}']
             dest: 'BUILD/development'
             expand: true
           },
@@ -220,7 +220,7 @@ module.exports = (grunt) ->
         files: [
           {
             cwd: 'site'
-            src: ['images/**', 'fonts/*/web/*.woff', 'fonts/*/web/*.svg', 'fonts/*/web/*.eot', 'fonts/*/web/*.ttf', 'fonts/*/web/*.otf']
+            src: ['images/**/*.{png,gif,jpg,jpeg}', 'fonts/*/web/*.{woff,svg,eot,ttf,otf}']
             dest: 'BUILD/production/OUTPUT'
             expand: true
           },
