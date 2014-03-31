@@ -75,12 +75,11 @@ module.exports = (grunt) ->
         sassDir:        'site/stylesheets'
         imagesDir:      'site/images'
         fontsDir:       'site/fonts'
-        jsDir: 'site/javascript'
+        javascriptsDir: 'site/javascript'
         httpPath:       '/'
         httpFontsPath:  '/fonts'
         importPath: [
-          'site/stylesheets/modules',
-          'bower_components/garnish/src'
+          'site/lib/sass',
         ]
         relativeAssets: false
         bundleExec: true
@@ -164,17 +163,18 @@ module.exports = (grunt) ->
     concat:
       options:
         separator: ";\n"
+        bundleOptions:
+          debug: true
       dev:
         src: ['BUILD/js/libs-bundle.js', 'BUILD/development/js/main-bundle.js']
         dest: 'BUILD/development/OUTPUT/js/bundle.js'
-        options:
-          bundleOptions:
-            debug: true
       prod:
         src: ['BUILD/js/libs-bundle.js', 'BUILD/production/js/main-bundle.js']
         dest: 'BUILD/production/OUTPUT/js/bundle.js'
         options:
           stripBanners: true
+          bundleOptions:
+            debug: false
 
     bowercopy:
       iconfont:
@@ -182,7 +182,10 @@ module.exports = (grunt) ->
           'site/fonts': ['etlinefont-bower/fonts/et-line.{eot,svg,ttf,woff}', 'icomoon/fonts/icomoon.{eot,svg,ttf,woff}']
       jslibs:
         files:
-          'site/js/libs': ['jquery/dist/jquery.js']
+          'site/lib/js': ['jquery/dist/jquery.js']
+      sass:
+        files:
+          'site/lib/sass/garnish': ['garnish/src/**']
          
 
     copy:
