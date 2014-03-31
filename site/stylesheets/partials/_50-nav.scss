@@ -22,14 +22,6 @@
             h1 {
                 display: none;
             }
-
-            a[href='/'] {
-                @include icon('home-3');
-            }
-            a[href='/companion'] {
-                @include icon('rocket');
-            }
-
         }
     }
 }
