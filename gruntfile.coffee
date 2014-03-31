@@ -193,8 +193,8 @@ module.exports = (grunt) ->
         files: [
           {
             cwd: 'site'
-            src: ['images/**/*.{png,gif,jpg,jpeg}', 'fonts/*/web/*.{woff,svg,eot,ttf,otf}']
-            dest: 'BUILD/development'
+            src: ['images/**/*.{png,gif,jpg,jpeg}', 'fonts/**/*.{woff,svg,eot,ttf,otf}']
+            dest: 'BUILD/development/OUTPUT'
             expand: true
           },
           {
@@ -220,7 +220,7 @@ module.exports = (grunt) ->
         files: [
           {
             cwd: 'site'
-            src: ['images/**/*.{png,gif,jpg,jpeg}', 'fonts/*/web/*.{woff,svg,eot,ttf,otf}']
+            src: ['images/**/*.{png,gif,jpg,jpeg}', 'fonts/**/*.{woff,svg,eot,ttf,otf}']
             dest: 'BUILD/production/OUTPUT'
             expand: true
           },
