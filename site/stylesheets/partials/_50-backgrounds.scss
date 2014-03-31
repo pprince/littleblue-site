@@ -1,9 +1,9 @@
 html {
     min-height: 100%;
     @include background-with-css2-fallback(
-        url($base-noise-020),
+        url($base-noise-010),
         linear-gradient(to top right,
-            shade($base-color, 60%)
+            shade($base-color, 70%)
             shade($base-color, 40%)
         ) no-repeat fixed,
         darken($base-color, 20%)
