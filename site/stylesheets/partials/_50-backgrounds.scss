@@ -1,17 +1,17 @@
 html {
     min-height: 100%;
     @include background-with-css2-fallback(
-        url($base-noise-005),
+        url($base-noise-020),
         linear-gradient(to top right,
-            shade(adjust-hue($base-color, 270), 20%),
-            shade($base-color, 20%)
+            shade($base-color, 60%)
+            shade($base-color, 40%)
         ) no-repeat fixed,
         darken($base-color, 20%)
     );
 }
 
 #{$selector-page-middle} {
-    @include alpha-me(background-color, rgba(black, 0.25), $base-color);
+    @include alpha-me(background-color, rgba(black, 0.30), $base-color);
 }
 
 #{$selector-main-content} {
