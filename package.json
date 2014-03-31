@@ -46,7 +46,8 @@
     "grunt-contrib-concat": "~0.3.0",
     "coffeeify": "~0.6.0",
     "grunt-jsonlint": "~1.0.4",
-    "grunt-bowercopy": "~1.0.0"
+    "grunt-bowercopy": "~1.0.0",
+    "uglifyify": "~2.0.0"
   },
   "dependencies": {
     "uniq": "0.0.2"

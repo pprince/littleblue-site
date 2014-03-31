@@ -59,11 +59,13 @@ module.exports = (grunt) ->
         options:
           drafts: false
           future: false
+          dest: 'BUILD/production/jekyll'
       watchprod:
         options:
           drafts: false
           future: false
           watch: true
+          dest: 'BUILD/production/jekyll'
       lint:
         options:
           doctor: true
@@ -79,7 +81,8 @@ module.exports = (grunt) ->
         httpPath:       '/'
         httpFontsPath:  '/fonts'
         importPath: [
-          'site/lib/sass',
+          'site/lib/sass'
+          'site/lib/sass/garnish'
         ]
         relativeAssets: false
         bundleExec: true
@@ -138,55 +141,41 @@ module.exports = (grunt) ->
     browserify:
       options:
         transform: ['coffeeify']
-      libs:
+        debug: true
+      libsdev:
         options:
           shim:
             jquery:
-              path: 'site/js/libs/jquery.js'
+              path: 'bower_components/jquery/dist/jquery.js'
               exports: '$'
-        src: ['site/js/libs/*.{js,coffee}']
-        dest: 'BUILD/js/libs-bundle.js'
+        src: ['site/lib/js/*.{js,coffee}']
+        dest: 'BUILD/development/js/libs-bundle.js'
+      libsprod:
+        options:
+          shim:
+            jquery:
+              path: 'bower_components/jquery/dist/jquery.min.js'
+              exports: '$'
+          debug: false
+        src: '<%= browserify.libsdev.src %>'
+        dest: 'BUILD/production/js/libs-bundle.js'
       dev:
         src: ['site/js/*.{js,coffee}']
-        dest: 'BUILD/development/js/main-bundle.js'
+        dest: 'BUILD/development/OUTPUT/js/bundle.js'
         options:
-          alias: ['<%= browserify.libs.options.shim.jquery.path %>:jquery']
+          alias: ['<%= browserify.libsdev.options.shim.jquery.path %>:jquery']
           external: ['jquery']
+          prepend: ['<%= browserify.libsdev.dest %>']
       prod:
         src: '<%= browserify.dev.src %>'
-        dest: 'BUILD/production/js/main-bundle.js'
-        options:
-          alias: ['<%= browserify.libs.options.shim.jquery.path %>:jquery']
-          external: ['jquery']
-
-
-    concat:
-      options:
-        separator: ";\n"
-        bundleOptions:
-          debug: true
-      dev:
-        src: ['BUILD/js/libs-bundle.js', 'BUILD/development/js/main-bundle.js']
-        dest: 'BUILD/development/OUTPUT/js/bundle.js'
-      prod:
-        src: ['BUILD/js/libs-bundle.js', 'BUILD/production/js/main-bundle.js']
         dest: 'BUILD/production/OUTPUT/js/bundle.js'
         options:
-          stripBanners: true
-          bundleOptions:
-            debug: false
+          transform: ['coffeeify', ['uglifyify', {global: true}]]
+          alias: ['<%= browserify.libsprod.options.shim.jquery.path %>:jquery']
+          external: ['jquery']
+          prepend: ['<%= browserify.libsprod.dest %>']
+          debug: false
 
-    bowercopy:
-      iconfont:
-        files:
-          'site/fonts': ['etlinefont-bower/fonts/et-line.{eot,svg,ttf,woff}', 'icomoon/fonts/icomoon.{eot,svg,ttf,woff}']
-      jslibs:
-        files:
-          'site/lib/js': ['jquery/dist/jquery.js']
-      sass:
-        files:
-          'site/lib/sass/garnish': ['garnish/src/**']
-         
 
     copy:
       options:
@@ -279,10 +268,10 @@ module.exports = (grunt) ->
       options: {}
       browserify_dev:
         files: '<%= browserify.dev.src %>'
-        tasks: ['browserify:dev', 'concat:dev']
+        tasks: ['browserify:dev']
       browserify_prod:
         files: '<%= browserify.prod.src %>'
-        tasks: ['browserify:prod', 'concat:prod']
+        tasks: ['browserify:prod']
       grunt:
         files: ['gruntfile.coffee']
       prettify_dev:
@@ -365,8 +354,8 @@ module.exports = (grunt) ->
 
   # Build
   # ---------------------
-  grunt.registerTask 'build:dev',   ['bowercopy', 'jekyll:dev', 'compass:dev', 'prettify:dev', 'copy:dev', 'browserify:libs', 'browserify:dev', 'concat:dev']
-  grunt.registerTask 'build:prod',  ['bowercopy', 'jekyll:prod', 'compass:prod', 'prettify:prod', 'copy:prod', 'browserify:libs', 'browserify:prod', 'concat:prod']
+  grunt.registerTask 'build:dev',   ['jekyll:dev', 'compass:dev', 'prettify:dev', 'copy:dev', 'browserify:libsdev', 'browserify:dev']
+  grunt.registerTask 'build:prod',  ['jekyll:prod', 'compass:prod', 'prettify:prod', 'copy:prod', 'browserify:libsprod', 'browserify:prod']
   grunt.registerTask 'build',       ['build:dev', 'build:prod']
 
   # Test
