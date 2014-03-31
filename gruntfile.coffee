@@ -75,7 +75,7 @@ module.exports = (grunt) ->
         sassDir:        'site/stylesheets'
         imagesDir:      'site/images'
         fontsDir:       'site/fonts'
-        javascriptsDir: 'site/javascript'
+        jsDir: 'site/javascript'
         httpPath:       '/'
         httpFontsPath:  '/fonts'
         importPath: [
@@ -143,22 +143,22 @@ module.exports = (grunt) ->
         options:
           shim:
             jquery:
-              path: 'site/javascripts/libs/jquery.js'
+              path: 'site/js/libs/jquery.js'
               exports: '$'
-        src: ['site/javascripts/libs/*.{js,coffee} %>']
+        src: ['site/js/libs/*.{js,coffee}']
         dest: 'BUILD/js/libs-bundle.js'
       dev:
-        src: ['site/javascripts/*.{js,coffee}']
+        src: ['site/js/*.{js,coffee}']
         dest: 'BUILD/development/js/main-bundle.js'
         options:
           alias: ['<%= browserify.libs.options.shim.jquery.path %>:jquery']
-          external: ['<%= browserify.libs.options.shim.jquery.path %>']
+          external: ['jquery']
       prod:
         src: '<%= browserify.dev.src %>'
         dest: 'BUILD/production/js/main-bundle.js'
         options:
           alias: ['<%= browserify.libs.options.shim.jquery.path %>:jquery']
-          external: ['<%= browserify.libs.options.shim.jquery.path %>']
+          external: ['jquery']
 
 
     concat:
@@ -179,10 +179,10 @@ module.exports = (grunt) ->
     bowercopy:
       iconfont:
         files:
-          'site/fonts': ['{icomoon,etlinefont-bower}/fonts/{icomoon,et-line}.{eot,svg,ttf,woff}']
+          'site/fonts': ['etlinefont-bower/fonts/et-line.{eot,svg,ttf,woff}', 'icomoon/fonts/icomoon.{eot,svg,ttf,woff}']
       jslibs:
         files:
-          'site/javascripts/libs': ['jquery/dist/jquery.js']
+          'site/js/libs': ['jquery/dist/jquery.js']
          
 
     copy:
@@ -340,7 +340,7 @@ module.exports = (grunt) ->
     jshint:
       options:
         reporter: require('jshint-stylish')
-      dev: ['site/javascripts/**/*.js']
+      dev: ['site/js/**/*.js']
 
     cssmetrics:
       dev:
